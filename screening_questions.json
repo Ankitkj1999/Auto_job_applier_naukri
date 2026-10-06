@@ -1,0 +1,4779 @@
+[
+  {
+    "timestamp": "2026-09-24 20:59:35",
+    "job_title": "Unknown Job",
+    "company": "Unknown Company",
+    "question": "Pick available location with multiple locations",
+    "field_type": "checkbox",
+    "answer": "Selected all options",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-24 21:22:40",
+    "job_title": "Unknown Job",
+    "company": "Unknown Company",
+    "question": "Pick available location with multiple locations",
+    "field_type": "checkbox",
+    "answer": "Selected all options",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-24 21:37:14",
+    "job_title": "Unknown Job",
+    "company": "Unknown Company",
+    "question": "Pick available location with multiple locations",
+    "field_type": "checkbox",
+    "answer": "Selected all options",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-24 21:38:55",
+    "job_title": "Unknown Job",
+    "company": "Unknown Company",
+    "question": "Pick available location with multiple locations",
+    "field_type": "checkbox",
+    "answer": "Selected all options",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-24 22:11:50",
+    "job_title": "Unknown Job",
+    "company": "Unknown Company",
+    "question": "Pick available location with multiple locations",
+    "field_type": "checkbox",
+    "answer": "Selected all options",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-24 22:17:00",
+    "job_title": "Unknown Job",
+    "company": "Unknown Company",
+    "question": "Pick available location with multiple locations",
+    "field_type": "checkbox",
+    "answer": "Selected all options",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-24 22:41:12",
+    "job_title": "Unknown Job",
+    "company": "Unknown Company",
+    "question": "Pick available location with multiple locations",
+    "field_type": "checkbox",
+    "answer": "Selected all options",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-24 22:56:45",
+    "job_title": "Unknown Job",
+    "company": "Unknown Company",
+    "question": "Pick available location with multiple locations",
+    "field_type": "checkbox",
+    "answer": "Selected all options",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-24 23:14:17",
+    "job_title": "Unknown Job",
+    "company": "Unknown Company",
+    "question": "Pick available location with multiple locations",
+    "field_type": "checkbox",
+    "answer": "Selected all options",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-25 08:09:17",
+    "job_title": "Data Engineer",
+    "company": "Cardinal Health",
+    "question": "How many years of experience do you have in Monitoring?",
+    "field_type": "text",
+    "answer": "3.5",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-25 08:09:21",
+    "job_title": "Data Engineer",
+    "company": "Cardinal Health",
+    "question": "Are you fine for Weekend support once in a month?",
+    "field_type": "chip_choice",
+    "answer": "Yes",
+    "options": [
+      "Yes",
+      "No"
+    ],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-25 08:09:27",
+    "job_title": "Data Engineer",
+    "company": "Cardinal Health",
+    "question": "Are you comfortable working in the following rotational shift Morning- 7:00 AM - 3:00 PM Afternoon: 1:00 PM - 10:00 PM Evening: 5:30 PM - 2:30 AM",
+    "field_type": "chip_choice",
+    "answer": "Yes",
+    "options": [
+      "Yes",
+      "No"
+    ],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-25 08:09:51",
+    "job_title": "Immediate Joiner _Azure Databricks Engineer",
+    "company": "EXL",
+    "question": "Are you good to come to Gurgaon/Bangalore office for Final Round ?",
+    "field_type": "chip_choice",
+    "answer": "Yes",
+    "options": [
+      "Yes",
+      "No"
+    ],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-25 08:10:49",
+    "job_title": "Azure Databricks Data Engineer / Senior Data Engineer",
+    "company": "Tiger Analytics",
+    "question": "Do you have hands-on experience with Azure Databricks? (Yes/No)",
+    "field_type": "text",
+    "answer": "3",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-25 08:10:56",
+    "job_title": "Azure Databricks Data Engineer / Senior Data Engineer",
+    "company": "Tiger Analytics",
+    "question": "How many years of experience do you have with Azure Data Factory (ADF)?",
+    "field_type": "text",
+    "answer": "3",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-25 08:11:03",
+    "job_title": "Azure Databricks Data Engineer / Senior Data Engineer",
+    "company": "Tiger Analytics",
+    "question": "Do you have experience with ADLS Gen2? (Yes/No)",
+    "field_type": "text",
+    "answer": "Yes",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-25 08:11:10",
+    "job_title": "Azure Databricks Data Engineer / Senior Data Engineer",
+    "company": "Tiger Analytics",
+    "question": "Have you implemented Medallion (Bronze, Silver, Gold) Architecture? (Yes/No)",
+    "field_type": "text",
+    "answer": "Yes",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-25 08:11:17",
+    "job_title": "Azure Databricks Data Engineer / Senior Data Engineer",
+    "company": "Tiger Analytics",
+    "question": "Do you have experience with Spark SQL and advanced SQL window functions? (Yes/No)",
+    "field_type": "text",
+    "answer": "3",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-25 08:11:24",
+    "job_title": "Azure Databricks Data Engineer / Senior Data Engineer",
+    "company": "Tiger Analytics",
+    "question": "Have you built CI/CD pipelines using Git and Azure DevOps for Databricks? (Yes/No)",
+    "field_type": "text",
+    "answer": "Yes",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-25 08:12:14",
+    "job_title": "Data Engineer",
+    "company": "Wissen Technology",
+    "question": "are you serving Notice Period or Immediate joiner ?",
+    "field_type": "chip_choice",
+    "answer": "Yes",
+    "options": [
+      "Yes",
+      "No"
+    ],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-25 08:12:22",
+    "job_title": "Data Engineer",
+    "company": "Wissen Technology",
+    "question": "What is exact Last working day ?",
+    "field_type": "text",
+    "answer": "30 Days",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-25 08:12:26",
+    "job_title": "Data Engineer",
+    "company": "Wissen Technology",
+    "question": "One round must be Face to Face, Are you comfortable ?",
+    "field_type": "chip_choice",
+    "answer": "Yes",
+    "options": [
+      "Yes",
+      "No"
+    ],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-25 08:14:28",
+    "job_title": "Data Engineer - Hyderabad",
+    "company": "Randstad Digital",
+    "question": "Are you currently residing in Hyderabad or willing to relocate to Hyderabad?",
+    "field_type": "chip_choice",
+    "answer": "Yes",
+    "options": [
+      "Yes",
+      "No"
+    ],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-25 08:14:36",
+    "job_title": "Data Engineer - Hyderabad",
+    "company": "Randstad Digital",
+    "question": "How many experience in SSIS/powershell ?",
+    "field_type": "text",
+    "answer": "3.5",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-25 08:15:20",
+    "job_title": "Immediate Joiner - GCP Data Engineer , Gurugram, Bangalore",
+    "company": "EXL",
+    "question": "How soon can you join us ?",
+    "field_type": "chip_choice",
+    "answer": "Immediate",
+    "options": [
+      "Immediate",
+      "15 days"
+    ],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-25 08:17:10",
+    "job_title": "Junior Data Engineer",
+    "company": "Srinav",
+    "question": "Are you currently residing in Hyderabad, Telangana or willing to relocate to Hyderabad, Telangana?",
+    "field_type": "chip_choice",
+    "answer": "Yes",
+    "options": [
+      "Yes",
+      "No"
+    ],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-25 19:55:29",
+    "job_title": "Senior Data Engineer",
+    "company": "Align Techne",
+    "question": "Describe your hands-on MSBI experience across SSIS, SSAS and Power BI, including the solutions you personally developed.",
+    "field_type": "text",
+    "answer": "2",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-25 19:55:36",
+    "job_title": "Senior Data Engineer",
+    "company": "Align Techne",
+    "question": "Describe your production experience with on-prem Hadoop/HDFS and Hadoop file formats, including the project and your responsibilities.",
+    "field_type": "text",
+    "answer": "3.5",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-25 19:55:42",
+    "job_title": "Senior Data Engineer",
+    "company": "Align Techne",
+    "question": "xplain how you have used Spark/PySpark and Airflow in data pipelines. Mention the use case, transformations and orchestration involved.",
+    "field_type": "text",
+    "answer": "3.5",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-25 19:55:49",
+    "job_title": "Senior Data Engineer",
+    "company": "Align Techne",
+    "question": "Describe your hands-on experience with Oracle, SQL and data warehousing, including complex ETL or data-modelling work.",
+    "field_type": "text",
+    "answer": "3",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-25 19:55:56",
+    "job_title": "Senior Data Engineer",
+    "company": "Align Techne",
+    "question": "What percentage of your recent role was development vs production support, and what data/BI solutions did you personally develop?",
+    "field_type": "text",
+    "answer": "75%",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-25 19:56:03",
+    "job_title": "Senior Data Engineer",
+    "company": "Align Techne",
+    "question": "Have you applied GenAI/Copilot/Claude to data engineering or development workflows? Briefly describe the use case.",
+    "field_type": "text",
+    "answer": "Yes",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-25 19:57:17",
+    "job_title": "Data Engineer - Databricks Genie",
+    "company": "Anlage Infotech",
+    "question": "Are you comfortable with contract to hire roles?",
+    "field_type": "text",
+    "answer": "Yes",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-25 19:57:24",
+    "job_title": "Data Engineer - Databricks Genie",
+    "company": "Anlage Infotech",
+    "question": "How many years of experience do you have in Genie?",
+    "field_type": "text",
+    "answer": "3.5",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-25 19:57:32",
+    "job_title": "Data Engineer - Databricks Genie",
+    "company": "Anlage Infotech",
+    "question": "What is your official notice period and how soon can you join?",
+    "field_type": "text",
+    "answer": "30 Days",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-25 19:57:38",
+    "job_title": "Data Engineer - Databricks Genie",
+    "company": "Anlage Infotech",
+    "question": "What is your current and expected CTC?",
+    "field_type": "text",
+    "answer": "18",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-25 19:58:24",
+    "job_title": "Adb pyspark SQL",
+    "company": "Hexaware Technologies",
+    "question": "can you come for Face to face on 26th Sep 2026",
+    "field_type": "chip_choice",
+    "answer": "yes",
+    "options": [
+      "yes",
+      "no"
+    ],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-25 19:58:56",
+    "job_title": "Data Engineer With GCP",
+    "company": "Cerebra",
+    "question": "How many years of experience do you have in Data Engineer with GCP experience?",
+    "field_type": "text",
+    "answer": "2",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-25 20:00:38",
+    "job_title": "Snowflake Data Engineer",
+    "company": "Bahwan CyberTek",
+    "question": "What is your notice period? (If serving notice mention last working day)",
+    "field_type": "text",
+    "answer": "30 Days",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-25 20:00:43",
+    "job_title": "Snowflake Data Engineer",
+    "company": "Bahwan CyberTek",
+    "question": "Are you comfortable doing hybrid in chennai /Bangalore/Coimbatore/Pune/Mumbai location?",
+    "field_type": "checkbox",
+    "answer": "Selected all options",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-25 20:00:50",
+    "job_title": "Snowflake Data Engineer",
+    "company": "Bahwan CyberTek",
+    "question": "Are you comfortable working between 2-11PM?",
+    "field_type": "chip_choice",
+    "answer": "Yes",
+    "options": [
+      "Yes",
+      "No"
+    ],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-25 20:02:18",
+    "job_title": "Azure Databricks-Data Engineer",
+    "company": "Infosys",
+    "question": "Are you an ex-Infosys employee? If Yes: Please provide your Infosys Employee ID, If No: Mention NA",
+    "field_type": "text",
+    "answer": "No",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-25 20:19:49",
+    "job_title": "Senior Data Engineer",
+    "company": "Datanimbus",
+    "question": "Databricks Certified Data Engineer Associate/Professional",
+    "field_type": "chip_choice",
+    "answer": "Yes",
+    "options": [
+      "Yes",
+      "No"
+    ],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-25 20:20:18",
+    "job_title": "Azure Data Engineer",
+    "company": "Capgemini",
+    "question": "What is your Last Working Day ? Write Served if completed and NA if pending.",
+    "field_type": "text",
+    "answer": "30 Days",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-25 20:20:24",
+    "job_title": "Azure Data Engineer",
+    "company": "Capgemini",
+    "question": "Please select the city you are currently residing or willing to relocate to",
+    "field_type": "checkbox",
+    "answer": "Selected all options",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-25 20:20:32",
+    "job_title": "Azure Data Engineer",
+    "company": "Capgemini",
+    "question": "Choose the skills you have -",
+    "field_type": "checkbox",
+    "answer": "Selected all options",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-25 20:20:41",
+    "job_title": "Azure Data Engineer",
+    "company": "Capgemini",
+    "question": "Are you available for a F2F ( Face to Face )Interview on 26-Sep-26 ?",
+    "field_type": "text",
+    "answer": "Yes",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-25 20:21:20",
+    "job_title": "Senior Developer - Databricks Data Engineering",
+    "company": "Visdin Solutions",
+    "question": "Are you willing to relocate to Pune or Bangalore?",
+    "field_type": "chip_choice",
+    "answer": "Pune",
+    "options": [
+      "Pune",
+      "Bangalore"
+    ],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-25 20:22:15",
+    "job_title": "Big Data Hadoop",
+    "company": "LTI Mindtree",
+    "question": "Are you available on 19th Sept'26 to go for a F2F round to the LTM Whitefield Bangalore office?",
+    "field_type": "chip_choice",
+    "answer": "Yes",
+    "options": [
+      "Yes",
+      "No"
+    ],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-25 20:22:22",
+    "job_title": "Big Data Hadoop",
+    "company": "LTI Mindtree",
+    "question": "How many years of experience do you have in Hadoop Spark?",
+    "field_type": "text",
+    "answer": "3",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-25 20:22:45",
+    "job_title": "GCP Data Engineer",
+    "company": "Varite",
+    "question": "Are you available for F2F interview on 26 Sep 2026",
+    "field_type": "chip_choice",
+    "answer": "Yes",
+    "options": [
+      "Yes",
+      "No"
+    ],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-26 09:45:29",
+    "job_title": "Databricks Data Engineer",
+    "company": "Diggibyte Technologies",
+    "question": "Relevant years of experience in Databricks",
+    "field_type": "text",
+    "answer": "3",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-26 09:45:34",
+    "job_title": "Databricks Data Engineer",
+    "company": "Diggibyte Technologies",
+    "question": "Have you worked in DBT (Data Build Tool)",
+    "field_type": "checkbox",
+    "answer": "Selected all options",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-26 09:46:03",
+    "job_title": "Azure Data Engineer",
+    "company": "Kiya.ai",
+    "question": "How many years of experience do you have in Healthcare Domain? (Mandatory)",
+    "field_type": "text",
+    "answer": "3.5",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-26 09:46:07",
+    "job_title": "Azure Data Engineer",
+    "company": "Kiya.ai",
+    "question": "Are you currently residing in Bengaluru or willing to relocate to Bengaluru?",
+    "field_type": "chip_choice",
+    "answer": "Yes",
+    "options": [
+      "Yes",
+      "No"
+    ],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-26 09:46:50",
+    "job_title": "Gcp Data Engineer",
+    "company": "Advancesoft India Hyderabad",
+    "question": "Will you work from Bengaluru?",
+    "field_type": "text",
+    "answer": "Yes",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-26 09:46:57",
+    "job_title": "Gcp Data Engineer",
+    "company": "Advancesoft India Hyderabad",
+    "question": "Have you worked in / applied to Deloitte earlier?",
+    "field_type": "text",
+    "answer": "Yes",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-26 09:47:04",
+    "job_title": "Gcp Data Engineer",
+    "company": "Advancesoft India Hyderabad",
+    "question": "How many years of experience do you have in J2Ee?",
+    "field_type": "text",
+    "answer": "3.5",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-26 09:47:35",
+    "job_title": "GCP Data Engineer",
+    "company": "LTI MINDTREE",
+    "question": "Total work experience",
+    "field_type": "text",
+    "answer": "3.5",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-26 09:47:42",
+    "job_title": "GCP Data Engineer",
+    "company": "LTI MINDTREE",
+    "question": "Relevant to GCP",
+    "field_type": "text",
+    "answer": "3.5",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-26 09:47:49",
+    "job_title": "GCP Data Engineer",
+    "company": "LTI MINDTREE",
+    "question": "Notice period or Last working day",
+    "field_type": "text",
+    "answer": "30 Days",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-26 09:47:56",
+    "job_title": "GCP Data Engineer",
+    "company": "LTI MINDTREE",
+    "question": "PAN Number",
+    "field_type": "text",
+    "answer": "HMDPK5264C",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-26 09:48:03",
+    "job_title": "GCP Data Engineer",
+    "company": "LTI MINDTREE",
+    "question": "Current Location",
+    "field_type": "text",
+    "answer": "Gurugram",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-26 09:48:10",
+    "job_title": "GCP Data Engineer",
+    "company": "LTI MINDTREE",
+    "question": "Highest education",
+    "field_type": "text",
+    "answer": "B.Tech",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-26 09:48:35",
+    "job_title": "Senior Data Engineer with AI Semantic and AI Infrastructure",
+    "company": "Pegasus Knowledge Solutions (PKSI)",
+    "question": "Do you have experience with AI Semantic layer? How many years?",
+    "field_type": "text",
+    "answer": "3.5",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-26 09:51:01",
+    "job_title": "Snowflake Data Engineer",
+    "company": "Tech SMCSquared GCC",
+    "question": "Are you currently residing in Bengaluru, Karnataka or willing to relocate to Bengaluru, Karnataka?",
+    "field_type": "chip_choice",
+    "answer": "Yes",
+    "options": [
+      "Yes",
+      "No"
+    ],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-26 09:51:33",
+    "job_title": "Snowflake DATA Engineer",
+    "company": "Tranzeal",
+    "question": "How many years of experience do you have in streams?",
+    "field_type": "text",
+    "answer": "3.5",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-26 09:53:31",
+    "job_title": "Python + Spark Developer - Bangalore",
+    "company": "Infosys",
+    "question": "Are you an ex-Infosys employee? If Yes: Please provide your Infosys Employee ID, If No: Mention NA",
+    "field_type": "text",
+    "answer": "No",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-26 12:23:46",
+    "job_title": "Unknown Job",
+    "company": "Unknown Company",
+    "question": "Have you worked in DBT (Data Build Tool)?",
+    "field_type": "checkbox",
+    "answer": "Selected intelligent options",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-26 12:23:47",
+    "job_title": "Unknown Job",
+    "company": "Unknown Company",
+    "question": "Have you worked in / applied to Deloitte earlier?",
+    "field_type": "checkbox",
+    "answer": "Selected intelligent options",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-26 12:44:51",
+    "job_title": "Unknown Job",
+    "company": "Unknown Company",
+    "question": "Pick available location with multiple locations",
+    "field_type": "checkbox",
+    "answer": "Selected intelligent options",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-26 12:44:54",
+    "job_title": "Unknown Job",
+    "company": "Unknown Company",
+    "question": "Have you worked in DBT (Data Build Tool)?",
+    "field_type": "checkbox",
+    "answer": "Selected intelligent options",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-26 12:44:56",
+    "job_title": "Unknown Job",
+    "company": "Unknown Company",
+    "question": "Have you worked in / applied to Deloitte earlier?",
+    "field_type": "checkbox",
+    "answer": "Selected intelligent options",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-26 12:46:37",
+    "job_title": "Unknown Job",
+    "company": "Unknown Company",
+    "question": "Pick available location with multiple locations",
+    "field_type": "checkbox",
+    "answer": "Selected intelligent options",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-26 12:48:40",
+    "job_title": "Unknown Job",
+    "company": "Unknown Company",
+    "question": "Have you worked in DBT (Data Build Tool)?",
+    "field_type": "checkbox",
+    "answer": "Selected intelligent options",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-26 12:48:41",
+    "job_title": "Unknown Job",
+    "company": "Unknown Company",
+    "question": "Have you worked in / applied to Deloitte earlier?",
+    "field_type": "checkbox",
+    "answer": "Selected intelligent options",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-26 13:07:13",
+    "job_title": "Unknown Job",
+    "company": "Unknown Company",
+    "question": "Pick available location with multiple locations",
+    "field_type": "checkbox",
+    "answer": "Selected intelligent options",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-26 13:09:17",
+    "job_title": "Unknown Job",
+    "company": "Unknown Company",
+    "question": "Have you worked in DBT (Data Build Tool)?",
+    "field_type": "checkbox",
+    "answer": "Selected intelligent options",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-26 13:09:18",
+    "job_title": "Unknown Job",
+    "company": "Unknown Company",
+    "question": "Have you worked in / applied to Deloitte earlier?",
+    "field_type": "checkbox",
+    "answer": "Selected intelligent options",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-26 20:09:46",
+    "job_title": "Senior Snowflake Data Engineer",
+    "company": "Epam Systems",
+    "question": "What is your Notice Period?",
+    "field_type": "chip_choice",
+    "answer": "1 month",
+    "options": [
+      "Available now",
+      "1 week",
+      "2 weeks",
+      "3 weeks",
+      "1 month",
+      "1.5 month",
+      "2 months",
+      "3 months"
+    ],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-26 20:10:25",
+    "job_title": "Pyspark Developer",
+    "company": "Valuemomentum",
+    "question": "Which cloud platform have you worked on?",
+    "field_type": "chip_choice",
+    "answer": "Azure",
+    "options": [
+      "Azure",
+      "AWS",
+      "Both",
+      "None"
+    ],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-26 20:10:33",
+    "job_title": "Pyspark Developer",
+    "company": "Valuemomentum",
+    "question": "How many years of experience do you have in ETL/Data Engineering?",
+    "field_type": "text",
+    "answer": "3",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-26 20:10:37",
+    "job_title": "Pyspark Developer",
+    "company": "Valuemomentum",
+    "question": "Have you worked on Azure Data Factory (ADF)?",
+    "field_type": "chip_choice",
+    "answer": "Yes",
+    "options": [
+      "Yes",
+      "No"
+    ],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-26 20:20:06",
+    "job_title": "PySpark Data Engineer",
+    "company": "Infosys",
+    "question": "Are you ex-infosys employee ?if yes mention your infosys employee id if not, write NA",
+    "field_type": "text",
+    "answer": "No",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-26 20:20:32",
+    "job_title": "PySpark Data Engineer",
+    "company": "Infosys",
+    "question": "Are you ex-infosys employee ?if yes mention your infosys employee id if not, write NA",
+    "field_type": "text",
+    "answer": "No",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-26 20:20:58",
+    "job_title": "Python Data Engineer (ETL & Data Pipeline)-Bangalore Location",
+    "company": "Infosys",
+    "question": "How many years of experience do you have in Python Data processing?",
+    "field_type": "text",
+    "answer": "3",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-26 20:21:04",
+    "job_title": "Python Data Engineer (ETL & Data Pipeline)-Bangalore Location",
+    "company": "Infosys",
+    "question": "Are you an ex-Infosys employee? If Yes: Please provide your Infosys Employee ID, If No: Mention NA",
+    "field_type": "text",
+    "answer": "No",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-26 20:22:50",
+    "job_title": "Data Engineer",
+    "company": "Berkadia",
+    "question": "Have you, in the past, been employed by Berkadia or any other Berkadia entity?",
+    "field_type": "chip_choice",
+    "answer": "Yes",
+    "options": [
+      "Yes",
+      "No"
+    ],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-26 20:22:57",
+    "job_title": "Data Engineer",
+    "company": "Berkadia",
+    "question": "Current/Last Drawn Fixed (Annual)",
+    "field_type": "text",
+    "answer": "13",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-26 20:23:03",
+    "job_title": "Data Engineer",
+    "company": "Berkadia",
+    "question": "Total Work Experience",
+    "field_type": "chip_choice",
+    "answer": "Fresher",
+    "options": [
+      "Fresher",
+      "1-2 years",
+      "2-4 years",
+      "4-6 years",
+      "6-8 years",
+      "8-10 years",
+      "10-12 years",
+      "12-14 years",
+      "14-16 years",
+      "16-18 years",
+      "18-20 years",
+      "20+ years"
+    ],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-26 20:23:08",
+    "job_title": "Data Engineer",
+    "company": "Berkadia",
+    "question": "Notice Period",
+    "field_type": "chip_choice",
+    "answer": "30 days",
+    "options": [
+      "Ready to join immediately",
+      "15 days",
+      "30 days",
+      "60 days",
+      "90 days",
+      "On Notice period"
+    ],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-26 20:23:16",
+    "job_title": "Data Engineer",
+    "company": "Berkadia",
+    "question": "Please tell us a little bit about why you are interested in this opportunity and the skills you possess that align to this role",
+    "field_type": "text",
+    "answer": "Data Engineer with 3+ years of expertise in designing scalable data pipelines and ETL processes using Python, SQL, Spark, and AWS, specializing in data warehousing and high-quality data solutions.",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-26 20:25:50",
+    "job_title": "Snowflake Python Data Engineer",
+    "company": "KPMG",
+    "question": "What is your Overall Experience?",
+    "field_type": "text",
+    "answer": "3.5",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-26 20:25:56",
+    "job_title": "Snowflake Python Data Engineer",
+    "company": "KPMG",
+    "question": "What is your Official Last Working Day / Notice Period?",
+    "field_type": "text",
+    "answer": "30 Days",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-26 20:26:03",
+    "job_title": "Snowflake Python Data Engineer",
+    "company": "KPMG",
+    "question": "What is your current location?",
+    "field_type": "text",
+    "answer": "Gurugram",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-26 20:26:10",
+    "job_title": "Snowflake Python Data Engineer",
+    "company": "KPMG",
+    "question": "What is your Full Time Highest Qualification?",
+    "field_type": "text",
+    "answer": "B.Tech",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-26 20:26:16",
+    "job_title": "Snowflake Python Data Engineer",
+    "company": "KPMG",
+    "question": "Which is your preferred location?",
+    "field_type": "checkbox",
+    "answer": "Selected intelligent options",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-27 19:50:15",
+    "job_title": "Senior Big Data Engineer",
+    "company": "Good co India",
+    "question": "What is your Age?",
+    "field_type": "checkbox",
+    "answer": "Selected intelligent options",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-27 19:50:22",
+    "job_title": "Senior Big Data Engineer",
+    "company": "Good co India",
+    "question": "Are you willing to relocate to one of the location?",
+    "field_type": "checkbox",
+    "answer": "Selected intelligent options",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-27 19:50:48",
+    "job_title": "Data Engineer or GCP data",
+    "company": "IntraEdge Technology",
+    "question": "Please select the city you are currently residing or willing to relocate to",
+    "field_type": "checkbox",
+    "answer": "Selected intelligent options",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-27 19:52:30",
+    "job_title": "Associate/Data engineer+AI - JL2/3",
+    "company": "A.P. Moller Maersk",
+    "question": "Are you currently living in or ready to relocate to Bengaluru ?",
+    "field_type": "text",
+    "answer": "Yes",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-27 19:52:36",
+    "job_title": "Associate/Data engineer+AI - JL2/3",
+    "company": "A.P. Moller Maersk",
+    "question": "What is your current ctc & expected CTC in INR ?",
+    "field_type": "text",
+    "answer": "13",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-27 19:52:42",
+    "job_title": "Associate/Data engineer+AI - JL2/3",
+    "company": "A.P. Moller Maersk",
+    "question": "Relevant Experience in AI?",
+    "field_type": "text",
+    "answer": "3.5",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-27 19:52:49",
+    "job_title": "Associate/Data engineer+AI - JL2/3",
+    "company": "A.P. Moller Maersk",
+    "question": "Are you comfortable with working from the office five days a week?",
+    "field_type": "text",
+    "answer": "Yes",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-27 19:52:55",
+    "job_title": "Associate/Data engineer+AI - JL2/3",
+    "company": "A.P. Moller Maersk",
+    "question": "How many years of expereince in Production Deployment?",
+    "field_type": "text",
+    "answer": "3.5",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-27 19:53:31",
+    "job_title": "Timbr Data Engineer",
+    "company": "Anlage Infotech",
+    "question": "Are your comfortable with contract to hire roles?",
+    "field_type": "text",
+    "answer": "Yes",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-27 19:53:37",
+    "job_title": "Timbr Data Engineer",
+    "company": "Anlage Infotech",
+    "question": "How many years of experience do you have in Timbr?",
+    "field_type": "text",
+    "answer": "3.5",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-27 19:53:44",
+    "job_title": "Timbr Data Engineer",
+    "company": "Anlage Infotech",
+    "question": "Did you personally build or configure in Timbr?",
+    "field_type": "text",
+    "answer": "Yes",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-27 19:54:38",
+    "job_title": "GCP Data Engineer",
+    "company": "Persistent",
+    "question": "How many years of experience do you have as GCP Data Engineer ?",
+    "field_type": "text",
+    "answer": "2",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-27 19:55:01",
+    "job_title": "GCP Data Engineer",
+    "company": "Impetus Technologies",
+    "question": "Are you willing to relocate?",
+    "field_type": "chip_choice",
+    "answer": "Yes",
+    "options": [
+      "Yes",
+      "No"
+    ],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-27 20:01:12",
+    "job_title": "Big Data Hadoop Administrator",
+    "company": "Strawberry Infotech",
+    "question": "How many years of experience do you have in Hadoop Admin ?",
+    "field_type": "text",
+    "answer": "3.5",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-27 20:01:18",
+    "job_title": "Big Data Hadoop Administrator",
+    "company": "Strawberry Infotech",
+    "question": "How many years of experience do you have in Ambari/Cloudera Deployment Platform ?",
+    "field_type": "text",
+    "answer": "3.5",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-27 20:01:25",
+    "job_title": "Big Data Hadoop Administrator",
+    "company": "Strawberry Infotech",
+    "question": "How many years of experience do you have in Linux Platform?",
+    "field_type": "text",
+    "answer": "3.5",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-27 20:12:10",
+    "job_title": "ETL Developer",
+    "company": "Zebra Technologies",
+    "question": "Are you available for face to face Interveiw",
+    "field_type": "chip_choice",
+    "answer": "Yes",
+    "options": [
+      "Yes",
+      "No"
+    ],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-27 20:13:09",
+    "job_title": "Senior Etl Developer-IICS",
+    "company": "Infosys",
+    "question": "How many years of experience do you have in IICS?",
+    "field_type": "text",
+    "answer": "3.5",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-27 20:13:15",
+    "job_title": "Senior Etl Developer-IICS",
+    "company": "Infosys",
+    "question": "Are you an ex-Infosys employee? If Yes: Please provide your Infosys Employee ID, If No: Mention NA",
+    "field_type": "text",
+    "answer": "No",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-27 20:13:41",
+    "job_title": "Senior Etl Developer-DataStage",
+    "company": "Infosys",
+    "question": "Are you an ex-Infosys employee? If Yes: Please provide your Infosys Employee ID, If No: Mention NA",
+    "field_type": "text",
+    "answer": "No",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-27 20:14:11",
+    "job_title": "Informatica ETL Developer",
+    "company": "Global It Family",
+    "question": "How many years of experience do you have in ETL Design and Development?",
+    "field_type": "text",
+    "answer": "3",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-27 20:14:17",
+    "job_title": "Informatica ETL Developer",
+    "company": "Global It Family",
+    "question": "How many years of experience do you have in SQL & PLSQL?",
+    "field_type": "text",
+    "answer": "3",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-27 20:14:23",
+    "job_title": "Informatica ETL Developer",
+    "company": "Global It Family",
+    "question": "Do you have hands on experience in Banking or Financial-Services Domain?",
+    "field_type": "text",
+    "answer": "Yes",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-27 20:14:30",
+    "job_title": "Informatica ETL Developer",
+    "company": "Global It Family",
+    "question": "How many years of experience do you have in Performance Optimization?",
+    "field_type": "text",
+    "answer": "3.5",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-27 20:14:36",
+    "job_title": "Informatica ETL Developer",
+    "company": "Global It Family",
+    "question": "How many years of experience do you have in Deployment and Production Support?",
+    "field_type": "text",
+    "answer": "3.5",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-27 20:15:32",
+    "job_title": "Etl Datastage Developer-Bangalore Location",
+    "company": "Infosys",
+    "question": "Are you an ex-Infosys employee? If Yes: Please provide your Infosys Employee ID, If No: Mention NA",
+    "field_type": "text",
+    "answer": "No",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-27 20:17:39",
+    "job_title": "Hadoop developer (Spark, Scala)",
+    "company": "Tata Consultancy Services",
+    "question": "Will you be available for Virtual round of interview on 14th of August 2026?",
+    "field_type": "chip_choice",
+    "answer": "Yes",
+    "options": [
+      "Yes",
+      "No"
+    ],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-27 20:18:13",
+    "job_title": "Databricks Developer",
+    "company": "Tata Consultancy Services",
+    "question": "Will you be available for the walkin drive on 19th September in Bangalore",
+    "field_type": "chip_choice",
+    "answer": "Yes",
+    "options": [
+      "Yes",
+      "No"
+    ],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-27 20:21:41",
+    "job_title": "GCP Data Engineer (DBT + Airflow + Big query)_Fulltime_PAN India",
+    "company": "Talworx Solutions",
+    "question": "Please mention your Current CTC & Expected CTC.",
+    "field_type": "text",
+    "answer": "13",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-27 20:21:48",
+    "job_title": "GCP Data Engineer (DBT + Airflow + Big query)_Fulltime_PAN India",
+    "company": "Talworx Solutions",
+    "question": "Please mention your current Location.",
+    "field_type": "text",
+    "answer": "Gurugram",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-27 20:21:54",
+    "job_title": "GCP Data Engineer (DBT + Airflow + Big query)_Fulltime_PAN India",
+    "company": "Talworx Solutions",
+    "question": "Highest Qualification ?",
+    "field_type": "text",
+    "answer": "B.Tech",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-27 20:22:00",
+    "job_title": "GCP Data Engineer (DBT + Airflow + Big query)_Fulltime_PAN India",
+    "company": "Talworx Solutions",
+    "question": "We've rotational shift ---- Are you okay with it ?",
+    "field_type": "text",
+    "answer": "3.5",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-27 20:22:06",
+    "job_title": "GCP Data Engineer (DBT + Airflow + Big query)_Fulltime_PAN India",
+    "company": "Talworx Solutions",
+    "question": "Which location would you like to prefer ?",
+    "field_type": "checkbox",
+    "answer": "Selected intelligent options",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-27 20:23:13",
+    "job_title": "Urgent hiring For Data Engineer GCP data engineer",
+    "company": "Impetus Technologies",
+    "question": "How many years of experience do you have in each services of GCP like data proc/Bigquery/cloud composer/Pub-sub?",
+    "field_type": "text",
+    "answer": "2",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-27 20:23:19",
+    "job_title": "Urgent hiring For Data Engineer GCP data engineer",
+    "company": "Impetus Technologies",
+    "question": "How many years of experience do you have in data proc?",
+    "field_type": "text",
+    "answer": "3.5",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-28 08:14:51",
+    "job_title": "Senior Data Engineer",
+    "company": "Sciens Technologies",
+    "question": "Have you worked with any Product based project/Product based company?",
+    "field_type": "chip_choice",
+    "answer": "Yes",
+    "options": [
+      "Yes",
+      "No"
+    ],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-28 08:14:55",
+    "job_title": "Senior Data Engineer",
+    "company": "Sciens Technologies",
+    "question": "Are you currently residing in Hyderabad, Telangana or willing to relocate to Hyderabad, Telangana?",
+    "field_type": "chip_choice",
+    "answer": "Yes",
+    "options": [
+      "Yes",
+      "No"
+    ],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-28 08:17:24",
+    "job_title": "Azure Databricks Developer (Genie, PySpark, SQL)",
+    "company": "Infosys",
+    "question": "How many years of experience do you have in Azure Dataricks?",
+    "field_type": "text",
+    "answer": "3",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-28 08:17:30",
+    "job_title": "Azure Databricks Developer (Genie, PySpark, SQL)",
+    "company": "Infosys",
+    "question": "Are you an ex-Infosys employee? If Yes: Please provide your Infosys Employee ID, If No: Mention NA",
+    "field_type": "text",
+    "answer": "No",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-28 20:51:38",
+    "job_title": "Data Engineer",
+    "company": "Reveille Technologies",
+    "question": "Please select the city you are currently residing or willing to relocate to",
+    "field_type": "checkbox",
+    "answer": "Selected intelligent options",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-28 20:51:45",
+    "job_title": "Data Engineer",
+    "company": "Reveille Technologies",
+    "question": "Are you comfortable with Contract 2 Hire mode?",
+    "field_type": "chip_choice",
+    "answer": "Yes",
+    "options": [
+      "Yes",
+      "No"
+    ],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-28 20:51:50",
+    "job_title": "Data Engineer",
+    "company": "Reveille Technologies",
+    "question": "Are you available to attend the Face-to-Face interview on 30th September 2026?",
+    "field_type": "chip_choice",
+    "answer": "Yes",
+    "options": [
+      "Yes",
+      "No"
+    ],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-28 20:52:24",
+    "job_title": "Senior Data Engineer",
+    "company": "KAS Services",
+    "question": "Are you currently living in or ready to relocate to Bengaluru ?",
+    "field_type": "chip_choice",
+    "answer": "Yes",
+    "options": [
+      "Yes",
+      "No"
+    ],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-28 20:52:30",
+    "job_title": "Senior Data Engineer",
+    "company": "KAS Services",
+    "question": "How many years of experience do you have as Senior Data Engineer ?",
+    "field_type": "chip_choice",
+    "answer": "<5 years",
+    "options": [
+      "No experience",
+      "<5 years",
+      "5-6 years",
+      "6-7 years",
+      ">7 years"
+    ],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-28 20:52:37",
+    "job_title": "Senior Data Engineer",
+    "company": "KAS Services",
+    "question": "Relevant Experience in AI ?",
+    "field_type": "text",
+    "answer": "3.5",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-28 20:53:46",
+    "job_title": "GCP Data Engineer - BigQuery",
+    "company": "Tata Consultancy Services",
+    "question": "How many years of experience do you have in GCP Data Engineer - BigQuery?",
+    "field_type": "text",
+    "answer": "2",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-28 20:54:22",
+    "job_title": "Pyspark Developer-Pune",
+    "company": "Infosys",
+    "question": "Are you an ex-Infosys employee? If Yes: Please provide your Infosys Employee ID, If No: Mention NA",
+    "field_type": "text",
+    "answer": "No",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-28 20:55:59",
+    "job_title": "Data Engineer- Gurugram Immediate joiner only",
+    "company": "Celebal Technologies",
+    "question": "What is your current location?",
+    "field_type": "text",
+    "answer": "Gurugram",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-28 20:56:05",
+    "job_title": "Data Engineer- Gurugram Immediate joiner only",
+    "company": "Celebal Technologies",
+    "question": "What is your exp in BI",
+    "field_type": "text",
+    "answer": "3.5",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-28 22:06:38",
+    "job_title": "Unknown Job",
+    "company": "Unknown Company",
+    "question": "Pick available location with multiple locations",
+    "field_type": "checkbox",
+    "answer": "Selected intelligent options",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-28 22:06:57",
+    "job_title": "Unknown Job",
+    "company": "Unknown Company",
+    "question": "Pick available location with multiple locations",
+    "field_type": "checkbox",
+    "answer": "Selected intelligent options",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-28 22:08:23",
+    "job_title": "Unknown Job",
+    "company": "Unknown Company",
+    "question": "Pick available location with multiple locations",
+    "field_type": "checkbox",
+    "answer": "Selected intelligent options",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-28 22:08:41",
+    "job_title": "Unknown Job",
+    "company": "Unknown Company",
+    "question": "Have you worked in DBT (Data Build Tool)?",
+    "field_type": "checkbox",
+    "answer": "Selected intelligent options",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-28 22:08:42",
+    "job_title": "Unknown Job",
+    "company": "Unknown Company",
+    "question": "Have you worked in / applied to Deloitte earlier?",
+    "field_type": "checkbox",
+    "answer": "Selected intelligent options",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-28 22:11:13",
+    "job_title": "Snowflake Developer with DBT (2-5 Years)",
+    "company": "Infosys",
+    "question": "How many years of experience do you have in Snowflake Developer?",
+    "field_type": "text",
+    "answer": "3.5",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-28 22:21:27",
+    "job_title": "Databricks Engineer",
+    "company": "Steady Rabbit",
+    "question": "Do you have 4+ years of experience in Data Engineering?",
+    "field_type": "text",
+    "answer": "3.5",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-28 22:21:33",
+    "job_title": "Databricks Engineer",
+    "company": "Steady Rabbit",
+    "question": "Do you have strong hands-on experience with Databricks?",
+    "field_type": "text",
+    "answer": "Yes",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-28 22:21:39",
+    "job_title": "Databricks Engineer",
+    "company": "Steady Rabbit",
+    "question": "Do you have hands-on experience with PySpark, Spark SQL, and Python?",
+    "field_type": "text",
+    "answer": "Yes",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-28 22:21:46",
+    "job_title": "Databricks Engineer",
+    "company": "Steady Rabbit",
+    "question": "Do you have experience developing ETL/ELT pipelines?",
+    "field_type": "text",
+    "answer": "Yes",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-28 22:21:52",
+    "job_title": "Databricks Engineer",
+    "company": "Steady Rabbit",
+    "question": "Do you have good knowledge of SQL and data warehousing concepts?",
+    "field_type": "text",
+    "answer": "Yes",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-28 22:21:59",
+    "job_title": "Databricks Engineer",
+    "company": "Steady Rabbit",
+    "question": "Do you have experience working with Azure or AWS cloud platforms?",
+    "field_type": "text",
+    "answer": "Yes",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-28 22:22:05",
+    "job_title": "Databricks Engineer",
+    "company": "Steady Rabbit",
+    "question": "Do you have experience in data transformation, integration, and performance optimization?",
+    "field_type": "text",
+    "answer": "Yes",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-28 22:32:31",
+    "job_title": "Data Engineer",
+    "company": "HR Guru Placement Services",
+    "question": "Are you currently living in or ready to relocate to Bengaluru ?",
+    "field_type": "chip_choice",
+    "answer": "Yes",
+    "options": [
+      "Yes",
+      "No"
+    ],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-28 22:32:55",
+    "job_title": "Data Engineer",
+    "company": "HR Guru Placement Services",
+    "question": "Are you currently living in or ready to relocate to Bengaluru ?",
+    "field_type": "chip_choice",
+    "answer": "Yes",
+    "options": [
+      "Yes",
+      "No"
+    ],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-28 22:33:00",
+    "job_title": "Data Engineer",
+    "company": "HR Guru Placement Services",
+    "question": "Have you appleid for EY in last 6 months or recieved a call for the same>",
+    "field_type": "chip_choice",
+    "answer": "Yes",
+    "options": [
+      "Yes",
+      "No"
+    ],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-28 22:34:23",
+    "job_title": "Data Engineer",
+    "company": "Cloudxtreme",
+    "question": "Are you interested in contract position?",
+    "field_type": "chip_choice",
+    "answer": "Yes",
+    "options": [
+      "Yes",
+      "No"
+    ],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-28 22:34:30",
+    "job_title": "Data Engineer",
+    "company": "Cloudxtreme",
+    "question": "How many years of experience do you have in Pytest, Workflow?",
+    "field_type": "text",
+    "answer": "3.5",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-28 22:34:35",
+    "job_title": "Data Engineer",
+    "company": "Cloudxtreme",
+    "question": "Please select the city you are currently residing or willing to relocate to",
+    "field_type": "checkbox",
+    "answer": "Selected intelligent options",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-28 22:35:32",
+    "job_title": "Data Engineer",
+    "company": "Shell Infotech",
+    "question": "Do you have experience in Air Flow, Kafka, CI/CD,SQL/ NOSQL, Shell Scripting",
+    "field_type": "text",
+    "answer": "Yes",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-28 22:37:15",
+    "job_title": "Associate_AEP_CDP Data Engineer",
+    "company": "PwC",
+    "question": "How many years of experience do you have in Adobe Experience Platform?",
+    "field_type": "text",
+    "answer": "3.5",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-28 22:37:21",
+    "job_title": "Associate_AEP_CDP Data Engineer",
+    "company": "PwC",
+    "question": "How many years of experience do you have in Identity Service?",
+    "field_type": "text",
+    "answer": "3.5",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-28 22:42:09",
+    "job_title": "Virtual Drive | Big Data Engineer (Hadoop, Spark, Scala)",
+    "company": "Tata Consultancy Services",
+    "question": "How many years of experience do you have in Apache Spark (Core?",
+    "field_type": "text",
+    "answer": "3",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-28 22:42:15",
+    "job_title": "Virtual Drive | Big Data Engineer (Hadoop, Spark, Scala)",
+    "company": "Tata Consultancy Services",
+    "question": "Relevant experience in Hadoop?",
+    "field_type": "text",
+    "answer": "3.5",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-28 22:42:21",
+    "job_title": "Virtual Drive | Big Data Engineer (Hadoop, Spark, Scala)",
+    "company": "Tata Consultancy Services",
+    "question": "Relevant experience in Spark?",
+    "field_type": "text",
+    "answer": "3",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-28 22:42:28",
+    "job_title": "Virtual Drive | Big Data Engineer (Hadoop, Spark, Scala)",
+    "company": "Tata Consultancy Services",
+    "question": "Relevant experience in Scala?",
+    "field_type": "text",
+    "answer": "3.5",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-28 22:43:03",
+    "job_title": "Etl Developer-IICS (Pan India)",
+    "company": "Infosys",
+    "question": "Are you an ex-Infosys employee? If Yes: Please provide your Infosys Employee ID, If No: Mention NA",
+    "field_type": "text",
+    "answer": "No",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-28 22:43:26",
+    "job_title": "ETL Developer",
+    "company": "Ujjivan Small Finance Bank",
+    "question": "Are you currently living in or ready to relocate to Bengaluru ?",
+    "field_type": "chip_choice",
+    "answer": "Yes",
+    "options": [
+      "Yes",
+      "No"
+    ],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-28 22:43:31",
+    "job_title": "ETL Developer",
+    "company": "Ujjivan Small Finance Bank",
+    "question": "How many years of experience do you have as ETL Developer ?",
+    "field_type": "chip_choice",
+    "answer": "<3 years",
+    "options": [
+      "No experience",
+      "<3 years",
+      "3-5 years",
+      "5-7 years",
+      "7-8 years",
+      ">8 years"
+    ],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-28 22:44:07",
+    "job_title": "Snowflake Developer",
+    "company": "Carelon Global Solutions",
+    "question": "How many years of experience do you have in Dataflows?",
+    "field_type": "text",
+    "answer": "3.5",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-28 22:44:13",
+    "job_title": "Snowflake Developer",
+    "company": "Carelon Global Solutions",
+    "question": "How many years of experience do you have in Pipelines?",
+    "field_type": "text",
+    "answer": "3.5",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-28 22:44:17",
+    "job_title": "Snowflake Developer",
+    "company": "Carelon Global Solutions",
+    "question": "Are you available to attend a face-to-face interview on 26-Sep-2026?",
+    "field_type": "chip_choice",
+    "answer": "Yes",
+    "options": [
+      "Yes",
+      "NO"
+    ],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-28 22:44:24",
+    "job_title": "Snowflake Developer",
+    "company": "Carelon Global Solutions",
+    "question": "How many years of experience do you have in Warehouses?",
+    "field_type": "text",
+    "answer": "3.5",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-28 22:44:29",
+    "job_title": "Snowflake Developer",
+    "company": "Carelon Global Solutions",
+    "question": "Please select the city you are currently residing or willing to relocate to",
+    "field_type": "checkbox",
+    "answer": "Selected intelligent options",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-28 22:44:58",
+    "job_title": "data mapper-data engineer",
+    "company": "RiDiK",
+    "question": "How many years of experience do you have in Data Profiling?",
+    "field_type": "text",
+    "answer": "3.5",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-28 22:45:02",
+    "job_title": "data mapper-data engineer",
+    "company": "RiDiK",
+    "question": "Are you currently residing in Bengaluru or willing to relocate to Bengaluru?",
+    "field_type": "chip_choice",
+    "answer": "Yes",
+    "options": [
+      "Yes",
+      "No"
+    ],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-28 22:45:07",
+    "job_title": "data mapper-data engineer",
+    "company": "RiDiK",
+    "question": "Do you have exp. in JSON(mention in years/months)",
+    "field_type": "chip_choice",
+    "answer": "Yes",
+    "options": [
+      "Yes",
+      "No"
+    ],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-28 22:45:33",
+    "job_title": "Snowflake Developer (2 To 5 Years)",
+    "company": "Infosys",
+    "question": "Please select the city you are currently residing or willing to relocate to",
+    "field_type": "text",
+    "answer": "Gurugram",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-28 22:46:18",
+    "job_title": "ETL Integration Engineer",
+    "company": "Zinnov Management Consulting",
+    "question": "Are you serving your notice period? If yes, when is your Last Working Day?",
+    "field_type": "text",
+    "answer": "30 Days",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-28 22:46:24",
+    "job_title": "ETL Integration Engineer",
+    "company": "Zinnov Management Consulting",
+    "question": "How many years of experience do you have in etl integration?",
+    "field_type": "text",
+    "answer": "3",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-28 22:46:50",
+    "job_title": "Snowflake Developer",
+    "company": "Black and white Business Solution",
+    "question": "Do you have PF in current compay?",
+    "field_type": "text",
+    "answer": "Yes",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-28 22:47:49",
+    "job_title": "Etl Test Engineer",
+    "company": "Durus Consulting",
+    "question": "How many years of experience do you have in Data Warehouse Testing?",
+    "field_type": "text",
+    "answer": "3",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-28 22:47:53",
+    "job_title": "Etl Test Engineer",
+    "company": "Durus Consulting",
+    "question": "Are you currently residing in Bengaluru or willing to relocate to Bengaluru?",
+    "field_type": "chip_choice",
+    "answer": "Yes",
+    "options": [
+      "Yes",
+      "No"
+    ],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-28 22:48:34",
+    "job_title": "Etl Informatica Developer",
+    "company": "Ocwen Financial Corporation",
+    "question": "How many years of experience do you have in Etl Informatica?",
+    "field_type": "text",
+    "answer": "3",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-28 22:48:40",
+    "job_title": "Etl Informatica Developer",
+    "company": "Ocwen Financial Corporation",
+    "question": "How many years of experience do you have in Data Integration Tools?",
+    "field_type": "text",
+    "answer": "3.5",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-28 22:49:11",
+    "job_title": "GCP BigQuery Developer / Data Engineer (2 To 5 Years)",
+    "company": "Infosys",
+    "question": "How many years of experience do you have in Gcp Bigquery?",
+    "field_type": "text",
+    "answer": "2",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-28 22:50:10",
+    "job_title": "Snowflake Data Engineer",
+    "company": "CGI",
+    "question": "Total Experience",
+    "field_type": "text",
+    "answer": "3.5",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-28 22:50:14",
+    "job_title": "Snowflake Data Engineer",
+    "company": "CGI",
+    "question": "Are you currently residing in Bengaluru or willing to relocate to Bengaluru?",
+    "field_type": "chip_choice",
+    "answer": "Yes",
+    "options": [
+      "Yes",
+      "No"
+    ],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-28 22:51:19",
+    "job_title": "Data Engineer",
+    "company": "IQVIA",
+    "question": "Are you open for F2F interview in our Bangalore/Gurgaon office if shortlisted in L1 round?",
+    "field_type": "chip_choice",
+    "answer": "Yes",
+    "options": [
+      "Yes",
+      "No"
+    ],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-29 08:27:51",
+    "job_title": "Data Engineer",
+    "company": "Coforge",
+    "question": "What is your Last working day?",
+    "field_type": "chip_choice",
+    "answer": "15 Days or less",
+    "options": [
+      "15 Days or less",
+      "1 Month",
+      "2 Months",
+      "3 Months",
+      "More than 3 Months",
+      "Serving Notice Period"
+    ],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-29 08:29:06",
+    "job_title": "TS - Snowflake Developer",
+    "company": "IT Company",
+    "question": "This is for permanent position with T*ta group (India's Largest IT company). Are you ok?",
+    "field_type": "chip_choice",
+    "answer": "Yes",
+    "options": [
+      "Yes",
+      "No"
+    ],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-29 08:29:11",
+    "job_title": "TS - Snowflake Developer",
+    "company": "IT Company",
+    "question": "background verification is very strict. 5 year bank statement - showing salary credit is needed",
+    "field_type": "chip_choice",
+    "answer": "Yes, I can give bank statement for last 5 years",
+    "options": [
+      "Yes, I can give bank statement for last 5 years",
+      "I have less than 5 yr exp, I can give bank statement for my entire career",
+      "I have problem in giving bank statement",
+      "I am not interested in this job - if they ask bank statement"
+    ],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-29 08:29:16",
+    "job_title": "TS - Snowflake Developer",
+    "company": "IT Company",
+    "question": "you should not have much gaps from education to job and between jobs. What are your gap?",
+    "field_type": "chip_choice",
+    "answer": "In one of the jump to another company, I have more than 6 months gap",
+    "options": [
+      "In one of the jump to another company, I have more than 6 months gap",
+      "I have more than 1 year gap after education to job",
+      "My gap in total is half of my exp. example Exp is 5 years and gap is 3 years. More than half",
+      "None of the above and not much gap"
+    ],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-29 08:29:24",
+    "job_title": "TS - Snowflake Developer",
+    "company": "IT Company",
+    "question": "PAN number is mandatory to process. Please give PAN number",
+    "field_type": "text",
+    "answer": "HMDPK5264C",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-29 08:29:28",
+    "job_title": "TS - Snowflake Developer",
+    "company": "IT Company",
+    "question": "Are you ready to relocte for Hyderabad",
+    "field_type": "chip_choice",
+    "answer": "Yes",
+    "options": [
+      "Yes",
+      "No"
+    ],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-29 08:29:35",
+    "job_title": "TS - Snowflake Developer",
+    "company": "IT Company",
+    "question": "Do you have offer? If yes, please give Offer Amount and Last Working Day in current company",
+    "field_type": "text",
+    "answer": "30 Days",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-29 08:29:41",
+    "job_title": "TS - Snowflake Developer",
+    "company": "IT Company",
+    "question": "Please mention your Top 3 Skills",
+    "field_type": "text",
+    "answer": "3.5",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-29 08:30:07",
+    "job_title": "Snowflake Data Engineer",
+    "company": "Epam Systems",
+    "question": "Total experience ?",
+    "field_type": "text",
+    "answer": "3.5",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-29 08:30:13",
+    "job_title": "Snowflake Data Engineer",
+    "company": "Epam Systems",
+    "question": "Availability for interview dates, please give multiple slots to schedule virtual interview?",
+    "field_type": "text",
+    "answer": "Yes",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-29 08:30:19",
+    "job_title": "Snowflake Data Engineer",
+    "company": "Epam Systems",
+    "question": "Please select the city you are currently residing or willing to relocate to",
+    "field_type": "checkbox",
+    "answer": "Selected intelligent options",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-29 08:31:00",
+    "job_title": "Snowflake Admin -BI-ADCCB",
+    "company": "Bounteous",
+    "question": "How many years of Snowflake Administration experience do you have?",
+    "field_type": "chip_choice",
+    "answer": "2-4Yrs",
+    "options": [
+      "1-2 Yrs",
+      "2-4Yrs",
+      "4+ Yrs"
+    ],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-29 08:31:07",
+    "job_title": "Snowflake Admin -BI-ADCCB",
+    "company": "Bounteous",
+    "question": "Have you implemented RBAC, Data Masking, or Snowflake Security policies?",
+    "field_type": "text",
+    "answer": "Yes",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-29 08:31:13",
+    "job_title": "Snowflake Admin -BI-ADCCB",
+    "company": "Bounteous",
+    "question": "How many years of hands-on experience do you have with AWS IAM?",
+    "field_type": "text",
+    "answer": "3",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-29 08:31:20",
+    "job_title": "Snowflake Admin -BI-ADCCB",
+    "company": "Bounteous",
+    "question": "How many years of experience do you have with Terraform (IaC)?",
+    "field_type": "text",
+    "answer": "3.5",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-29 08:31:26",
+    "job_title": "Snowflake Admin -BI-ADCCB",
+    "company": "Bounteous",
+    "question": "Do you have hands-on experience with Tableau Admin and/or Alation Admin?",
+    "field_type": "text",
+    "answer": "Yes",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-29 08:31:32",
+    "job_title": "Snowflake Admin -BI-ADCCB",
+    "company": "Bounteous",
+    "question": "What is your current location? (Please mention)",
+    "field_type": "text",
+    "answer": "Gurugram",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-29 08:32:36",
+    "job_title": "Snowflake Developer",
+    "company": "Tata Consultancy Services",
+    "question": "Are you willing to attend a Virtual round of interview on 11th Sep 2026?",
+    "field_type": "chip_choice",
+    "answer": "Yes",
+    "options": [
+      "Yes",
+      "No"
+    ],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-29 08:33:25",
+    "job_title": "Senior Data Engineer",
+    "company": "Finarb Analytics Consulting",
+    "question": "Have you submitted the online MCQ assessment? Link : https://www.autoproctor.co/tests/U4xSnl507a/instructions/",
+    "field_type": "chip_choice",
+    "answer": "yes",
+    "options": [
+      "yes",
+      "no"
+    ],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-29 08:33:45",
+    "job_title": "Snowflake Developer",
+    "company": "Tata Consultancy Services",
+    "question": "How many years of hands-on experience do you have in DBT (Data Build Tool)?",
+    "field_type": "text",
+    "answer": "2",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-29 08:33:52",
+    "job_title": "Snowflake Developer",
+    "company": "Tata Consultancy Services",
+    "question": "How many years of experience do you have in SQL and Data Warehousing?",
+    "field_type": "text",
+    "answer": "3",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-29 08:33:58",
+    "job_title": "Snowflake Developer",
+    "company": "Tata Consultancy Services",
+    "question": "Have you worked on Snowflake Performance Tuning, RBAC, Virtual Warehouses, and Zero-Copy Cloning?",
+    "field_type": "text",
+    "answer": "Yes",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-29 08:34:04",
+    "job_title": "Snowflake Developer",
+    "company": "Tata Consultancy Services",
+    "question": "Do you have experience with ETL/ELT tools such as Datastage?",
+    "field_type": "text",
+    "answer": "Yes",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-29 08:34:11",
+    "job_title": "Snowflake Developer",
+    "company": "Tata Consultancy Services",
+    "question": "Is there any gap in between 10th,12th,Graduation,Postgraduation,Employment?if Yes, Please Specify the reason",
+    "field_type": "text",
+    "answer": "No",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-29 08:34:15",
+    "job_title": "Snowflake Developer",
+    "company": "Tata Consultancy Services",
+    "question": "Only candidates with 5+ years of relevant experience in Snowflake and DBT should apply.",
+    "field_type": "checkbox",
+    "answer": "Selected intelligent options",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-29 18:08:59",
+    "job_title": "MDM /Data Engineer",
+    "company": "Bridgenext",
+    "question": "How many years of experience do you have in data?",
+    "field_type": "text",
+    "answer": "3.5",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-29 20:30:13",
+    "job_title": "Unknown Job",
+    "company": "Unknown Company",
+    "question": "Pick available location with multiple locations",
+    "field_type": "checkbox",
+    "answer": "Selected intelligent options",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-29 20:32:16",
+    "job_title": "Unknown Job",
+    "company": "Unknown Company",
+    "question": "Have you worked in DBT (Data Build Tool)?",
+    "field_type": "checkbox",
+    "answer": "Selected intelligent options",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-29 20:32:17",
+    "job_title": "Unknown Job",
+    "company": "Unknown Company",
+    "question": "Have you worked in / applied to Deloitte earlier?",
+    "field_type": "checkbox",
+    "answer": "Selected intelligent options",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-29 20:49:59",
+    "job_title": "Big Data Engineer with Java",
+    "company": "IntraEdge Technology",
+    "question": "How many years of hands-on Java + Spring Boot experience do you have?",
+    "field_type": "text",
+    "answer": "3.5",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-29 20:50:05",
+    "job_title": "Big Data Engineer with Java",
+    "company": "IntraEdge Technology",
+    "question": "How many years of hands-on ETL/Data Engineering/Data Pipeline experience do you have?",
+    "field_type": "text",
+    "answer": "3",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-29 20:50:11",
+    "job_title": "Big Data Engineer with Java",
+    "company": "IntraEdge Technology",
+    "question": "Which Big Data technology have you actually developed with Spark, Hadoop, Hive, Kafka, Databricks, etc.? Please mention years.",
+    "field_type": "text",
+    "answer": "3.5",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-29 21:07:01",
+    "job_title": "Data Engineer",
+    "company": "Everforth Quinnox",
+    "question": "Are you currently residing in Bengaluru or willing to relocate to Bengaluru?",
+    "field_type": "chip_choice",
+    "answer": "Yes",
+    "options": [
+      "Yes",
+      "No"
+    ],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-29 21:07:27",
+    "job_title": "Data Engineer",
+    "company": "Allegis Global Solutions (AGS)",
+    "question": "Are you comfortable with a 2-year contractual position?",
+    "field_type": "text",
+    "answer": "Yes",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-29 21:07:34",
+    "job_title": "Data Engineer",
+    "company": "Allegis Global Solutions (AGS)",
+    "question": "We are looking for immediate joiners.",
+    "field_type": "text",
+    "answer": "3.5",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-29 21:07:40",
+    "job_title": "Data Engineer",
+    "company": "Allegis Global Solutions (AGS)",
+    "question": "How many years of hands-on experience do you have working on Google Cloud Platform (GCP)",
+    "field_type": "text",
+    "answer": "2",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-29 21:07:46",
+    "job_title": "Data Engineer",
+    "company": "Allegis Global Solutions (AGS)",
+    "question": "Have you built ETL/ELT data pipelines using Dataflow (Apache Beam)?",
+    "field_type": "text",
+    "answer": "Yes",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-29 21:07:53",
+    "job_title": "Data Engineer",
+    "company": "Allegis Global Solutions (AGS)",
+    "question": "What is your experience with Cloud Composer (Apache Airflow)?",
+    "field_type": "text",
+    "answer": "2",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-29 21:07:59",
+    "job_title": "Data Engineer",
+    "company": "Allegis Global Solutions (AGS)",
+    "question": "How many years of experience do you have in Python and SQL for data engineering projects?",
+    "field_type": "text",
+    "answer": "3",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-29 21:08:06",
+    "job_title": "Data Engineer",
+    "company": "Allegis Global Solutions (AGS)",
+    "question": "Have you worked with real-time data ingestion tools such as Pub/Sub, Kafka, or Streaming Dataflow pipelines?",
+    "field_type": "text",
+    "answer": "Yes",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-29 21:08:12",
+    "job_title": "Data Engineer",
+    "company": "Allegis Global Solutions (AGS)",
+    "question": "Do you have hands-on experience in Data Modeling and Data Warehouse development (Star Schema, Fact & Dimension Modeling)?",
+    "field_type": "text",
+    "answer": "Yes",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-29 21:08:18",
+    "job_title": "Data Engineer",
+    "company": "Allegis Global Solutions (AGS)",
+    "question": "Have you worked on a GCP-based Data Lake using Cloud Storage (GCS) and BigQuery?",
+    "field_type": "text",
+    "answer": "Yes",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-29 21:16:33",
+    "job_title": "Senior Data Platform Engineer",
+    "company": "Kots",
+    "question": "Are you currently residing in Bengaluru or willing to relocate to Bengaluru?",
+    "field_type": "chip_choice",
+    "answer": "Yes",
+    "options": [
+      "Yes",
+      "No"
+    ],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-29 21:18:32",
+    "job_title": "Azure Data Platform Engineer",
+    "company": "Resource Algorithm",
+    "question": "How many years of hands-on experience do you have in Azure Data Engineering / Data Platform Engineering?",
+    "field_type": "text",
+    "answer": "3",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-29 21:18:38",
+    "job_title": "Azure Data Platform Engineer",
+    "company": "Resource Algorithm",
+    "question": "Do you have hands-on experience with Azure Data Factory (ADF)? If yes, briefly describe the type of pipelines you have worked on.",
+    "field_type": "text",
+    "answer": "Yes",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-29 21:18:45",
+    "job_title": "Azure Data Platform Engineer",
+    "company": "Resource Algorithm",
+    "question": "Do you have hands-on experience with Azure Databricks / Apache Spark?",
+    "field_type": "text",
+    "answer": "Yes",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-29 21:18:51",
+    "job_title": "Azure Data Platform Engineer",
+    "company": "Resource Algorithm",
+    "question": "Please mention your experience with SQL and ETL/Data Integration.",
+    "field_type": "text",
+    "answer": "3",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-29 21:18:58",
+    "job_title": "Azure Data Platform Engineer",
+    "company": "Resource Algorithm",
+    "question": "Do you have experience managing/provisioning Azure cloud infrastructure, including monitoring, availability and cost optimization?",
+    "field_type": "text",
+    "answer": "Yes",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-30 20:03:27",
+    "job_title": "Senior Data Engineer",
+    "company": "Finarb Analytics Consulting",
+    "question": "Have you submitted the online MCQ assessment? Link : https://www.autoproctor.co/tests/U4xSnl507a/instructions/",
+    "field_type": "chip_choice",
+    "answer": "yes",
+    "options": [
+      "yes",
+      "no"
+    ],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-30 20:04:08",
+    "job_title": "Trading Desk Data Engineer",
+    "company": "Summit Dairy",
+    "question": "Why do you think this role is a good fit for you?",
+    "field_type": "text",
+    "answer": "3.5",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-30 20:04:12",
+    "job_title": "Trading Desk Data Engineer",
+    "company": "Summit Dairy",
+    "question": "Are you currently residing in Hyderabad or willing to relocate to Hyderabad?",
+    "field_type": "chip_choice",
+    "answer": "Yes",
+    "options": [
+      "Yes",
+      "No"
+    ],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-30 20:04:43",
+    "job_title": "Azure Data Engineer",
+    "company": "Xoriant",
+    "question": "How many years of experience do you have in Data Engineering?",
+    "field_type": "text",
+    "answer": "3.5",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-30 20:04:49",
+    "job_title": "Azure Data Engineer",
+    "company": "Xoriant",
+    "question": "How many years of experience do you have in Azure Databricks?",
+    "field_type": "text",
+    "answer": "3",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-30 20:04:56",
+    "job_title": "Azure Data Engineer",
+    "company": "Xoriant",
+    "question": "How many years of experience do you have in Python?",
+    "field_type": "text",
+    "answer": "3",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-30 20:05:02",
+    "job_title": "Azure Data Engineer",
+    "company": "Xoriant",
+    "question": "How many years of experience do you have in SQL?",
+    "field_type": "text",
+    "answer": "3",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-30 20:05:06",
+    "job_title": "Azure Data Engineer",
+    "company": "Xoriant",
+    "question": "What is your notice period?",
+    "field_type": "chip_choice",
+    "answer": "1 Month",
+    "options": [
+      "15 Days or less",
+      "1 Month",
+      "2 Months",
+      "3 Months",
+      "More than 3 Months",
+      "Serving Notice Period"
+    ],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-30 20:05:47",
+    "job_title": "Data Engineer",
+    "company": "Wikilabs India",
+    "question": "Are you currently residing in Hyderabad, Telangana or willing to relocate to Hyderabad, Telangana?",
+    "field_type": "text",
+    "answer": "Yes",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-30 20:05:54",
+    "job_title": "Data Engineer",
+    "company": "Wikilabs India",
+    "question": "Do you have Experience on Graph DB & Neo4j ?",
+    "field_type": "text",
+    "answer": "Yes",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-30 20:07:10",
+    "job_title": "Data Engineer",
+    "company": "Virtusa",
+    "question": "Are you willing to relocate?",
+    "field_type": "chip_choice",
+    "answer": "Yes",
+    "options": [
+      "Yes",
+      "No"
+    ],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-30 20:07:33",
+    "job_title": "Data Engineer (GCP + DBT)",
+    "company": "HCLTech",
+    "question": "Are you currently residing in Hyderabad or willing to relocate to Hyderabad?",
+    "field_type": "chip_choice",
+    "answer": "Yes",
+    "options": [
+      "Yes",
+      "No"
+    ],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-30 20:25:54",
+    "job_title": "Fabric Data Engineer",
+    "company": "BIG 4",
+    "question": "How many years of experience do you have in MS Fabric?",
+    "field_type": "text",
+    "answer": "3.5",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-30 20:27:08",
+    "job_title": "Data Engineer__GCP",
+    "company": "Embarkgcc Services",
+    "question": "Please select the city you are currently residing",
+    "field_type": "checkbox",
+    "answer": "Selected intelligent options",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-30 20:41:13",
+    "job_title": "Gcp Data Engineer(with Airflow)_Immediate",
+    "company": "kezan",
+    "question": "How many years of experience do you have in Looker?",
+    "field_type": "text",
+    "answer": "2",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-30 20:45:20",
+    "job_title": "Snowflake+ PL SQL+ SQL+ Snaplogic/Python/AWS_Fulltime_PAN India",
+    "company": "Talworx Solutions",
+    "question": "Please mention your exp. with Python or Snaplogic whichever you worked with.",
+    "field_type": "text",
+    "answer": "3",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-30 20:45:27",
+    "job_title": "Snowflake+ PL SQL+ SQL+ Snaplogic/Python/AWS_Fulltime_PAN India",
+    "company": "Talworx Solutions",
+    "question": "Please mention your exp. with Data analysis, Dimensional Modelling, Data Warehousing and SDLC concepts.",
+    "field_type": "text",
+    "answer": "3.5",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-30 20:45:33",
+    "job_title": "Snowflake+ PL SQL+ SQL+ Snaplogic/Python/AWS_Fulltime_PAN India",
+    "company": "Talworx Solutions",
+    "question": "How many years of experience do you have in AWS services like S3, EC2, Cloud watch, Lambda, Fargate & Terraform.",
+    "field_type": "text",
+    "answer": "3",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-30 20:45:39",
+    "job_title": "Snowflake+ PL SQL+ SQL+ Snaplogic/Python/AWS_Fulltime_PAN India",
+    "company": "Talworx Solutions",
+    "question": "Current CTC & Expected CTC ?",
+    "field_type": "text",
+    "answer": "13",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-30 20:45:46",
+    "job_title": "Snowflake+ PL SQL+ SQL+ Snaplogic/Python/AWS_Fulltime_PAN India",
+    "company": "Talworx Solutions",
+    "question": "Current Location & Hometown - Please mention both",
+    "field_type": "text",
+    "answer": "Gurugram",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-30 20:45:52",
+    "job_title": "Snowflake+ PL SQL+ SQL+ Snaplogic/Python/AWS_Fulltime_PAN India",
+    "company": "Talworx Solutions",
+    "question": "Please mention your last working day.",
+    "field_type": "text",
+    "answer": "30 Days",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-30 20:45:59",
+    "job_title": "Snowflake+ PL SQL+ SQL+ Snaplogic/Python/AWS_Fulltime_PAN India",
+    "company": "Talworx Solutions",
+    "question": "Please mention your exp. with Dynamic SQL, creating packages, procedures and functions, proficient in writing queries.",
+    "field_type": "text",
+    "answer": "3",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-30 20:47:45",
+    "job_title": "Senior Data Engineer | IT Consulting MNC | Bangalore",
+    "company": "Hiring for - IT Consulting MNC",
+    "question": "Please mention your current location.",
+    "field_type": "text",
+    "answer": "Gurugram",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-30 20:47:49",
+    "job_title": "Senior Data Engineer | IT Consulting MNC | Bangalore",
+    "company": "Hiring for - IT Consulting MNC",
+    "question": "Currently employed?",
+    "field_type": "chip_choice",
+    "answer": "Yes",
+    "options": [
+      "Yes",
+      "No"
+    ],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-30 20:51:43",
+    "job_title": "Infosys_ ETL Testing_ Chennai/Bangaluru/Hyderabad/Pune",
+    "company": "Hiring for Infosys",
+    "question": "Kindly share me your DOB DD/MM/YYYY",
+    "field_type": "text",
+    "answer": "15/08/1999",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-30 20:51:50",
+    "job_title": "Infosys_ ETL Testing_ Chennai/Bangaluru/Hyderabad/Pune",
+    "company": "Hiring for Infosys",
+    "question": "Do you have PF A/C and form 16 in all the organization?",
+    "field_type": "text",
+    "answer": "Yes",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-30 20:51:56",
+    "job_title": "Infosys_ ETL Testing_ Chennai/Bangaluru/Hyderabad/Pune",
+    "company": "Hiring for Infosys",
+    "question": "How many years of experience do you have in Automation Testing?",
+    "field_type": "text",
+    "answer": "3.5",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-30 20:52:02",
+    "job_title": "Infosys_ ETL Testing_ Chennai/Bangaluru/Hyderabad/Pune",
+    "company": "Hiring for Infosys",
+    "question": "Are you available to attend the Face to Face interview for final discussion?",
+    "field_type": "text",
+    "answer": "Yes",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-30 20:52:39",
+    "job_title": "GCP Data Engineer",
+    "company": "Xoriant",
+    "question": "Are you currently living in or ready to relocate to Bengaluru ?",
+    "field_type": "chip_choice",
+    "answer": "Yes",
+    "options": [
+      "Yes",
+      "No"
+    ],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-30 20:52:44",
+    "job_title": "GCP Data Engineer",
+    "company": "Xoriant",
+    "question": "How many years of experience do you have as GCP Data Engineer ?",
+    "field_type": "chip_choice",
+    "answer": "<4 years",
+    "options": [
+      "No experience",
+      "<4 years",
+      "4-5 years",
+      "5-6 years",
+      "6-7 years",
+      ">7 years"
+    ],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-30 20:52:51",
+    "job_title": "GCP Data Engineer",
+    "company": "Xoriant",
+    "question": "how many years of exp do you have in Spark / scala / Python?",
+    "field_type": "text",
+    "answer": "3",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-09-30 20:52:58",
+    "job_title": "GCP Data Engineer",
+    "company": "Xoriant",
+    "question": "Do you have any GCP certifications?",
+    "field_type": "text",
+    "answer": "Yes",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-01 08:14:21",
+    "job_title": "Etl Test Engineer /DWT-g",
+    "company": "Infosys",
+    "question": "Are you currently residing in Hyderabad or willing to relocate to Hyderabad?",
+    "field_type": "chip_choice",
+    "answer": "Yes",
+    "options": [
+      "Yes",
+      "No"
+    ],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-01 19:52:22",
+    "job_title": "Data Engineer",
+    "company": "Naukri Assist",
+    "question": "Which of these locations are you willing to relocate to?",
+    "field_type": "checkbox",
+    "answer": "Selected intelligent options",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-01 19:52:29",
+    "job_title": "Data Engineer",
+    "company": "Naukri Assist",
+    "question": "Do you have any experience in Onetrust?",
+    "field_type": "chip_choice",
+    "answer": "Yes",
+    "options": [
+      "Yes",
+      "No"
+    ],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-01 19:54:09",
+    "job_title": "Senior Data Engineer (Contractual Remote Opportunity)",
+    "company": "Inchcape Shipping Services",
+    "question": "How many years of experience do you have with AWS/Azure?",
+    "field_type": "text",
+    "answer": "3",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-01 19:54:16",
+    "job_title": "Senior Data Engineer (Contractual Remote Opportunity)",
+    "company": "Inchcape Shipping Services",
+    "question": "Do you have any experience working with MS Fabric or have you done any of the certification below ( DP - 700 or DP - 600 or DP- 203)",
+    "field_type": "text",
+    "answer": "Yes",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-01 19:54:22",
+    "job_title": "Senior Data Engineer (Contractual Remote Opportunity)",
+    "company": "Inchcape Shipping Services",
+    "question": "Do you have any experience working with delta lake , Lakehouse/Medallion architecture?",
+    "field_type": "text",
+    "answer": "Yes",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-01 19:54:26",
+    "job_title": "Senior Data Engineer (Contractual Remote Opportunity)",
+    "company": "Inchcape Shipping Services",
+    "question": "This role is for 3-4 Months Contract. It can be extendable as per business neeeds. Please mention if you are okay with contract role?",
+    "field_type": "chip_choice",
+    "answer": "Yes",
+    "options": [
+      "Yes",
+      "No"
+    ],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-01 19:54:34",
+    "job_title": "Senior Data Engineer (Contractual Remote Opportunity)",
+    "company": "Inchcape Shipping Services",
+    "question": "How many years of experience do you have as a Data Engineer.",
+    "field_type": "text",
+    "answer": "3.5",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-01 19:55:34",
+    "job_title": "Hadoop Spark - Data Engineer",
+    "company": "Tata Consultancy Services",
+    "question": "Are you available for a virtual interview on 8th Oct 2026(Thursday) ?",
+    "field_type": "chip_choice",
+    "answer": "Yes",
+    "options": [
+      "Yes",
+      "No"
+    ],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-01 19:56:06",
+    "job_title": "Data Engineer",
+    "company": "Naukri E Hire Campaign",
+    "question": "Total years of experience",
+    "field_type": "text",
+    "answer": "3.5",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-01 19:56:12",
+    "job_title": "Data Engineer",
+    "company": "Naukri E Hire Campaign",
+    "question": "How many years of experience do you have in Azure Big Data?",
+    "field_type": "text",
+    "answer": "3",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-01 19:56:19",
+    "job_title": "Data Engineer",
+    "company": "Naukri E Hire Campaign",
+    "question": "What is your last working day(Mention exact date)",
+    "field_type": "text",
+    "answer": "30 Days",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-01 19:56:23",
+    "job_title": "Data Engineer",
+    "company": "Naukri E Hire Campaign",
+    "question": "Are you ok to relocate to Hyderabad location?",
+    "field_type": "checkbox",
+    "answer": "Selected intelligent options",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-01 20:13:36",
+    "job_title": "Actuarial Consultant - Data Engineering - 4 To 7 Years - Remote",
+    "company": "Crescendo Global Leadership Hiring India",
+    "question": "How many years of experience do you have in Actuarial?",
+    "field_type": "text",
+    "answer": "3.5",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-01 20:13:42",
+    "job_title": "Actuarial Consultant - Data Engineering - 4 To 7 Years - Remote",
+    "company": "Crescendo Global Leadership Hiring India",
+    "question": "Which of the following tools have you used hands-on for actuarial pricing/data analytics?",
+    "field_type": "text",
+    "answer": "3.5",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-01 20:13:46",
+    "job_title": "Actuarial Consultant - Data Engineering - 4 To 7 Years - Remote",
+    "company": "Crescendo Global Leadership Hiring India",
+    "question": "Do you have experience automating actuarial/pricing data preparation, analysis or model deployment?",
+    "field_type": "chip_choice",
+    "answer": "Yes",
+    "options": [
+      "Yes",
+      "No"
+    ],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-01 20:14:11",
+    "job_title": "Java and Bigdata Data engineer",
+    "company": "Impetus Technologies",
+    "question": "Which of these locations are you willing to relocate to?",
+    "field_type": "checkbox",
+    "answer": "Selected intelligent options",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-01 20:14:19",
+    "job_title": "Java and Bigdata Data engineer",
+    "company": "Impetus Technologies",
+    "question": "How many years of experience do you have in Core Java ?",
+    "field_type": "chip_choice",
+    "answer": "2-4 years",
+    "options": [
+      "No experience",
+      "<2 years",
+      "2-4 years",
+      "4-6 years",
+      "6-8 years",
+      "8-9 years",
+      ">9 years"
+    ],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-01 20:28:54",
+    "job_title": "Data Engineer",
+    "company": "Evoke HR solutions private limited",
+    "question": "How many years of experience do you have in Apache Iceberg?",
+    "field_type": "text",
+    "answer": "3.5",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-01 20:28:59",
+    "job_title": "Data Engineer",
+    "company": "Evoke HR solutions private limited",
+    "question": "Are you currently residing in Bengaluru, Karnataka or willing to relocate to Bengaluru, Karnataka?",
+    "field_type": "chip_choice",
+    "answer": "Yes",
+    "options": [
+      "Yes",
+      "No"
+    ],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-01 20:29:51",
+    "job_title": "Data Engineer - Identity Resolution Consent Data",
+    "company": "Naukri Assist",
+    "question": "Which of these locations are you willing to relocate to?",
+    "field_type": "checkbox",
+    "answer": "Selected intelligent options",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-01 20:29:59",
+    "job_title": "Data Engineer - Identity Resolution Consent Data",
+    "company": "Naukri Assist",
+    "question": "How many years of experience do you have in DBT Data build tool?",
+    "field_type": "chip_choice",
+    "answer": "2-5 years",
+    "options": [
+      "No experience",
+      "<2 years",
+      "2-5 years",
+      "5-7 years",
+      "7-9 years",
+      "9-10 years",
+      ">10 years"
+    ],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-01 20:30:04",
+    "job_title": "Data Engineer - Identity Resolution Consent Data",
+    "company": "Naukri Assist",
+    "question": "Do you have any experience in OneTrust?",
+    "field_type": "chip_choice",
+    "answer": "Yes",
+    "options": [
+      "Yes",
+      "No"
+    ],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-01 20:30:09",
+    "job_title": "Data Engineer - Identity Resolution Consent Data",
+    "company": "Naukri Assist",
+    "question": "Any experience in Identity Resolution and consent Data?",
+    "field_type": "chip_choice",
+    "answer": "Yes",
+    "options": [
+      "Yes",
+      "No"
+    ],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-01 20:34:33",
+    "job_title": "Senior Data Engineer",
+    "company": "Tredence",
+    "question": "Salutation",
+    "field_type": "chip_choice",
+    "answer": "Mr.",
+    "options": [
+      "Mr.",
+      "Mrs.",
+      "Mx.",
+      "Ms."
+    ],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-01 20:34:40",
+    "job_title": "Senior Data Engineer",
+    "company": "Tredence",
+    "question": "Date of Birth",
+    "field_type": "text",
+    "answer": "15/08/1999",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-01 20:34:46",
+    "job_title": "Senior Data Engineer",
+    "company": "Tredence",
+    "question": "Date of Birth",
+    "field_type": "text",
+    "answer": "15/08/1999",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-01 20:35:39",
+    "job_title": "Data Quality Engineer(ETL Automation) PAN India EPAM Locations",
+    "company": "Epam Systems",
+    "question": "How many years of experience do you have in Data quality Engineering/ETL Automation testing?",
+    "field_type": "text",
+    "answer": "3",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-01 20:37:51",
+    "job_title": "Snowflake Developer (2 To 5 Years)",
+    "company": "Infosys",
+    "question": "Please select the city you are currently residing or willing to relocate to",
+    "field_type": "text",
+    "answer": "Gurugram",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-01 20:38:52",
+    "job_title": "Tech Mahindra Hiring For Bigdata With Python and Pyspark (BLR/Chn)",
+    "company": "Tech Mahindra",
+    "question": "Are you interested working with tech mahindra",
+    "field_type": "text",
+    "answer": "Yes",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-01 20:38:59",
+    "job_title": "Tech Mahindra Hiring For Bigdata With Python and Pyspark (BLR/Chn)",
+    "company": "Tech Mahindra",
+    "question": "PAN Number is mandatory to process your profile",
+    "field_type": "text",
+    "answer": "HMDPK5264C",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-01 20:39:05",
+    "job_title": "Tech Mahindra Hiring For Bigdata With Python and Pyspark (BLR/Chn)",
+    "company": "Tech Mahindra",
+    "question": "Experience in core big data platform",
+    "field_type": "text",
+    "answer": "3",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-01 20:39:12",
+    "job_title": "Tech Mahindra Hiring For Bigdata With Python and Pyspark (BLR/Chn)",
+    "company": "Tech Mahindra",
+    "question": "Experience inLinux & Shell Scripting",
+    "field_type": "text",
+    "answer": "3.5",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-01 20:39:18",
+    "job_title": "Tech Mahindra Hiring For Bigdata With Python and Pyspark (BLR/Chn)",
+    "company": "Tech Mahindra",
+    "question": "Python / PySpark",
+    "field_type": "text",
+    "answer": "3.5",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-01 20:39:25",
+    "job_title": "Tech Mahindra Hiring For Bigdata With Python and Pyspark (BLR/Chn)",
+    "company": "Tech Mahindra",
+    "question": "very strong analytical skills exp",
+    "field_type": "text",
+    "answer": "3.5",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-01 20:39:31",
+    "job_title": "Tech Mahindra Hiring For Bigdata With Python and Pyspark (BLR/Chn)",
+    "company": "Tech Mahindra",
+    "question": "Willing to relocate Bangalore/Chennai location is mandatory",
+    "field_type": "text",
+    "answer": "Gurugram",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-01 20:40:00",
+    "job_title": "Etl Test Engineer",
+    "company": "Infosys",
+    "question": "Are you currently working?",
+    "field_type": "chip_choice",
+    "answer": "Yes",
+    "options": [
+      "Yes\nNo",
+      "Yes\nNo",
+      "Yes",
+      "Yes",
+      "No",
+      "No"
+    ],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-01 20:40:07",
+    "job_title": "Etl Test Engineer",
+    "company": "Infosys",
+    "question": "What is the name of your current organization?",
+    "field_type": "text",
+    "answer": "Lemon Tree Hotels Limited",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-01 20:40:14",
+    "job_title": "Etl Test Engineer",
+    "company": "Infosys",
+    "question": "What is your designation at Lemon Tree Hotels Limited?",
+    "field_type": "text",
+    "answer": "Data Engineer",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-01 20:40:19",
+    "job_title": "Etl Test Engineer",
+    "company": "Infosys",
+    "question": "What is the name of your undergraduate course?",
+    "field_type": "chip_choice",
+    "answer": "B.Tech / B.E.\nB.Com\nB.Sc\nB.A\nDiploma\nB.C.A.\nM.B.B.S.\nB.B.A. / B.M.S.\nLoad more",
+    "options": [
+      "B.Tech / B.E.\nB.Com\nB.Sc\nB.A\nDiploma\nB.C.A.\nM.B.B.S.\nB.B.A. / B.M.S.\nLoad more",
+      "B.Tech / B.E.\nB.Com\nB.Sc\nB.A\nDiploma\nB.C.A.\nM.B.B.S.\nB.B.A. / B.M.S.\nLoad more",
+      "B.Tech / B.E.",
+      "B.Tech / B.E.",
+      "B.Com",
+      "B.Com",
+      "B.Sc",
+      "B.Sc",
+      "B.A",
+      "B.A",
+      "Diploma",
+      "Diploma",
+      "B.C.A.",
+      "B.C.A.",
+      "M.B.B.S.",
+      "M.B.B.S.",
+      "B.B.A. / B.M.S.",
+      "B.B.A. / B.M.S."
+    ],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-01 20:40:26",
+    "job_title": "Etl Test Engineer",
+    "company": "Infosys",
+    "question": "What is the name of your undergraduate course?",
+    "field_type": "chip_choice",
+    "answer": "B.Tech / B.E.\nB.Com\nB.Sc\nB.A\nDiploma\nB.C.A.\nM.B.B.S.\nB.B.A. / B.M.S.\nLoad more",
+    "options": [
+      "B.Tech / B.E.\nB.Com\nB.Sc\nB.A\nDiploma\nB.C.A.\nM.B.B.S.\nB.B.A. / B.M.S.\nLoad more",
+      "B.Tech / B.E.\nB.Com\nB.Sc\nB.A\nDiploma\nB.C.A.\nM.B.B.S.\nB.B.A. / B.M.S.\nLoad more",
+      "B.Tech / B.E.",
+      "B.Tech / B.E.",
+      "B.Com",
+      "B.Com",
+      "B.Sc",
+      "B.Sc",
+      "B.A",
+      "B.A",
+      "Diploma",
+      "Diploma",
+      "B.C.A.",
+      "B.C.A.",
+      "M.B.B.S.",
+      "M.B.B.S.",
+      "B.B.A. / B.M.S.",
+      "B.B.A. / B.M.S."
+    ],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-01 20:40:34",
+    "job_title": "Etl Test Engineer",
+    "company": "Infosys",
+    "question": "What is the name of your undergraduate course?",
+    "field_type": "text",
+    "answer": "B.Tech",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-01 20:40:40",
+    "job_title": "Etl Test Engineer",
+    "company": "Infosys",
+    "question": "Awesome! What specialization did you choose in B.Tech?",
+    "field_type": "text",
+    "answer": "Computer Science & Engineering",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-01 20:40:47",
+    "job_title": "Etl Test Engineer",
+    "company": "Infosys",
+    "question": "Amazing! Which university or college did you attend for B.Tech in Computer Science?",
+    "field_type": "text",
+    "answer": "Yes",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-01 20:42:08",
+    "job_title": "AWS Databricks",
+    "company": "Kasmo Cloud Solutions",
+    "question": "Which of these locations are you willing to relocate to?",
+    "field_type": "checkbox",
+    "answer": "Selected intelligent options",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-01 20:42:51",
+    "job_title": "Palantir, Pyspark - Pan India - 22nd Jul (Wednesday) - Virtual Drive",
+    "company": "Tata Consultancy Services",
+    "question": "Are you immediate joiner? Or serving ? notice period negotiable up to how many days. Please go through JD & apply. (5-14) Years Experience only.",
+    "field_type": "checkbox",
+    "answer": "Selected intelligent options",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-01 20:43:00",
+    "job_title": "Palantir, Pyspark - Pan India - 22nd Jul (Wednesday) - Virtual Drive",
+    "company": "Tata Consultancy Services",
+    "question": "26 Aug (Wednesday)-.Time(11-4pm). Don't say Yes/anytime/OK /1st half/2nd half/1st slot/2nd slot. Any 1 Half hour slot. Mention exact time.",
+    "field_type": "text",
+    "answer": "1:30 PM",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-01 20:43:07",
+    "job_title": "Palantir, Pyspark - Pan India - 22nd Jul (Wednesday) - Virtual Drive",
+    "company": "Tata Consultancy Services",
+    "question": "10th or diploma Which year completed? Provide me with TCS registration No. or Mention the email which is register with TCS or Please register",
+    "field_type": "text",
+    "answer": "2016",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-01 20:43:14",
+    "job_title": "Palantir, Pyspark - Pan India - 22nd Jul (Wednesday) - Virtual Drive",
+    "company": "Tata Consultancy Services",
+    "question": "12th or If done only Diploma please mention how many years & years of completion (only fulltime). No Ex- TCS. Don't waste time for both.",
+    "field_type": "text",
+    "answer": "3.5",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-01 20:43:21",
+    "job_title": "Palantir, Pyspark - Pan India - 22nd Jul (Wednesday) - Virtual Drive",
+    "company": "Tata Consultancy Services",
+    "question": "Ug or degree or Graduation , If u done PG or master in fulltime - mention 10th, 12th, Diploma UG or PG -passing year for all.(only fulltime)",
+    "field_type": "text",
+    "answer": "2016",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-01 20:43:26",
+    "job_title": "Palantir, Pyspark - Pan India - 22nd Jul (Wednesday) - Virtual Drive",
+    "company": "Tata Consultancy Services",
+    "question": "Surely will u attend - 26 Aug (Wednesday)-. I will shortlist u & sent mail to u. Please check ur mail. Don't say mistakenly applied. I can't call u.",
+    "field_type": "checkbox",
+    "answer": "Selected intelligent options",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-01 20:43:36",
+    "job_title": "Palantir, Pyspark - Pan India - 22nd Jul (Wednesday) - Virtual Drive",
+    "company": "Tata Consultancy Services",
+    "question": "Current & preferred any TCS location-Pan India.It will b 5 days of office. No WFH /Hybrid. Laptop is Mandatory for interview & any government id proof",
+    "field_type": "text",
+    "answer": "Gurugram, Noida, Delhi NCR",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-01 20:43:42",
+    "job_title": "Palantir, Pyspark - Pan India - 22nd Jul (Wednesday) - Virtual Drive",
+    "company": "Tata Consultancy Services",
+    "question": "How many years of experience in pALANTIR, pYSPARK ? Please see JD & apply. Then don't ask for JD in call.",
+    "field_type": "text",
+    "answer": "3",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-01 20:44:08",
+    "job_title": "AWS Pyspark | MNC | 5+ yrs!!",
+    "company": "India's Largest IT Service Provider",
+    "question": "Are you having PF and UAN number with all the employments?",
+    "field_type": "text",
+    "answer": "Yes",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-01 20:44:15",
+    "job_title": "AWS Pyspark | MNC | 5+ yrs!!",
+    "company": "India's Largest IT Service Provider",
+    "question": "Have you registered/attended interview/received offer letter from TCS? Mention the year and EP number:",
+    "field_type": "text",
+    "answer": "Yes",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-01 20:44:21",
+    "job_title": "AWS Pyspark | MNC | 5+ yrs!!",
+    "company": "India's Largest IT Service Provider",
+    "question": "PAN Number:",
+    "field_type": "text",
+    "answer": "HMDPK5264C",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-01 20:44:28",
+    "job_title": "AWS Pyspark | MNC | 5+ yrs!!",
+    "company": "India's Largest IT Service Provider",
+    "question": "Date of Birth:",
+    "field_type": "text",
+    "answer": "15/08/1999",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-01 20:44:34",
+    "job_title": "AWS Pyspark | MNC | 5+ yrs!!",
+    "company": "India's Largest IT Service Provider",
+    "question": "Current & Preferred location:",
+    "field_type": "text",
+    "answer": "Gurugram, Noida, Delhi NCR",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-01 20:44:41",
+    "job_title": "AWS Pyspark | MNC | 5+ yrs!!",
+    "company": "India's Largest IT Service Provider",
+    "question": "Whether your educational % is above 50 in the 10th std/12thstd/UG/PG:",
+    "field_type": "text",
+    "answer": "Yes",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-01 20:44:47",
+    "job_title": "AWS Pyspark | MNC | 5+ yrs!!",
+    "company": "India's Largest IT Service Provider",
+    "question": "Do you have any gaps in education/career? If having gap, mention the duration:",
+    "field_type": "text",
+    "answer": "No",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-01 20:44:54",
+    "job_title": "AWS Pyspark | MNC | 5+ yrs!!",
+    "company": "India's Largest IT Service Provider",
+    "question": "Availability for virtual interview on weekdays between 10 AM - 3 PM:",
+    "field_type": "text",
+    "answer": "Yes",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-01 20:46:23",
+    "job_title": "Spark Scala Engineer",
+    "company": "Tata Consultancy Services",
+    "question": "Have u worked in Tcs on direct or indirect payroll?",
+    "field_type": "chip_choice",
+    "answer": "No",
+    "options": [
+      "No",
+      "Yes"
+    ],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-01 20:47:31",
+    "job_title": "Hiring For Python with Spark",
+    "company": "Tech Mahindra",
+    "question": "Are You really interested work with TECH Mahindra",
+    "field_type": "text",
+    "answer": "Yes",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-01 20:47:38",
+    "job_title": "Hiring For Python with Spark",
+    "company": "Tech Mahindra",
+    "question": "PAN Number is mandatory to upload your profile",
+    "field_type": "text",
+    "answer": "HMDPK5264C",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-01 20:47:44",
+    "job_title": "Hiring For Python with Spark",
+    "company": "Tech Mahindra",
+    "question": "Very strong experience in Python Coding",
+    "field_type": "text",
+    "answer": "3",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-01 20:47:51",
+    "job_title": "Hiring For Python with Spark",
+    "company": "Tech Mahindra",
+    "question": "Experience in Spark",
+    "field_type": "text",
+    "answer": "3",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-01 20:47:57",
+    "job_title": "Hiring For Python with Spark",
+    "company": "Tech Mahindra",
+    "question": "Experience with Pandas for data manipulation and analysis.",
+    "field_type": "text",
+    "answer": "3.5",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-01 20:48:02",
+    "job_title": "Hiring For Python with Spark",
+    "company": "Tech Mahindra",
+    "question": "Please select the city you are currently residing or willing to relocate to mandatory",
+    "field_type": "checkbox",
+    "answer": "Selected intelligent options",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-01 20:48:12",
+    "job_title": "Hiring For Python with Spark",
+    "company": "Tech Mahindra",
+    "question": "Final round of interview must be F2F? If you are not available do not apply",
+    "field_type": "text",
+    "answer": "Yes",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-01 20:51:00",
+    "job_title": "Senior Data Engineer",
+    "company": "Tredence",
+    "question": "Salutation",
+    "field_type": "chip_choice",
+    "answer": "Mr.",
+    "options": [
+      "Mr.",
+      "Mrs.",
+      "Mx.",
+      "Ms."
+    ],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-01 20:51:06",
+    "job_title": "Senior Data Engineer",
+    "company": "Tredence",
+    "question": "Something went wrong. Please Try again later",
+    "field_type": "chip_choice",
+    "answer": "Try again",
+    "options": [
+      "Try again",
+      "Try again",
+      "Try again",
+      "Try again"
+    ],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-01 20:51:12",
+    "job_title": "Senior Data Engineer",
+    "company": "Tredence",
+    "question": "Something went wrong. Please Try again later",
+    "field_type": "chip_choice",
+    "answer": "Try again",
+    "options": [
+      "Try again",
+      "Try again",
+      "Try again",
+      "Try again"
+    ],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-01 20:51:21",
+    "job_title": "Senior Data Engineer",
+    "company": "Tredence",
+    "question": "Something went wrong. Please Try again later",
+    "field_type": "text",
+    "answer": "3.5",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-01 20:51:25",
+    "job_title": "Senior Data Engineer",
+    "company": "Tredence",
+    "question": "Something went wrong. Please Try again later",
+    "field_type": "chip_choice",
+    "answer": "Try again\nRestart Conversation",
+    "options": [
+      "Try again\nRestart Conversation",
+      "Try again\nRestart Conversation",
+      "Try again",
+      "Try again",
+      "Restart Conversation",
+      "Restart Conversation"
+    ],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-01 20:51:31",
+    "job_title": "Senior Data Engineer",
+    "company": "Tredence",
+    "question": "Something went wrong. Please Try again later",
+    "field_type": "chip_choice",
+    "answer": "Try again\nRestart Conversation",
+    "options": [
+      "Try again\nRestart Conversation",
+      "Try again\nRestart Conversation",
+      "Try again",
+      "Try again",
+      "Restart Conversation",
+      "Restart Conversation"
+    ],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-01 20:51:39",
+    "job_title": "Senior Data Engineer",
+    "company": "Tredence",
+    "question": "Something went wrong. Please Try again later",
+    "field_type": "text",
+    "answer": "3.5",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-01 20:51:43",
+    "job_title": "Senior Data Engineer",
+    "company": "Tredence",
+    "question": "Something went wrong. Please Try again later",
+    "field_type": "chip_choice",
+    "answer": "Try again\nRestart Conversation",
+    "options": [
+      "Try again\nRestart Conversation",
+      "Try again\nRestart Conversation",
+      "Try again",
+      "Try again",
+      "Restart Conversation",
+      "Restart Conversation"
+    ],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-01 20:51:49",
+    "job_title": "Senior Data Engineer",
+    "company": "Tredence",
+    "question": "Something went wrong. Please Try again later",
+    "field_type": "chip_choice",
+    "answer": "Try again\nRestart Conversation",
+    "options": [
+      "Try again\nRestart Conversation",
+      "Try again\nRestart Conversation",
+      "Try again",
+      "Try again",
+      "Restart Conversation",
+      "Restart Conversation"
+    ],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-01 20:51:57",
+    "job_title": "Senior Data Engineer",
+    "company": "Tredence",
+    "question": "Something went wrong. Please Try again later",
+    "field_type": "text",
+    "answer": "3.5",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-01 20:52:02",
+    "job_title": "Senior Data Engineer",
+    "company": "Tredence",
+    "question": "Something went wrong. Please Try again later",
+    "field_type": "chip_choice",
+    "answer": "Try again\nRestart Conversation",
+    "options": [
+      "Try again\nRestart Conversation",
+      "Try again\nRestart Conversation",
+      "Try again",
+      "Try again",
+      "Restart Conversation",
+      "Restart Conversation"
+    ],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-01 20:52:07",
+    "job_title": "Senior Data Engineer",
+    "company": "Tredence",
+    "question": "Something went wrong. Please Try again later",
+    "field_type": "chip_choice",
+    "answer": "Try again\nRestart Conversation",
+    "options": [
+      "Try again\nRestart Conversation",
+      "Try again\nRestart Conversation",
+      "Try again",
+      "Try again",
+      "Restart Conversation",
+      "Restart Conversation"
+    ],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-01 20:52:16",
+    "job_title": "Senior Data Engineer",
+    "company": "Tredence",
+    "question": "Something went wrong. Please Try again later",
+    "field_type": "text",
+    "answer": "3.5",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-01 20:52:21",
+    "job_title": "Senior Data Engineer",
+    "company": "Tredence",
+    "question": "Something went wrong. Please Try again later",
+    "field_type": "chip_choice",
+    "answer": "Try again\nRestart Conversation",
+    "options": [
+      "Try again\nRestart Conversation",
+      "Try again\nRestart Conversation",
+      "Try again",
+      "Try again",
+      "Restart Conversation",
+      "Restart Conversation"
+    ],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-01 20:52:27",
+    "job_title": "Senior Data Engineer",
+    "company": "Tredence",
+    "question": "Something went wrong. Please Try again later",
+    "field_type": "chip_choice",
+    "answer": "Try again\nRestart Conversation",
+    "options": [
+      "Try again\nRestart Conversation",
+      "Try again\nRestart Conversation",
+      "Try again",
+      "Try again",
+      "Restart Conversation",
+      "Restart Conversation"
+    ],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-01 20:53:41",
+    "job_title": "Senior Data Engineer",
+    "company": "Ascendion Engineering",
+    "question": "If Serving notice, what is your last working day?",
+    "field_type": "text",
+    "answer": "30 Days",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-01 20:53:47",
+    "job_title": "Senior Data Engineer",
+    "company": "Ascendion Engineering",
+    "question": "What is your current location?",
+    "field_type": "text",
+    "answer": "Gurugram",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-01 20:53:51",
+    "job_title": "Senior Data Engineer",
+    "company": "Ascendion Engineering",
+    "question": "L1 Discussion is face to face, please let me know if available for that.",
+    "field_type": "checkbox",
+    "answer": "Selected intelligent options",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-02 11:44:33",
+    "job_title": "Senior Databricks / Azure Data Engineer",
+    "company": "NTT DATA, Inc.",
+    "question": "Which of these locations are you willing to relocate to?",
+    "field_type": "checkbox",
+    "answer": "Selected intelligent options",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-02 11:45:36",
+    "job_title": "Data Engineer_Gurgaon_5yrs_15 October Joiners Only_Hybrid",
+    "company": "RiDiK",
+    "question": "Are you currently residing in Gurugram or willing to relocate to Gurugram? 12 Days WFO -HYBRID mode",
+    "field_type": "chip_choice",
+    "answer": "Yes",
+    "options": [
+      "Yes",
+      "No"
+    ],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-02 11:45:41",
+    "job_title": "Data Engineer_Gurgaon_5yrs_15 October Joiners Only_Hybrid",
+    "company": "RiDiK",
+    "question": "Have you applied before in ITC Infotech?",
+    "field_type": "checkbox",
+    "answer": "Selected intelligent options",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-02 11:45:51",
+    "job_title": "Data Engineer_Gurgaon_5yrs_15 October Joiners Only_Hybrid",
+    "company": "RiDiK",
+    "question": "Last working Date:",
+    "field_type": "text",
+    "answer": "30 Days",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-02 11:47:49",
+    "job_title": "Snowflake Data Engineer",
+    "company": "Epam Systems",
+    "question": "Are you available to face to face on 10th Oct in Pune? If you are sure then only confirm",
+    "field_type": "text",
+    "answer": "Yes",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-03 12:36:53",
+    "job_title": "Google Cloud Data Engineer",
+    "company": "Tata Consultancy Services",
+    "question": "How many years of experience you have in Linux Commands?",
+    "field_type": "text",
+    "answer": "3.5",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-03 12:37:23",
+    "job_title": "Data Engineer",
+    "company": "Hatchtra Innotech",
+    "question": "What Role / Roles you are applying for?",
+    "field_type": "text",
+    "answer": "3.5",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-03 12:37:30",
+    "job_title": "Data Engineer",
+    "company": "Hatchtra Innotech",
+    "question": "What is your current location?",
+    "field_type": "text",
+    "answer": "Gurugram",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-03 12:37:35",
+    "job_title": "Data Engineer",
+    "company": "Hatchtra Innotech",
+    "question": "Preferred Employment Type?",
+    "field_type": "checkbox",
+    "answer": "Selected intelligent options",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-03 12:38:11",
+    "job_title": "Snowflake Data Engineer & Admin",
+    "company": "Kasmo Cloud Solutions",
+    "question": "Are you currently living in or ready to relocate to Hyderabad ?",
+    "field_type": "chip_choice",
+    "answer": "Yes",
+    "options": [
+      "Yes",
+      "No"
+    ],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-03 12:38:16",
+    "job_title": "Snowflake Data Engineer & Admin",
+    "company": "Kasmo Cloud Solutions",
+    "question": "How many years of experience do you have as Snowflake Data Engineer & Admin ?",
+    "field_type": "chip_choice",
+    "answer": "2-4 years",
+    "options": [
+      "No experience",
+      "<2 years",
+      "2-4 years",
+      "4-6 years",
+      "6-8 years",
+      "8-10 years",
+      ">10 years"
+    ],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-03 12:38:42",
+    "job_title": "Snowflake Developer",
+    "company": "Wissen Technology",
+    "question": "Apply only if current Location is Bangalore",
+    "field_type": "text",
+    "answer": "Gurugram",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-03 12:38:46",
+    "job_title": "Snowflake Developer",
+    "company": "Wissen Technology",
+    "question": "Available for Face to face interview",
+    "field_type": "checkbox",
+    "answer": "Selected intelligent options",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-03 12:39:31",
+    "job_title": "Data Platform Engineer",
+    "company": "Wipro",
+    "question": "How many years of experience do you have in platform engineer?",
+    "field_type": "text",
+    "answer": "3.5",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-03 19:32:03",
+    "job_title": "Unknown Job",
+    "company": "Unknown Company",
+    "question": "Pick available location with multiple locations",
+    "field_type": "checkbox",
+    "answer": "Selected intelligent options",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-03 19:34:07",
+    "job_title": "Unknown Job",
+    "company": "Unknown Company",
+    "question": "Have you worked in DBT (Data Build Tool)?",
+    "field_type": "checkbox",
+    "answer": "Selected intelligent options",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-03 19:34:08",
+    "job_title": "Unknown Job",
+    "company": "Unknown Company",
+    "question": "Have you worked in / applied to Deloitte earlier?",
+    "field_type": "checkbox",
+    "answer": "Selected intelligent options",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-03 19:54:47",
+    "job_title": "Unknown Job",
+    "company": "Unknown Company",
+    "question": "Pick available location with multiple locations",
+    "field_type": "checkbox",
+    "answer": "Selected intelligent options",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-03 19:56:51",
+    "job_title": "Unknown Job",
+    "company": "Unknown Company",
+    "question": "Have you worked in DBT (Data Build Tool)?",
+    "field_type": "checkbox",
+    "answer": "Selected intelligent options",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-03 19:56:52",
+    "job_title": "Unknown Job",
+    "company": "Unknown Company",
+    "question": "Have you worked in / applied to Deloitte earlier?",
+    "field_type": "checkbox",
+    "answer": "Selected intelligent options",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-03 20:39:50",
+    "job_title": "Google Cloud Data Engineer",
+    "company": "Tata Consultancy Services",
+    "question": "Have you worked on BigQuery and Dataflow in production?",
+    "field_type": "text",
+    "answer": "Yes",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-03 20:39:56",
+    "job_title": "Google Cloud Data Engineer",
+    "company": "Tata Consultancy Services",
+    "question": "Have you built streaming pipelines using Pub/Sub?",
+    "field_type": "text",
+    "answer": "Yes",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-03 20:40:02",
+    "job_title": "Google Cloud Data Engineer",
+    "company": "Tata Consultancy Services",
+    "question": "What is your hands-on experience in Python and SQL?",
+    "field_type": "text",
+    "answer": "3",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-03 20:40:37",
+    "job_title": "GCP Data Engineer - Hyd / Delhi",
+    "company": "Embarkgcc Services",
+    "question": "Please select the city you are currently residing",
+    "field_type": "checkbox",
+    "answer": "Selected intelligent options",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-04 20:55:17",
+    "job_title": "Big Data Engineer (Hadoop & PySpark)",
+    "company": "Infosys",
+    "question": "How many years of experience do you have in PySpark + Hadoop?",
+    "field_type": "text",
+    "answer": "3",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-04 20:55:24",
+    "job_title": "Big Data Engineer (Hadoop & PySpark)",
+    "company": "Infosys",
+    "question": "Are you an ex-Infosys employee? If Yes: Please provide your Infosys Employee ID, If No: Mention NA",
+    "field_type": "text",
+    "answer": "No",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-04 20:58:29",
+    "job_title": "PySpark Databricks Developer-Pan India",
+    "company": "Infosys",
+    "question": "Are you an ex-Infosys employee? If Yes: Please provide your Infosys Employee ID, If No: Mention NA",
+    "field_type": "text",
+    "answer": "No",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-04 20:58:36",
+    "job_title": "PySpark Databricks Developer-Pan India",
+    "company": "Infosys",
+    "question": "What is your Notice Period /Earliest Joining Availability?",
+    "field_type": "text",
+    "answer": "30 Days",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-04 20:59:28",
+    "job_title": "Azure | Databricks | PySpark - Pan India",
+    "company": "Infosys",
+    "question": "Are you an ex-Infosys employee? If Yes: Please provide your Infosys Employee ID, If No: Mention NA",
+    "field_type": "text",
+    "answer": "No",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-04 20:59:34",
+    "job_title": "Azure | Databricks | PySpark - Pan India",
+    "company": "Infosys",
+    "question": "What is your Notice Period /Earliest Joining Availability?",
+    "field_type": "text",
+    "answer": "30 Days",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-04 21:22:14",
+    "job_title": "GCP Data Engineer - Python & SQL",
+    "company": "LTIMindtree",
+    "question": "How many years of experience do you have in GCP Data Engineer?",
+    "field_type": "text",
+    "answer": "2",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-04 21:24:06",
+    "job_title": "MDM Data Engineer",
+    "company": "Embarkgcc Services",
+    "question": "How many years of experience do you have in Finance?",
+    "field_type": "text",
+    "answer": "3.5",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-04 21:27:03",
+    "job_title": "Pyspark Developer",
+    "company": "Tata Consultancy Services",
+    "question": "How many years of experience do you have in Pyspark?",
+    "field_type": "text",
+    "answer": "3",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-05 20:55:25",
+    "job_title": "Unknown Job",
+    "company": "Unknown Company",
+    "question": "Pick available location with multiple locations",
+    "field_type": "checkbox",
+    "answer": "Selected intelligent options",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-05 20:57:29",
+    "job_title": "Unknown Job",
+    "company": "Unknown Company",
+    "question": "Have you worked in DBT (Data Build Tool)?",
+    "field_type": "checkbox",
+    "answer": "Selected intelligent options",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-05 20:57:30",
+    "job_title": "Unknown Job",
+    "company": "Unknown Company",
+    "question": "Have you worked in / applied to Deloitte earlier?",
+    "field_type": "checkbox",
+    "answer": "Selected intelligent options",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-05 21:05:13",
+    "job_title": "Big Data Engineer (AWS + Scala Mandatory)",
+    "company": "Coforge",
+    "question": "Are your available upcoming Saturday for first round?",
+    "field_type": "text",
+    "answer": "Yes",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-05 21:05:47",
+    "job_title": "Data Engineer",
+    "company": "Skyleaf Consultants",
+    "question": "Are you currently residing in Gurugram, Haryana or willing to relocate to Gurugram, Haryana?",
+    "field_type": "chip_choice",
+    "answer": "Yes",
+    "options": [
+      "Yes",
+      "No"
+    ],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-05 21:06:22",
+    "job_title": "Data Engineer",
+    "company": "Wissen Technology",
+    "question": "Are you available on 10th Oct for F2F drive at BLR or MUM office?",
+    "field_type": "chip_choice",
+    "answer": "Yes",
+    "options": [
+      "Yes",
+      "No"
+    ],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-05 21:07:01",
+    "job_title": "GCP Data Engineer",
+    "company": "Impetus Technologies",
+    "question": "Are you currently living in or ready to relocate to Gurugram ?",
+    "field_type": "chip_choice",
+    "answer": "Yes",
+    "options": [
+      "Yes",
+      "No"
+    ],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-05 21:07:07",
+    "job_title": "GCP Data Engineer",
+    "company": "Impetus Technologies",
+    "question": "How many years of experience do you have as GCP Data Engineer ?",
+    "field_type": "chip_choice",
+    "answer": "2-4 years",
+    "options": [
+      "No experience",
+      "<2 years",
+      "2-4 years",
+      "4-5 years",
+      "5-6 years",
+      "6-7 years",
+      "7-8 years",
+      ">8 years"
+    ],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-05 21:08:13",
+    "job_title": "Senior Data Engineer / Snowflake & Tableau Developer",
+    "company": "Imedhas",
+    "question": "Do you have 5 8 years of hands-on experience in Snowflake and data warehousing?",
+    "field_type": "text",
+    "answer": "3.5",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-05 21:08:19",
+    "job_title": "Senior Data Engineer / Snowflake & Tableau Developer",
+    "company": "Imedhas",
+    "question": "Do you have strong experience in Tableau Desktop and Tableau Server/Cloud, including dashboard development?",
+    "field_type": "text",
+    "answer": "Yes",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-05 21:08:26",
+    "job_title": "Senior Data Engineer / Snowflake & Tableau Developer",
+    "company": "Imedhas",
+    "question": "Do you have advanced SQL experience with complex joins, CTEs, subqueries, window functions, aggregations, and query optimization?",
+    "field_type": "text",
+    "answer": "Yes",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-05 21:08:33",
+    "job_title": "Senior Data Engineer / Snowflake & Tableau Developer",
+    "company": "Imedhas",
+    "question": "Do you have hands-on experience with AWS services such as S3, Lambda, Glue, and Redshift?",
+    "field_type": "text",
+    "answer": "Yes",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-05 21:08:40",
+    "job_title": "Senior Data Engineer / Snowflake & Tableau Developer",
+    "company": "Imedhas",
+    "question": "1. Are you comfortable working in a Hybrid setup in Hyderabad under a C2H model?",
+    "field_type": "text",
+    "answer": "Yes",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-05 21:12:03",
+    "job_title": "Snowflake Data Engineer (Support)",
+    "company": "Coforge",
+    "question": "How many years of experience do you have with Snowflake?",
+    "field_type": "text",
+    "answer": "3.5",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-05 21:12:10",
+    "job_title": "Snowflake Data Engineer (Support)",
+    "company": "Coforge",
+    "question": "This profile involves Support Role as well. Are you comfortable?",
+    "field_type": "text",
+    "answer": "Yes",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-05 21:12:37",
+    "job_title": "Python Developer_Pandas_Numpy_SQL_ETL_AWS",
+    "company": "Crescendo Global",
+    "question": "How many years of experience with Python development?",
+    "field_type": "text",
+    "answer": "3",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-05 21:12:41",
+    "job_title": "Python Developer_Pandas_Numpy_SQL_ETL_AWS",
+    "company": "Crescendo Global",
+    "question": "Do you have experience with Pandas and Numpy?",
+    "field_type": "chip_choice",
+    "answer": "yes",
+    "options": [
+      "yes",
+      "no"
+    ],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-05 21:12:47",
+    "job_title": "Python Developer_Pandas_Numpy_SQL_ETL_AWS",
+    "company": "Crescendo Global",
+    "question": "Which of the following platforms have you worked with?",
+    "field_type": "checkbox",
+    "answer": "Selected intelligent options",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-05 21:12:55",
+    "job_title": "Python Developer_Pandas_Numpy_SQL_ETL_AWS",
+    "company": "Crescendo Global",
+    "question": "Have you got experience utilizing APIs for data extraction and automation ?",
+    "field_type": "chip_choice",
+    "answer": "yes",
+    "options": [
+      "yes",
+      "no"
+    ],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-05 21:13:02",
+    "job_title": "Python Developer_Pandas_Numpy_SQL_ETL_AWS",
+    "company": "Crescendo Global",
+    "question": "Can you work from Noida/Gurugram/bangalore/Pune",
+    "field_type": "text",
+    "answer": "Yes",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-05 21:13:09",
+    "job_title": "Python Developer_Pandas_Numpy_SQL_ETL_AWS",
+    "company": "Crescendo Global",
+    "question": "What is your notice/Last working day?",
+    "field_type": "text",
+    "answer": "30 Days",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-05 21:23:34",
+    "job_title": "GCP Data Engineer",
+    "company": "Impetus Technologies",
+    "question": "Which of these locations are you willing to relocate to?",
+    "field_type": "checkbox",
+    "answer": "Selected intelligent options",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-05 21:28:07",
+    "job_title": "Data Engineer",
+    "company": "Happiest Minds Technologies",
+    "question": "Are you aware about ML based Pipelines",
+    "field_type": "text",
+    "answer": "Yes",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-05 21:28:13",
+    "job_title": "Data Engineer",
+    "company": "Happiest Minds Technologies",
+    "question": "Work Location : Noida Working Mode : Hybrid, Are you comfortable?",
+    "field_type": "text",
+    "answer": "Gurugram",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-05 21:28:20",
+    "job_title": "Data Engineer",
+    "company": "Happiest Minds Technologies",
+    "question": "What is your Last Working Day?",
+    "field_type": "text",
+    "answer": "30 Days",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-05 21:35:56",
+    "job_title": "Data Engineer",
+    "company": "Airties",
+    "question": "Are you currently residing in Bengaluru or willing to relocate to Bengaluru?",
+    "field_type": "chip_choice",
+    "answer": "Yes",
+    "options": [
+      "Yes",
+      "No"
+    ],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-05 21:45:44",
+    "job_title": "GCP BigQuery Developer (2 To 5 years)",
+    "company": "Infosys",
+    "question": "Please select the city you are currently residing or willing to relocate to",
+    "field_type": "text",
+    "answer": "Gurugram",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-05 21:50:22",
+    "job_title": "Aws Data Engineer (Pan India)",
+    "company": "Infosys",
+    "question": "Are you an ex-Infosys employee? If Yes: Please provide your Infosys Employee ID, If No: Mention NA",
+    "field_type": "text",
+    "answer": "No",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-05 21:51:25",
+    "job_title": "Snowflake Engineer - 8th April - Virtual Interview -",
+    "company": "Tata Consultancy Services",
+    "question": "Are you immediate joiner? Or serving ? notice period negotiable up to how many days",
+    "field_type": "chip_choice",
+    "answer": "30 days only",
+    "options": [
+      "30 days only",
+      "15 days only",
+      "Not serving",
+      "Immmediate",
+      "60 days only",
+      "90 days only"
+    ],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-05 21:51:32",
+    "job_title": "Snowflake Engineer - 8th April - Virtual Interview -",
+    "company": "Tata Consultancy Services",
+    "question": "8th April (Wed).Mention Time ( 10 am to 4pm). 2 Half hour slot. Don't mention as Yes or anytime or Ok. Mention time slot",
+    "field_type": "text",
+    "answer": "1:30 PM",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-05 21:51:39",
+    "job_title": "Snowflake Engineer - 8th April - Virtual Interview -",
+    "company": "Tata Consultancy Services",
+    "question": "10th or diploma Which year completed? Do you have TCS registration No. OR Mention the email which is register with TCS",
+    "field_type": "text",
+    "answer": "2016",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-05 21:51:46",
+    "job_title": "Snowflake Engineer - 8th April - Virtual Interview -",
+    "company": "Tata Consultancy Services",
+    "question": "12th or If done only Diploma please mention how many years & years of completion (only fulltime). No Ex- TCS. Don't waste time for both.",
+    "field_type": "text",
+    "answer": "3.5",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-05 21:51:53",
+    "job_title": "Snowflake Engineer - 8th April - Virtual Interview -",
+    "company": "Tata Consultancy Services",
+    "question": "Ug or degree or Graduation , If u done PG or master in fulltime - mention everything 10th, 12th, Diploma UG or PG ..years of completion for all.",
+    "field_type": "text",
+    "answer": "3.5",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-05 21:51:57",
+    "job_title": "Snowflake Engineer - 8th April - Virtual Interview -",
+    "company": "Tata Consultancy Services",
+    "question": "Surely will u attend - 8th April (Wed). I will shortlist u & sent mail to u. Please check ur mail. Don't say like mistakenly applied.",
+    "field_type": "chip_choice",
+    "answer": "Yes will attend the virtual interview on 8th April (Wed)",
+    "options": [
+      "Yes will attend the virtual interview on 8th April (Wed)",
+      "No - Not sure"
+    ],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-05 21:52:04",
+    "job_title": "Snowflake Engineer - 8th April - Virtual Interview -",
+    "company": "Tata Consultancy Services",
+    "question": "Only below location - choose It will be 5 days of office. No WFH or No Hybrid. Laptop is Mandatory for tomorrow interview & any government id proof",
+    "field_type": "checkbox",
+    "answer": "Selected intelligent options",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-06 22:29:14",
+    "job_title": "Unknown Job",
+    "company": "Unknown Company",
+    "question": "Pick available location with multiple locations",
+    "field_type": "checkbox",
+    "answer": "Selected intelligent options",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-06 22:31:17",
+    "job_title": "Unknown Job",
+    "company": "Unknown Company",
+    "question": "Have you worked in DBT (Data Build Tool)?",
+    "field_type": "checkbox",
+    "answer": "Selected intelligent options",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-06 22:31:19",
+    "job_title": "Unknown Job",
+    "company": "Unknown Company",
+    "question": "Have you worked in / applied to Deloitte earlier?",
+    "field_type": "checkbox",
+    "answer": "Selected intelligent options",
+    "options": [],
+    "status": "answered"
+  }
+]

@@ -1573,6 +1573,12 @@ def test_generate_insights_html(tmp_path):
         w.writerow(["Date", "Job ID", "Title", "Company", "Location", "Status", "Job URL"])
         w.writerow(["2026-10-06 20:00:00", "12345", "Data Engineer", "Google", "Gurugram", "Applied", "https://naukri.com/12345"])
 
+    ext_csv = str(tmp_path / "external.csv")
+    with open(ext_csv, "w", encoding="utf-8", newline="") as f:
+        w = csv.writer(f)
+        w.writerow(["Date Discovered", "Job ID", "Company", "Priority Tier", "Priority Score", "Title", "Location", "Experience", "Direct Apply URL", "Naukri URL", "Status", "Notes"])
+        w.writerow(["2026-10-06 20:05:00", "67890", "Microsoft", "Tier 1 (High)", "1", "Azure Data Engineer", "Noida", "3-5 Yrs", "https://careers.microsoft.com/job/67890", "https://naukri.com/67890", "Pending", "Direct portal available"])
+
     json_file = str(tmp_path / "insights.json")
     with open(json_file, "w", encoding="utf-8") as f:
         json.dump([
@@ -1584,13 +1590,18 @@ def test_generate_insights_html(tmp_path):
         ], f)
 
     out_html = str(tmp_path / "insights.html")
-    res = generate_insights_html(csv_path=csv_file, json_path=json_file, output_html_path=out_html)
+    res = generate_insights_html(csv_path=csv_file, json_path=json_file, output_html_path=out_html, external_csv_path=ext_csv)
     assert os.path.isfile(res)
     with open(out_html, "r", encoding="utf-8") as f:
         content = f.read()
     assert "Google" in content
     assert "Data Engineer" in content
+    assert "Microsoft" in content
+    assert "Azure Data Engineer" in content
+    assert "Applied Jobs History" in content
+    assert "External Jobs" in content
     assert "chart.js" in content.lower()
     assert "Naukri Bot Analytics & Insights" in content
+
 
 

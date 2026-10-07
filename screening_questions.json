@@ -4775,5 +4775,35 @@
     "answer": "Selected intelligent options",
     "options": [],
     "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-07 08:12:01",
+    "job_title": "Unknown Job",
+    "company": "Unknown Company",
+    "question": "Pick available location with multiple locations",
+    "field_type": "checkbox",
+    "answer": "Selected intelligent options",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-07 08:14:05",
+    "job_title": "Unknown Job",
+    "company": "Unknown Company",
+    "question": "Have you worked in DBT (Data Build Tool)?",
+    "field_type": "checkbox",
+    "answer": "Selected intelligent options",
+    "options": [],
+    "status": "answered"
+  },
+  {
+    "timestamp": "2026-10-07 08:14:06",
+    "job_title": "Unknown Job",
+    "company": "Unknown Company",
+    "question": "Have you worked in / applied to Deloitte earlier?",
+    "field_type": "checkbox",
+    "answer": "Selected intelligent options",
+    "options": [],
+    "status": "answered"
   }
 ]

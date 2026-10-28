@@ -17,6 +17,8 @@ from chatbot_handler import (
     is_whole_number_required,
     fill_text_input,
     handle_drawer_checkboxes,
+    parse_dob_string,
+    handle_drawer_dob_picker,
 )
 
 
@@ -124,8 +126,8 @@ def test_is_experience_suitable():
 
 def test_resolve_text_questions():
     personals = {
-        "current_ctc_lpa": 13,
-        "expected_ctc_lpa": 18,
+        "current_ctc_lpa": 20,
+        "expected_ctc_lpa": 24,
         "notice_period_days": 30,
         "total_experience_years": 3.5,
         "current_company": "Lemon Tree Hotels Limited",
@@ -149,8 +151,9 @@ def test_resolve_text_questions():
     }
 
     # CTC
-    assert resolve_text_question("Please share your current CTC in LPA", personals, skills_exp) == "13"
-    assert resolve_text_question("What is your expected CTC (annual)", personals, skills_exp) == "18"
+    assert resolve_text_question("Please share your current CTC in LPA", personals, skills_exp) == "20"
+    assert resolve_text_question("What is your expected CTC (annual)", personals, skills_exp) == "24"
+    assert resolve_text_question("Please mention your Current CTC & Expected CTC.", personals, skills_exp) == "20 LPA / 24 LPA"
 
     # Notice Period
     assert resolve_text_question("How many days is your notice period?", personals, skills_exp) == "30"
@@ -211,7 +214,7 @@ def test_resolve_text_questions():
     assert resolve_text_question("what is Your LWD?...", personals, skills_exp) == "30 Days"
 
     # Fixed Annual CTC
-    assert resolve_text_question("Current/Last Drawn Fixed (Annual)...", personals, skills_exp) == "13"
+    assert resolve_text_question("Current/Last Drawn Fixed (Annual)...", personals, skills_exp) == "20"
 
     # Documents (PF & Form 16)
     assert resolve_text_question("Do have PF & Form 16?(if Yes Please share the result)", personals, skills_exp) == "Yes"
@@ -219,6 +222,35 @@ def test_resolve_text_questions():
     # Gaps & Educational percentage
     assert resolve_text_question("Do you have any gaps in education/career? If having please mention", personals, skills_exp) == "No"
     assert resolve_text_question("Whether your educational % is above 50 in the 10th...", personals, skills_exp) == "Yes"
+
+    # Prior company affiliation: only candidate's worked companies return Yes, others return No/NA
+    assert resolve_text_question("Have you worked with cognizant before?", personals, skills_exp) == "No"
+    assert resolve_text_question("Are you an ex-Infosys employee? If Yes: Please provide your Infosys Employee ID, If No: Mention NA", personals, skills_exp) == "NA"
+    assert resolve_text_question("Have you worked for TCS earlier?", personals, skills_exp) == "No"
+    assert resolve_text_question("Have you worked with Lemon Tree Hotels before?", personals, skills_exp) == "Yes"
+    assert resolve_text_question("Have you worked with Zalon earlier?", personals, skills_exp) == "Yes"
+    assert resolve_text_question("Have you ever served in the military?", personals, skills_exp) == "No"
+    assert resolve_text_question("Have you been employed by Happiest Minds before?", personals, skills_exp) == "No"
+
+    # Payroll questions must return current company, NEVER 'No'
+    assert resolve_text_question("Which is your Payroll Company?", personals, skills_exp) == "Lemon Tree Hotels Limited"
+    assert resolve_text_question("Current Payroll Organization", personals, skills_exp) == "Lemon Tree Hotels Limited"
+
+    # On-site / Virtual interview questions
+    assert resolve_text_question("Are you available for a face-to-face interview in Hyderabad on Saturday 31 Oct?", personals, skills_exp) == "Yes"
+    assert resolve_text_question("Are you available for on-site interview?", personals, skills_exp) == "Yes"
+    assert resolve_text_question("Preferred mode of interview: On-site or Virtual?", personals, skills_exp) == "Virtual"
+
+    # Education composite Year + Percentage questions
+    assert resolve_text_question('10th - SSLC (Year of Passing, Percentage/CGPA)" For Example: 10th - 2004 to 2005, 75%', personals, skills_exp) == "2016, 75%"
+    assert resolve_text_question('12th - HSC or Diploma? (Year of Passing, Percentage/CGPA)"', personals, skills_exp) == "2018, 75%"
+    assert resolve_text_question('Graduation (Year of Passing, Percentage/CGPA)"', personals, skills_exp) == "2023, 75%"
+
+    # Links & Offers
+    assert resolve_text_question("LinkedIn Profile", personals, skills_exp) == "https://www.linkedin.com/in/ankitkj1999"
+    assert resolve_text_question("Website", personals, skills_exp) == "https://ankitkj1999.github.io"
+    assert resolve_text_question("Are you holding any Offer? If Yes, Please mention the Offered CTC", personals, skills_exp) == "No"
+    assert resolve_text_question("Have applied jobs direct or any other vendors for Tata Elxsi: - Yes/No", personals, skills_exp) == "No"
 
 
 def test_resolve_chip_choices():
@@ -291,6 +323,29 @@ def test_resolve_chip_choices():
     # If only skip option is present, resolve_chip_choice must return None so text input can be filled
     only_skip = [DummyChip("Skip this question"), DummyChip("Skip")]
     assert resolve_chip_choice("Describe your past projects", only_skip, personals) is None
+
+    # Prior company chip choices: Yes ONLY for worked companies, No for others
+    yn_chips = [DummyChip("No"), DummyChip("Yes")]
+    chosen_cog = resolve_chip_choice("Have you worked with cognizant before?", yn_chips, personals)
+    assert chosen_cog is not None
+    assert chosen_cog.text == "No"
+    chosen_wipro = resolve_chip_choice("Are you Wipro Ex Employee?", yn_chips, personals)
+    assert chosen_wipro is not None
+    assert chosen_wipro.text == "No"
+    chosen_lt = resolve_chip_choice("Have you worked with Lemon Tree Hotels before?", yn_chips, personals)
+    assert chosen_lt is not None
+    assert chosen_lt.text == "Yes"
+    # Military service chip choice: Must select "Never served"
+    mil_chips = [DummyChip("Currently serving"), DummyChip("Previously served"), DummyChip("Never served")]
+    chosen_mil = resolve_chip_choice("Have you ever served in the military?", mil_chips, personals)
+    assert chosen_mil is not None
+    assert chosen_mil.text == "Never served"
+
+    # Interview mode chips: Prefers Virtual
+    mode_chips = [DummyChip("On-site"), DummyChip("Virtual")]
+    chosen_mode = resolve_chip_choice("Preferred mode of interview: Virtual or On-site", mode_chips, personals)
+    assert chosen_mode is not None
+    assert chosen_mode.text == "Virtual"
 
 
 def test_find_naukri_apply_button_excludes_save():
@@ -447,6 +502,38 @@ def test_check_apply_success_redirect_and_elements():
     div_applied = DummyElem(text='Applied to "Data Engineer"', cls="applied-job-content")
     driver_div = DummyDriver(elements=[div_applied])
     assert check_apply_success(driver_div) is True
+
+    # Scenario 4: Neo agent URL must never return True globally even if page_source or elements have 'applied to'
+    driver_neo = DummyDriver(url="https://www.naukri.com/job-apply-agent", elements=[div_applied], page_source="Applied to Data Engineer. Application sent today.")
+    assert check_apply_success(driver_neo) is False
+
+
+def test_check_drawer_completed():
+    from chatbot_handler import check_drawer_completed
+
+    class DummyDrawerMsg:
+        def __init__(self, text=""):
+            self.text = text
+
+    class DummyDrawer:
+        def __init__(self, msgs=None):
+            self.msgs = [DummyDrawerMsg(t) for t in (msgs or [])]
+
+        def find_elements(self, by, val):
+            if "botMsg" in val or "msg-text" in val:
+                return self.msgs
+            return []
+
+    # Greeting message should not mark completed
+    greeting_drawer = DummyDrawer(["Hi Ankit, thank you for showing interest. Kindly answer all the recruiter's questions"])
+    assert check_drawer_completed(greeting_drawer) is False
+
+    # Completion message inside drawer should return True
+    completed_drawer = DummyDrawer([
+        "Hi Ankit, thank you for showing interest.",
+        "Thank you for your responses! Your application has been submitted to Capgemini.",
+    ])
+    assert check_drawer_completed(completed_drawer) is True
 
 
 def test_get_valid_chips_radios():
@@ -880,10 +967,12 @@ def test_sanitize_whole_number():
 
 def test_is_whole_number_required():
     class DummyElem:
-        def __init__(self, elem_type="text", step=None, placeholder=""):
+        def __init__(self, elem_type="text", step=None, placeholder="", name="", class_name=""):
             self.elem_type = elem_type
             self.step = step
             self.placeholder = placeholder
+            self.name = name
+            self.class_name = class_name
 
         def get_attribute(self, name):
             if name == "type":
@@ -892,6 +981,10 @@ def test_is_whole_number_required():
                 return self.step
             if name == "placeholder":
                 return self.placeholder
+            if name == "name":
+                return self.name
+            if name == "class":
+                return self.class_name
             return ""
 
     num_inp = DummyElem(elem_type="number")
@@ -907,12 +1000,126 @@ def test_is_whole_number_required():
     assert is_whole_number_required(question="Enter a whole number between 0 and 99") is True
     assert is_whole_number_required(question="Total years of experience in Python (0-99)") is True
 
+    # Exclusions: DOB and date questions must NEVER be forced to whole numbers 0-99
+    assert is_whole_number_required(question="Date of Birth") is False
+    assert is_whole_number_required(question="Please select your date of birth") is False
+    assert is_whole_number_required(question="What is your DOB?") is False
+    assert is_whole_number_required(input_elem=DummyElem(elem_type="number", name="day", placeholder="DD")) is False
+    assert is_whole_number_required(input_elem=DummyElem(elem_type="number", name="month", placeholder="MM")) is False
+    assert is_whole_number_required(input_elem=DummyElem(elem_type="number", name="year", placeholder="YYYY")) is False
+    assert is_whole_number_required(input_elem=DummyElem(elem_type="date")) is False
+
+
+def test_parse_dob_string():
+    res = parse_dob_string("15/08/1999")
+    assert res["day"] == "15"
+    assert res["month"] == "08"
+    assert res["year"] == "1999"
+    assert res["slash"] == "15/08/1999"
+    assert res["iso"] == "1999-08-15"
+
+    res_dash = parse_dob_string("15-08-1999")
+    assert res_dash["day"] == "15"
+    assert res_dash["month"] == "08"
+    assert res_dash["year"] == "1999"
+
+    res_iso = parse_dob_string("1999-08-15")
+    assert res_iso["day"] == "15"
+    assert res_iso["month"] == "08"
+    assert res_iso["year"] == "1999"
+
+    res_single = parse_dob_string("5/8/1999")
+    assert res_single["day"] == "05"
+    assert res_single["month"] == "08"
+    assert res_single["year"] == "1999"
+
+
+def test_handle_drawer_dob_picker():
+    class MockElem:
+        def __init__(self, tag="input", name="", class_name="", elem_type="number", placeholder=""):
+            self.tag_name = tag
+            self.name = name
+            self.class_name = class_name
+            self.elem_type = elem_type
+            self.placeholder = placeholder
+            self.value = ""
+            self.keys_sent = []
+            self.clicked = False
+
+        def get_attribute(self, name):
+            if name == "name":
+                return self.name
+            if name == "class":
+                return self.class_name
+            if name == "type":
+                return self.elem_type
+            if name == "placeholder":
+                return self.placeholder
+            if name == "value":
+                return self.value
+            return ""
+
+        def is_displayed(self):
+            return True
+
+        def send_keys(self, *keys):
+            self.keys_sent.extend(keys)
+
+        def click(self):
+            self.clicked = True
+
+    class MockDrawer:
+        def __init__(self, day_inp, month_inp, year_inp, send_btn):
+            self.day_inp = day_inp
+            self.month_inp = month_inp
+            self.year_inp = year_inp
+            self.send_btn = send_btn
+
+        def find_elements(self, by, xpath):
+            if "name='day'" in xpath:
+                return [self.day_inp]
+            if "name='month'" in xpath:
+                return [self.month_inp]
+            if "name='year'" in xpath:
+                return [self.year_inp]
+            if "save" in xpath.lower() or "button" in xpath.lower() or "send" in xpath.lower():
+                return [self.send_btn]
+            return []
+
+    class MockDriver:
+        def __init__(self):
+            self.executed_scripts = []
+
+        def execute_script(self, script, *args):
+            self.executed_scripts.append(script)
+            # Emulate JS setting values
+            if "setAndDispatch" in script and len(args) >= 6:
+                args[0].value = args[3]
+                args[1].value = args[4]
+                args[2].value = args[5]
+
+    d_inp = MockElem(name="day", class_name="dob__input day", placeholder="DD")
+    m_inp = MockElem(name="month", class_name="dob__input month", placeholder="MM")
+    y_inp = MockElem(name="year", class_name="dob__input year", placeholder="YYYY")
+    save_btn = MockElem(tag="button", class_name="send", placeholder="")
+    save_btn.text = "Save"
+
+    drawer = MockDrawer(d_inp, m_inp, y_inp, save_btn)
+    driver = MockDriver()
+    personals = {"dob": "15/08/1999"}
+
+    success = handle_drawer_dob_picker(driver, drawer, personals, current_question="Date of Birth")
+    assert success is True
+    assert d_inp.value == "15"
+    assert m_inp.value == "08"
+    assert y_inp.value == "1999"
+
 
 def test_resolve_text_question_whole_number_mode():
     personals = {
         "total_experience_years": 3.5,
-        "current_ctc_lpa": 13,
-        "expected_ctc_lpa": 18,
+        "current_ctc_lpa": 20,
+        "expected_ctc_lpa": 24,
         "notice_period_days": 30,
     }
     skills_exp = {"python": 3, "spark": 3}
@@ -921,7 +1128,7 @@ def test_resolve_text_question_whole_number_mode():
     assert resolve_text_question("Total years of experience", personals, skills_exp, whole_number=True) == "3"
     assert resolve_text_question("Enter a whole number between 0 and 99 for experience", personals, skills_exp) == "3"
     assert resolve_text_question("Notice period in days (0-99)", personals, skills_exp) == "30"
-    assert resolve_text_question("Current CTC (whole number between 0 and 99)", personals, skills_exp) == "13"
+    assert resolve_text_question("Current CTC (whole number between 0 and 99)", personals, skills_exp) == "20"
 
 
 def test_fill_text_input_whole_number_autocorrect():
@@ -1210,6 +1417,76 @@ def test_optimize_and_apply_recommended_jobs():
     assert summary["reasons"]["Job role"] >= 1
 
 
+def test_recommended_jobs_safe_hiding_data_domain():
+    from profile_booster import optimize_and_apply_recommended_jobs
+
+    class DummyDataCardElem:
+        def __init__(self, title="Databricks Architect + Genie", exp="10-15 Yrs", loc="Chennai"):
+            self.title = title
+            self.exp = exp
+            self.loc = loc
+            self.hidden_clicked = False
+            self.text = title
+
+        def get_attribute(self, name):
+            if name == "data-job-id":
+                return "test_data_job_5555"
+            return ""
+
+        def find_elements(self, by, val):
+            if "title" in val:
+                return [DummyDataCardElem(self.title)]
+            if "subTitle" in val or "company" in val:
+                return [DummyDataCardElem("SomeCorp")]
+            if "ellipsis" in val and "valignM" in val:
+                return [DummyDataCardElem(self.exp), DummyDataCardElem(self.loc)]
+            if "Hide" in val:
+                self.hidden_clicked = True
+                return [DummyDataCardElem("Hide")]
+            return []
+
+    class DummyDriver:
+        def __init__(self, card):
+            self.visited_urls = []
+            self.card = card
+
+        def get(self, url):
+            self.visited_urls.append(url)
+
+        def find_elements(self, by, val):
+            if "tab-wrapper" in val or "tab-list-item" in val or "chip" in val:
+                return [DummyDataCardElem("Top Candidate")]
+            if "jobTuple" in val:
+                return [self.card]
+            return []
+
+        def execute_script(self, script, *args):
+            pass
+
+    dummy_config = {
+        "search": {
+            "title_bad_words": ["QA", "Lead", "Architect"],
+            "title_mandatory_words": ["Data Engineer"],
+            "min_experience": 1,
+            "max_experience": 6,
+            "max_experience_stretch": 1.5,
+            "locations": ["Gurgaon"],
+        },
+        "personals": {
+            "total_experience_years": 3.5,
+        },
+        "settings": {},
+    }
+
+    # Role is in Data domain ("Databricks Architect + Genie") with mismatched location and exp
+    card = DummyDataCardElem(title="Databricks Architect + Genie", exp="10-15 Yrs", loc="Chennai")
+    driver = DummyDriver(card)
+    summary = optimize_and_apply_recommended_jobs(driver, dummy_config, max_cards_per_tab=1)
+    # MUST NOT be hidden or receive negative feedback!
+    assert summary["hidden"] == 0
+    assert card.hidden_clicked is False
+
+
 def test_handle_drawer_checkboxes_dbt_and_deloitte():
     class MockElement:
         def __init__(self, text="", tag="div", elem_type=None, elem_id=""):
@@ -1294,6 +1571,26 @@ def test_handle_drawer_checkboxes_dbt_and_deloitte():
     assert cb_yes2.checked is False
     assert cb_no2.checked is True
     assert cb_skip2.checked is False
+
+    # Test 3: Lemon Tree Hotels (worked company) -> Must check "Yes" ONLY!
+    cb_yes3 = MockCheckbox("Yes", "cb_yes3")
+    cb_no3 = MockCheckbox("No", "cb_no3")
+    drawer3 = MockDrawer([cb_yes3, cb_no3])
+    driver3 = MockDriver()
+    res3 = handle_drawer_checkboxes(driver3, drawer3, "Have you worked with Lemon Tree Hotels before?", personals)
+    assert res3 is True
+    assert cb_yes3.checked is True
+    assert cb_no3.checked is False
+
+    # Test 4: Cognizant (not worked company) -> Must check "No" ONLY!
+    cb_yes4 = MockCheckbox("Yes", "cb_yes4")
+    cb_no4 = MockCheckbox("No", "cb_no4")
+    drawer4 = MockDrawer([cb_yes4, cb_no4])
+    driver4 = MockDriver()
+    res4 = handle_drawer_checkboxes(driver4, drawer4, "Have you worked with cognizant before?", personals)
+    assert res4 is True
+    assert cb_yes4.checked is False
+    assert cb_no4.checked is True
 
 
 def test_company_priority_classification():
@@ -1602,6 +1899,386 @@ def test_generate_insights_html(tmp_path):
     assert "External Jobs" in content
     assert "chart.js" in content.lower()
     assert "Naukri Bot Analytics & Insights" in content
+
+
+def test_dynamic_headline_rotation():
+    from profile_booster import (
+        select_next_resume_headline,
+        normalize_headline_for_comparison,
+        DEFAULT_RESUME_HEADLINES,
+    )
+
+    config = {
+        "personals": {
+            "resume_headlines": DEFAULT_RESUME_HEADLINES
+        }
+    }
+
+    # Case 1: When current headline is the first variant, next should be the second variant
+    current = DEFAULT_RESUME_HEADLINES[0]
+    next_headline = select_next_resume_headline(current, config)
+    assert next_headline == DEFAULT_RESUME_HEADLINES[1]
+    assert next_headline != current
+
+    # Case 2: Normalized matching with trailing punctuation or extra spaces
+    current_with_dot = current + "   ."
+    next_from_dot = select_next_resume_headline(current_with_dot, config)
+    assert next_from_dot == DEFAULT_RESUME_HEADLINES[1]
+
+    # Case 3: When at the last variant in the list, cycle back to the first
+    last_variant = DEFAULT_RESUME_HEADLINES[-1]
+    next_from_last = select_next_resume_headline(last_variant, config)
+    assert next_from_last == DEFAULT_RESUME_HEADLINES[0]
+
+    # Case 4: When current headline is completely unlisted / custom
+    unknown_headline = "Something totally different on profile"
+    next_from_unknown = select_next_resume_headline(unknown_headline, config)
+    assert next_from_unknown in DEFAULT_RESUME_HEADLINES
+    assert next_from_unknown != unknown_headline
+
+    # Case 5: Single headline fallback
+    single_cfg = {
+        "personals": {
+            "resume_headline": "Data Engineer with 3+ years experience in Python and AWS"
+        }
+    }
+    next_from_single = select_next_resume_headline("Data Engineer with 3+ years experience in Python and AWS", single_cfg)
+    assert next_from_single != "Data Engineer with 3+ years experience in Python and AWS"
+
+
+def test_count_applied_in_last_24_hours(tmp_path, monkeypatch):
+    import csv
+    from datetime import datetime, timedelta
+    import job_applier
+    from job_applier import count_applied_in_last_24_hours
+
+    test_csv = str(tmp_path / "test_applied.csv")
+    monkeypatch.setattr(job_applier, "APPLIED_JOBS_CSV", test_csv)
+
+    now = datetime.now()
+    t_2h_ago = (now - timedelta(hours=2)).strftime("%Y-%m-%d %H:%M:%S")
+    t_12h_ago = (now - timedelta(hours=12)).strftime("%Y-%m-%d %H:%M:%S")
+    t_26h_ago = (now - timedelta(hours=26)).strftime("%Y-%m-%d %H:%M:%S")
+    t_3d_ago = (now - timedelta(days=3)).strftime("%Y-%m-%d %H:%M:%S")
+
+    with open(test_csv, "w", encoding="utf-8", newline="") as f:
+        w = csv.writer(f)
+        w.writerow(["Date", "Job ID", "Title", "Company", "Location", "Status", "Job URL"])
+        # Applied within 24 hours (should be counted)
+        w.writerow([t_2h_ago, "101", "Data Engineer", "Meta", "Gurugram", "Applied (Naukri)", "http://naukri.com/101"])
+        w.writerow([t_12h_ago, "102", "Senior Data Engineer", "Amazon", "Noida", "Applied (Naukri)", "http://naukri.com/102"])
+        # Older than 24 hours (should NOT be counted)
+        w.writerow([t_26h_ago, "103", "Data Engineer", "Google", "Gurugram", "Applied (Naukri)", "http://naukri.com/103"])
+        w.writerow([t_3d_ago, "104", "Data Engineer", "Apple", "Noida", "Applied (Naukri)", "http://naukri.com/104"])
+        # Within 24 hours but skipped/external (should NOT be counted)
+        w.writerow([t_2h_ago, "105", "Data Engineer", "Microsoft", "Noida", "External Skipped", "http://naukri.com/105"])
+        w.writerow([t_2h_ago, "106", "Data Engineer", "Netflix", "Gurugram", "Already Applied", "http://naukri.com/106"])
+
+    count_24h = count_applied_in_last_24_hours()
+    assert count_24h == 2
+
+
+def test_booster_state_persistence(tmp_path):
+    from profile_booster import load_booster_state, save_booster_state
+
+    state_file = str(tmp_path / "test_state.json")
+    state = load_booster_state(state_file=state_file)
+    assert state["last_boost_time"] is None
+    assert state["current_headline"] == ""
+
+    state["current_headline"] = "Data Engineer | 3.5 YOE"
+    state["last_boost_time"] = "2026-10-12T22:00:00"
+    state["last_resume_upload_time"] = "2026-10-12T22:01:00"
+    save_booster_state(state, state_file=state_file)
+
+    loaded = load_booster_state(state_file=state_file)
+    assert loaded["current_headline"] == "Data Engineer | 3.5 YOE"
+    assert loaded["last_boost_time"] == "2026-10-12T22:00:00"
+    assert loaded["last_resume_upload_time"] == "2026-10-12T22:01:00"
+
+
+def test_human_click_and_dwell():
+    from browser import human_click, human_dwell, human_scroll, human_type_into_element
+
+    class MockElem:
+        def __init__(self, val=""):
+            self.val = val
+            self.clicked = False
+
+        def click(self):
+            self.clicked = True
+
+        def send_keys(self, text):
+            self.val += text
+
+        def clear(self):
+            self.val = ""
+
+    class MockDriver:
+        def __init__(self):
+            self.script_calls = []
+
+        def execute_script(self, script, *args):
+            self.script_calls.append(script)
+
+    driver = MockDriver()
+    elem = MockElem("Old text")
+
+    # Test human_scroll
+    human_scroll(driver, distance=300)
+    assert any("scrollBy" in call for call in driver.script_calls)
+
+    # Test human_dwell
+    human_dwell(0.01, 0.02)
+
+    # Test human_click
+    clicked = human_click(driver, elem)
+    assert clicked is True
+    assert elem.clicked is True
+    assert any("scrollIntoView" in call for call in driver.script_calls)
+
+    # Test human_type_into_element
+    typed = human_type_into_element(driver, elem, "New Data Engineer Headline")
+    assert typed is True
+    assert "New Data Engineer Headline" in elem.val
+
+
+def test_keyword_optimizer_quality_evaluation():
+    from keyword_optimizer import (
+        OPTIMIZED_KEYWORD_CLUSTERS,
+        evaluate_headline_quality,
+        MAX_HEADLINE_LENGTH,
+    )
+
+    # 1. All default optimized clusters must achieve 100/100 and length <= 250
+    for cluster in OPTIMIZED_KEYWORD_CLUSTERS:
+        res = evaluate_headline_quality(cluster["headline"])
+        assert res["score"] == 100, f"Cluster {cluster['id']} did not score 100: {res['feedback']}"
+        assert res["is_valid"] is True
+        assert res["length"] <= MAX_HEADLINE_LENGTH
+        assert "30 Days Notice" in cluster["headline"]
+        # Verify front-loaded 70 chars contains role + YOE
+        assert any(r in res["front_loaded_chars"].lower() for r in ["data engineer", "platform engineer"])
+        assert "3.5 yoe" in res["front_loaded_chars"].lower()
+
+    # 2. Headline exceeding 250 characters should fail length validation
+    too_long = "Data Engineer | " * 20
+    assert len(too_long) > 250
+    res_long = evaluate_headline_quality(too_long)
+    assert res_long["is_valid"] is False
+    assert res_long["score"] == 0
+
+    # 3. Fluffy headline missing front-loading and notice period
+    fluffy = "Experienced professional working on various IT and software projects across multiple domains."
+    res_fluffy = evaluate_headline_quality(fluffy)
+    assert res_fluffy["score"] < 50
+    assert any("Notice" in f for f in res_fluffy["feedback"])
+
+
+def test_keyword_optimizer_select_best_dynamic_headline():
+    from keyword_optimizer import (
+        select_best_dynamic_headline,
+        OPTIMIZED_KEYWORD_CLUSTERS,
+    )
+
+    current = OPTIMIZED_KEYWORD_CLUSTERS[0]["headline"]
+
+    # When recruiter search terms highlight Snowflake, select cluster matching Snowflake
+    selected = select_best_dynamic_headline(
+        current_headline=current,
+        recruiter_keywords=["snowflake", "data warehouse"],
+    )
+    assert "Snowflake" in selected or selected != current
+
+
+def test_recruiter_search_keywords_persistence(tmp_path):
+    from keyword_optimizer import save_recruiter_search_keywords, load_recruiter_search_keywords
+
+    test_file = str(tmp_path / "test_keywords.json")
+    data = load_recruiter_search_keywords(filepath=test_file)
+    assert data["search_terms"] == []
+
+    data["search_terms"] = ["PySpark", "AWS Data Engineer", "Databricks"]
+    data["last_updated"] = "2026-10-15T22:30:00"
+    save_recruiter_search_keywords(data, filepath=test_file)
+
+    loaded = load_recruiter_search_keywords(filepath=test_file)
+    assert "PySpark" in loaded["search_terms"]
+    assert "AWS Data Engineer" in loaded["search_terms"]
+    assert loaded["last_updated"] == "2026-10-15T22:30:00"
+
+
+def test_update_profile_summary_and_quick_boost(tmp_path, monkeypatch):
+    import profile_booster
+    from profile_booster import update_profile_summary, quick_boost_profile
+
+    state_file = str(tmp_path / "test_booster_state.json")
+    monkeypatch.setattr(profile_booster, "BOOSTER_STATE_FILE", state_file)
+
+    class MockElem:
+        def __init__(self, val=""):
+            self.val = val
+            self.clicked = False
+
+        def click(self):
+            self.clicked = True
+
+        def send_keys(self, text):
+            self.val += text
+
+        def clear(self):
+            self.val = ""
+
+        def get_attribute(self, attr):
+            if attr == "value":
+                return self.val
+            return ""
+
+        def is_displayed(self):
+            return True
+
+    class MockDriver:
+        def __init__(self):
+            self.urls = []
+            self.script_calls = []
+            self.ta = MockElem("Old Summary")
+            self.save_btn = MockElem("Save")
+
+        def get(self, url):
+            self.urls.append(url)
+
+        def find_elements(self, by, val):
+            if "profileSummary" in val and "edit" in val:
+                return [MockElem("Edit")]
+            if "profileSummaryTxt" in val or "profileSummary" in val:
+                return [self.ta]
+            if "Save" in val:
+                return [self.save_btn]
+            if "resumeHeadline" in val and "edit" in val:
+                return [MockElem("Edit")]
+            if "resumeHeadlineTxt" in val:
+                return [self.ta]
+            return []
+
+        def execute_script(self, script, *args):
+            self.script_calls.append(script)
+
+    driver = MockDriver()
+    config = {
+        "personals": {
+            "profile_summary": "Results-driven Data Engineer with 3.5+ years experience in PySpark, AWS, and Databricks.",
+            "resume_headlines": ["Data Engineer | PySpark | 30 Days Notice", "AWS Data Engineer | 30 Days Notice"]
+        }
+    }
+
+    # Test update_profile_summary
+    success = update_profile_summary(driver, config, force=True)
+    assert success is True
+    assert "Results-driven Data Engineer" in driver.ta.val
+
+    # Test quick_boost_profile
+    quick_success = quick_boost_profile(driver, config)
+    assert quick_success is True
+    assert "https://www.naukri.com/mnjuser/profile" in driver.urls
+
+
+def test_engage_header_notifications_nvite_priority_and_apply(tmp_path, monkeypatch):
+    import profile_booster
+    import job_applier
+    from profile_booster import engage_header_notifications
+
+    test_csv = str(tmp_path / "test_applied.csv")
+    monkeypatch.setattr(job_applier, "APPLIED_JOBS_CSV", test_csv)
+    monkeypatch.setattr(profile_booster.time, "sleep", lambda x: None)
+
+    class MockItem:
+        def __init__(self, text):
+            self.text = text
+            self.classes = "unread"
+            self.clicked = False
+
+        def is_displayed(self):
+            return True
+
+        def get_attribute(self, attr):
+            if attr == "class":
+                return self.classes
+            return ""
+
+        def find_elements(self, by, val):
+            return [self]
+
+        def click(self):
+            self.clicked = True
+            if "apply" in self.text.lower():
+                self.text = "Applied"
+
+    class MockDriver:
+        def __init__(self):
+            self.current_url = "https://www.naukri.com/mnjuser/homepage"
+            self.script_calls = []
+            self.current_window_handle = "main"
+            self.window_handles = ["main"]
+            self.apply_btn = MockItem("Apply")
+            # Notification items with NVite placed at index 3 (would be skipped by max_taps=2 if not prioritized)
+            self.items = [
+                MockItem("Your resume was viewed by TechCorp"),
+                MockItem("Fresh jobs where you're still early"),
+                MockItem("Check out interview questions for Company X"),
+                MockItem("Recruiter has invited you for AI Data Engineer role Bengaluru. Apply now Job NVite"),
+            ]
+
+        def get(self, url):
+            self.current_url = url
+
+        def find_elements(self, by, val):
+            if "icon-wrapper" in val or "Notifications" in val or "div[4]/button" in val:
+                return [MockItem("Bell")]
+            if "naukri-drawer" in val or "div[4]/div" in val or "notif" in val:
+                class MockUl:
+                    def __init__(self, items):
+                        self.items = items
+                    def find_elements(self, b, v):
+                        return self.items
+                return [MockUl(self.items)]
+            if "title" in val or "jd-header-title" in val or "h1" in val:
+                return [MockItem("AI Data Engineer")]
+            if "company-name" in val or "jd-header-comp-name" in val:
+                return [MockItem("DeepMind Tech")]
+            if "apply" in val.lower() or "apply-button" in val:
+                return [self.apply_btn]
+            return []
+
+        def find_element(self, by, val):
+            elems = self.find_elements(by, val)
+            if elems:
+                return elems[0]
+            raise Exception(f"Element not found for {val}")
+
+        def execute_script(self, script, *args):
+            self.script_calls.append(script)
+            if args and "click" in script.lower():
+                elem = args[0]
+                if hasattr(elem, "click"):
+                    elem.click()
+
+    driver = MockDriver()
+    config = {
+        "personals": {
+            "full_name": "Ankit Kumar",
+        }
+    }
+
+    # Run with max_taps=1 for regular notifications, but ensure NVite at index 3 is prioritized and processed!
+    count = engage_header_notifications(driver, config=config, max_taps=1)
+    assert count == 4
+    # The NVite item (index 3) must have been tapped
+    assert driver.items[3].clicked is True
+    # And the apply button must have been clicked
+    assert driver.apply_btn.clicked is True
+
+
+
 
 
 

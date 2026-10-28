@@ -1,7 +1,7 @@
 #!/bin/bash
 #
 # One-click launcher for Naukri Auto Applier & Profile Booster
-# Usage: ./start.sh [boost|apply|all|tracker|insights]
+# Usage: ./start.sh [boost|apply|all|agent|tracker|insights]
 #
 
 set -e

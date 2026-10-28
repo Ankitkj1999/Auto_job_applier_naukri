@@ -2,11 +2,14 @@ import os
 import re
 import csv
 import time
+import random
 import urllib.parse
 import logging
-from datetime import datetime
+from datetime import datetime, timedelta
+from browser import human_click, human_dwell, human_scroll
 from selenium.webdriver.common.by import By
 from selenium.webdriver.remote.webdriver import WebDriver
+from selenium.common.exceptions import TimeoutException
 from chatbot_handler import handle_naukri_chatbot_drawer, check_apply_success, check_apply_error
 from external_job_tracker import (
     record_external_job,
@@ -87,19 +90,39 @@ def is_title_relevant(title: str, bad_words: list[str], mandatory_keywords: list
     """
     Checks if a job title is relevant using a strict 2-layer filter:
     1. Blacklist: Must NOT contain any forbidden terms (e.g. Tester, SRE, Lead, Sales).
+       Terms like GenAI or AI/ML are allowed when explicitly paired with Data Engineer.
     2. Whitelist: MUST contain at least one target keyword (e.g. Data Engineer, PySpark, Databricks).
     """
     t_low = title.lower()
 
+    # Core data engineering indicators
+    has_core_data_eng = any(k in t_low for k in [
+        "data engineer", "data engineering", "data engg", "data eng",
+        "data developer", "big data", "pyspark", "spark", "databricks",
+        "etl", "snowflake", "analytics engineer", "data platform",
+        "azure data", "aws data", "gcp data", "data pipeline",
+        "data factory", "azure data factory", "adf", "informatica",
+        "data integration", "data migration", "dwh"
+    ])
+
     # 1. Reject forbidden terms
     for w in bad_words:
-        pattern = r"(?<!\w)" + re.escape(w.lower()) + r"(?!\w)"
+        w_low = w.lower()
+        # Terms like GenAI or AI/ML are acceptable sub-specializations when explicitly paired with Data Engineer
+        if w_low in ["genai", "gen ai", "generative ai", "ai/ml", "ai and data", "data and ai"] and has_core_data_eng:
+            continue
+
+        pattern = r"(?<!\w)" + re.escape(w_low) + r"(?!\w)"
         if re.search(pattern, t_low):
             return False
 
     # 2. Require at least one mandatory keyword if provided
     if mandatory_keywords:
         matched = any(k.lower() in t_low for k in mandatory_keywords)
+        # Also match common title permutations like "Sr Engineer - Data" or "Data Solution Engineer"
+        if not matched:
+            if re.search(r'\b(engineer|developer|consultant)\b.*\bdata\b', t_low) or re.search(r'\bdata\b.*\b(engineer|developer|consultant)\b', t_low):
+                matched = True
         if not matched:
             return False
 
@@ -115,10 +138,14 @@ def is_location_match(job_loc: str, target_locations: list[str]) -> bool:
     if not target_locations or not job_loc:
         return True
 
-    j_low = job_loc.lower()
+    j_low = job_loc.lower().strip()
 
-    # Always accept Remote, Work from home
-    if any(k in j_low for k in ["remote", "work from home", "wfh", "anywhere in india"]):
+    # Always accept Remote, Work from home, Pan India, or flexible Hybrid
+    if any(k in j_low for k in ["remote", "work from home", "wfh", "anywhere in india", "pan india", "all india"]):
+        return True
+
+    # Generic hybrid / flexible roles without specific excluded location
+    if j_low in ["hybrid", "hybrid - hybrid", "flexible", "hybrid - any", "any"]:
         return True
 
     # Check if target_locations specifies All India / Pan India
@@ -410,7 +437,14 @@ def search_and_apply_stage(
                     search_url = f"https://www.naukri.com/jobs-in-india?{urllib.parse.urlencode(query_params)}"
 
                 logger.info(f"Loading search URL: {search_url}")
-                driver.get(search_url)
+                try:
+                    driver.get(search_url)
+                except TimeoutException:
+                    logger.warning("  Page load timed out waiting for all network assets. Stopping further page loading and continuing...")
+                    try:
+                        driver.execute_script("window.stop();")
+                    except Exception:
+                        pass
                 time.sleep(3.5)
 
                 # Ensure freshness filter is applied if Naukri redirected on page 1
@@ -503,17 +537,29 @@ def search_and_apply_stage(
 
                     logger.info(f"\nEvaluating: \"{title}\" at \"{company}\" ({job_loc}) [Exp: {job_exp or 'N/A'}]")
 
+                    # Human-like brief pause before opening card
+                    time.sleep(random.uniform(1.2, 2.8))
+
                     # Open the job in a new tab
                     original_window = driver.current_window_handle
                     driver.execute_script("window.open(arguments[0], '_blank');", job_url)
-                    time.sleep(2.5)
+                    time.sleep(random.uniform(2.5, 3.8))
 
                     new_windows = [w for w in driver.window_handles if w != original_window]
                     if not new_windows:
                         continue
 
                     driver.switch_to.window(new_windows[-1])
-                    time.sleep(2)
+                    time.sleep(random.uniform(2.5, 3.8))
+
+                    # Humanized browsing: simulate candidate reading job description & requirements
+                    try:
+                        human_scroll(driver, distance=random.randint(300, 500), steps=3)
+                        time.sleep(random.uniform(2.0, 4.0))
+                        human_scroll(driver, distance=-random.randint(200, 350), steps=2)
+                        time.sleep(random.uniform(1.0, 2.0))
+                    except Exception:
+                        pass
 
                     try:
                         # Double check experience on details page if available
@@ -559,10 +605,9 @@ def search_and_apply_stage(
                                 logger.info("  [Skip] Already applied to this job.")
                                 applied_set.add(job_id)
                             else:
-                                # Click the REAL Apply button
+                                # Click the REAL Apply button with human-like mouse action (trusted event)
                                 logger.info(f"  -> Clicking '{btn_text}'...")
-                                driver.execute_script("arguments[0].click();", apply_btn)
-                                time.sleep(2)
+                                human_click(driver, apply_btn, pause_before=random.uniform(0.6, 1.2), pause_after=random.uniform(1.5, 2.5))
 
                                 # Check for immediate rate limit or daily limit error toast
                                 has_err, err_msg = check_apply_error(driver)
@@ -578,7 +623,15 @@ def search_and_apply_stage(
                                         error_tracker["consecutive_transient_errors"] += 1
                                         err_count = error_tracker["consecutive_transient_errors"]
                                         logger.warning(f"  ⚠️ Transient error on this job ({err_count}/3): \"{err_msg}\"")
-                                        if err_count >= 3:
+                                        if total_applied == 0 and err_count >= 2:
+                                            logger.warning(f"\n{'!' * 70}")
+                                            logger.warning(f"⚠️ NAUKRI SERVER THROTTLE DETECTED: {err_count} consecutive application errors at start of run.")
+                                            logger.warning(f"Naukri server returned: \"{err_msg}\"")
+                                            logger.warning("Likely causes: Naukri 24h rolling limit active or anti-bot cooldown required.")
+                                            logger.warning("Halting run immediately to protect candidate account.")
+                                            logger.warning(f"{'!' * 70}\n")
+                                            raise NaukriDailyLimitReached(f"Naukri server rate limit / early throttle: {err_msg}")
+                                        elif err_count >= 3:
                                             logger.warning(f"\n{'!' * 70}")
                                             logger.warning(f"⚠️ NAUKRI LIMIT / PERSISTENT ERRORS ({err_count} consecutive): \"{err_msg}\"")
                                             logger.warning("Naukri server rate limit or repetitive errors encountered. Halting to protect account.")
@@ -586,6 +639,9 @@ def search_and_apply_stage(
                                             logger.warning(f"{'!' * 70}\n")
                                             raise NaukriDailyLimitReached(err_msg)
                                         else:
+                                            backoff_sec = 45 if err_count == 1 else 90
+                                            logger.warning(f"  -> Adaptive cooldown: pausing for {backoff_sec}s to let server rate limits clear...")
+                                            time.sleep(backoff_sec)
                                             logger.warning("  Skipping this specific job and continuing search...")
                                             continue
 
@@ -611,7 +667,15 @@ def search_and_apply_stage(
                                             error_tracker["consecutive_transient_errors"] += 1
                                             err_count = error_tracker["consecutive_transient_errors"]
                                             logger.warning(f"  ⚠️ Transient error on this job ({err_count}/3): \"{err_msg}\"")
-                                            if err_count >= 3:
+                                            if total_applied == 0 and err_count >= 2:
+                                                logger.warning(f"\n{'!' * 70}")
+                                                logger.warning(f"⚠️ NAUKRI SERVER THROTTLE DETECTED: {err_count} consecutive application errors at start of run.")
+                                                logger.warning(f"Naukri server returned: \"{err_msg}\"")
+                                                logger.warning("Likely causes: Naukri 24h rolling limit active or anti-bot cooldown required.")
+                                                logger.warning("Halting run immediately to protect candidate account.")
+                                                logger.warning(f"{'!' * 70}\n")
+                                                raise NaukriDailyLimitReached(f"Naukri server rate limit / early throttle: {err_msg}")
+                                            elif err_count >= 3:
                                                 logger.warning(f"\n{'!' * 70}")
                                                 logger.warning(f"⚠️ NAUKRI LIMIT / PERSISTENT ERRORS ({err_count} consecutive): \"{err_msg}\"")
                                                 logger.warning("Naukri server rate limit or repetitive errors encountered. Halting to protect account.")
@@ -619,6 +683,9 @@ def search_and_apply_stage(
                                                 logger.warning(f"{'!' * 70}\n")
                                                 raise NaukriDailyLimitReached(err_msg)
                                             else:
+                                                backoff_sec = 45 if err_count == 1 else 90
+                                                logger.warning(f"  -> Adaptive cooldown: pausing for {backoff_sec}s to let server rate limits clear...")
+                                                time.sleep(backoff_sec)
                                                 logger.warning("  Skipping this specific job and continuing search...")
                                                 continue
 
@@ -634,9 +701,20 @@ def search_and_apply_stage(
                                         "url": job_url,
                                     })
                                     logger.info(f"  ★ SUCCESS ({total_applied}/{max_apps}): Applied to {title} | {company}")
-                                    time.sleep(pause_sec)
+
+                                    # Periodic Candidate Break: every 4-5 applications, take a human-like pause (60-90s)
+                                    if total_applied % 4 == 0 and total_applied < max_apps:
+                                        break_pause = round(random.uniform(60, 95), 1)
+                                        logger.info(f"  ☕ Candidate review break ({total_applied} applied): taking a human-like pause for {break_pause}s...")
+                                        time.sleep(break_pause)
+                                    else:
+                                        # Humanized randomized jitter around pause_sec
+                                        actual_delay = max(5.0, round(random.uniform(pause_sec * 0.9, pause_sec * 1.5), 1))
+                                        logger.info(f"  Pacing delay: waiting {actual_delay}s before next job...")
+                                        time.sleep(actual_delay)
                                 else:
                                     logger.info("  Could not complete application (unsupported form / external).")
+                                    applied_set.add(job_id)
                     except NaukriDailyLimitReached:
                         raise
                     except Exception as e:
@@ -663,12 +741,41 @@ def count_applied_today() -> int:
             reader = csv.DictReader(f)
             for row in reader:
                 dt = (row.get("Date") or "").strip()
-                st = (row.get("Status") or "").strip()
-                if dt.startswith(today_str) and "Applied" in st and "Skipped" not in st:
+                st = (row.get("Status") or "").strip().lower()
+                if dt.startswith(today_str) and "applied" in st and not any(neg in st for neg in ["skipped", "external", "already"]):
                     count += 1
     except Exception:
         pass
     return count
+
+
+def count_applied_in_last_24_hours() -> int:
+    """Counts how many jobs were successfully applied in the last 24 hours in applied_jobs.csv."""
+    if not os.path.isfile(APPLIED_JOBS_CSV):
+        return 0
+    now = datetime.now()
+    cutoff = now - timedelta(hours=24)
+    count = 0
+    try:
+        with open(APPLIED_JOBS_CSV, "r", encoding="utf-8") as f:
+            reader = csv.DictReader(f)
+            for row in reader:
+                dt_str = (row.get("Date") or "").strip()
+                st = (row.get("Status") or "").strip().lower()
+                if "applied" in st and not any(neg in st for neg in ["skipped", "external", "already"]):
+                    try:
+                        if len(dt_str) >= 19:
+                            dt = datetime.strptime(dt_str[:19], "%Y-%m-%d %H:%M:%S")
+                        else:
+                            dt = datetime.strptime(dt_str[:10], "%Y-%m-%d")
+                        if dt >= cutoff:
+                            count += 1
+                    except Exception:
+                        pass
+    except Exception:
+        pass
+    return count
+
 
 
 def format_and_log_run_summary(applied_in_run: list[dict], summary_file: str = RUN_SUMMARY_FILE) -> str:
@@ -758,9 +865,27 @@ def apply_to_naukri_jobs(driver: WebDriver, config: dict) -> int:
     logger.info("==================================================")
 
     search_cfg = config.get("search", {})
+    settings = config.get("settings", {})
     primary_locations = search_cfg.get("locations", ["Gurgaon", "Noida", "Delhi / NCR"])
     fallback_locations = search_cfg.get("fallback_locations", ["Bengaluru", "Hyderabad", "Pune", "Mumbai"])
     max_apps = search_cfg.get("max_applications_per_run", 65)
+
+    # 24-Hour Rolling Quota Safeguard
+    daily_ceiling = settings.get("daily_application_ceiling", 45)
+    applied_24h = count_applied_in_last_24_hours()
+    logger.info(f"24-Hour Application Quota Monitor: {applied_24h}/{daily_ceiling} applications used in the last 24 hours.")
+    if applied_24h >= daily_ceiling:
+        logger.warning("\n" + "=" * 70)
+        logger.warning(f"⚠️ NAUKRI 24-HOUR APPLICATION CEILING ACTIVE: {applied_24h}/{daily_ceiling} applications used in last 24h.")
+        logger.warning("Naukri enforces strict 24-hour account rate limits (~40-50 apps/day on free accounts).")
+        logger.warning("Pausing auto-apply to protect candidate account integrity and prevent temporary blocks.")
+        logger.warning("=" * 70 + "\n")
+        return applied_24h
+
+    remaining_24h = daily_ceiling - applied_24h
+    if max_apps > remaining_24h:
+        logger.info(f"-> Capping target applications for this run from {max_apps} to {remaining_24h} to stay safely within 24-hour limit ({daily_ceiling}).")
+        max_apps = remaining_24h
 
     # Build location stages: Primary first, Fallback second, Open/Pan-India third
     location_stages = [("Primary (Delhi NCR)", primary_locations)]

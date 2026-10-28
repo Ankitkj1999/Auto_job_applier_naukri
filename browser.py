@@ -1,6 +1,7 @@
 import os
 import sys
 import time
+import random
 import logging
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
@@ -43,13 +44,25 @@ def get_chrome_driver(profile_dir: str = "~/.naukri-bot-profile", headless: bool
     else:
         options.add_argument("--start-maximized")
 
-    # Launch Chrome (Selenium 4.10+ handles driver management automatically)
+    # Set page load strategy to 'eager' so navigation returns as soon as DOMContentLoaded fires
+    # instead of hanging indefinitely on slow analytics, trackers, or ad scripts
+    options.page_load_strategy = "eager"
+
+    # Launch Chrome (Fast launch: prefer local cached driver over 300s Selenium Manager network timeout)
     try:
+        os.environ.setdefault("SE_OFFLINE", "true")
         driver = webdriver.Chrome(options=options)
-    except Exception as e:
-        logger.warning(f"Native Chrome launch failed ({e}), falling back to ChromeDriverManager...")
-        service = Service(ChromeDriverManager().install())
-        driver = webdriver.Chrome(service=service, options=options)
+    except Exception:
+        os.environ.pop("SE_OFFLINE", None)
+        try:
+            driver = webdriver.Chrome(options=options)
+        except Exception as e:
+            logger.warning(f"Native Chrome launch failed ({e}), falling back to ChromeDriverManager...")
+            service = Service(ChromeDriverManager().install())
+            driver = webdriver.Chrome(service=service, options=options)
+
+    # Set explicit page load timeout to prevent indefinite hangs
+    driver.set_page_load_timeout(45)
 
     # Remove navigator.webdriver flag
     driver.execute_cdp_cmd(
@@ -159,3 +172,162 @@ def ensure_login(driver: webdriver.Chrome) -> None:
                 pass
 
     raise TimeoutError("Login wait timed out. Please run the script again and complete login.")
+
+
+def human_dwell(min_sec: float = 2.0, max_sec: float = 5.0, message: str = ""):
+    """Simulates realistic human reading or thinking pauses."""
+    if os.environ.get("PYTEST_CURRENT_TEST"):
+        return
+    delay = round(random.uniform(min_sec, max_sec), 2)
+    if message:
+        logger.debug(f"{message} (dwelling {delay}s)")
+    time.sleep(delay)
+
+
+def human_scroll(driver, distance: int = 300, steps: int = 3):
+    """Smoothly scrolls page in fractional steps to simulate human trackpad or mouse wheel."""
+    if not driver:
+        return
+    if os.environ.get("PYTEST_CURRENT_TEST"):
+        try:
+            driver.execute_script(f"window.scrollBy(0, {distance});")
+        except Exception:
+            pass
+        return
+
+    step_dist = distance / max(1, steps)
+    for _ in range(steps):
+        try:
+            driver.execute_script(f"window.scrollBy({{top: {step_dist}, behavior: 'smooth'}});")
+            time.sleep(random.uniform(0.15, 0.35))
+        except Exception:
+            break
+
+
+def human_click(driver, element, pause_before: float = None, pause_after: float = None) -> bool:
+    """
+    Simulates a human-like mouse interaction:
+    1. Smoothly scrolls the element into view.
+    2. Pauses naturally as a user aiming their cursor.
+    3. Uses native ActionChains to hover and click (trusted pointer event).
+    4. Falls back to element.click() and driver.execute_script if obstructed.
+    5. Pauses after clicking to simulate user observing the action's result.
+    """
+    is_test = bool(os.environ.get("PYTEST_CURRENT_TEST"))
+    if pause_before is None:
+        pause_before = 0.01 if is_test else random.uniform(0.5, 1.2)
+    if pause_after is None:
+        pause_after = 0.01 if is_test else random.uniform(0.8, 1.8)
+
+    try:
+        driver.execute_script("arguments[0].scrollIntoView({block: 'center', behavior: 'smooth'});", element)
+    except Exception:
+        pass
+
+    if pause_before > 0:
+        time.sleep(pause_before)
+
+    clicked = False
+    try:
+        from selenium.webdriver.common.action_chains import ActionChains
+        ActionChains(driver).move_to_element(element).pause(0.01 if is_test else random.uniform(0.2, 0.4)).click().perform()
+        clicked = True
+    except Exception:
+        try:
+            element.click()
+            clicked = True
+        except Exception:
+            try:
+                driver.execute_script("arguments[0].click();", element)
+                clicked = True
+            except Exception:
+                pass
+
+    if pause_after > 0:
+        time.sleep(pause_after)
+
+    return clicked
+
+
+def human_type_into_element(driver, element, text: str, clear_first: bool = True) -> bool:
+    """
+    Types text into an input or textarea element with human-like typing cadence,
+    natural inter-key latencies, pauses at spaces and punctuation, and dispatches
+    appropriate browser events to ensure React / form state recognition without instant pasting.
+    """
+    is_test = bool(os.environ.get("PYTEST_CURRENT_TEST"))
+    from selenium.webdriver.common.keys import Keys
+
+    # Focus element
+    try:
+        from selenium.webdriver.common.action_chains import ActionChains
+        ActionChains(driver).move_to_element(element).click().perform()
+    except Exception:
+        try:
+            element.click()
+        except Exception:
+            pass
+
+    if not is_test:
+        time.sleep(random.uniform(0.3, 0.7))
+
+    # Clear existing content if requested
+    if clear_first:
+        try:
+            element.send_keys(Keys.CONTROL + "a")
+            if not is_test:
+                time.sleep(random.uniform(0.15, 0.3))
+            element.send_keys(Keys.BACKSPACE)
+            if not is_test:
+                time.sleep(random.uniform(0.2, 0.4))
+        except Exception:
+            try:
+                element.clear()
+            except Exception:
+                pass
+
+    if is_test:
+        try:
+            element.send_keys(text)
+        except Exception:
+            pass
+    else:
+        # Realistic human typing cadence
+        for idx, char in enumerate(text):
+            try:
+                element.send_keys(char)
+            except Exception:
+                break
+
+            delay = random.uniform(0.025, 0.075)
+            if char in " \t":
+                delay = random.uniform(0.08, 0.18)
+            elif char in ",.;:-/|":
+                delay = random.uniform(0.18, 0.38)
+
+            # Micro-hesitation every ~35-45 characters
+            if idx > 0 and idx % random.randint(32, 48) == 0:
+                delay += random.uniform(0.25, 0.50)
+
+            time.sleep(delay)
+
+    # Dispatch React / Vue synthetic change events to ensure state sync
+    try:
+        driver.execute_script("""
+            var el = arguments[0];
+            var val = arguments[1];
+            if (el.value !== val) {
+                el.value = val;
+            }
+            el.dispatchEvent(new Event('input', { bubbles: true }));
+            el.dispatchEvent(new Event('change', { bubbles: true }));
+        """, element, text)
+    except Exception:
+        pass
+
+    # Human proofreading pause after typing
+    if not is_test:
+        time.sleep(random.uniform(2.0, 3.8))
+
+    return True
+

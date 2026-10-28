@@ -74,9 +74,11 @@ You can run specific routines directly from the CLI or shell script:
 
 | Command | Action |
 | :--- | :--- |
-| `./start.sh boost` or `python main.py boost` | Refreshes resume, touches headline, and engages recruiter actions |
+| `./start.sh quick` or `python main.py quick` | **Quick Profile Boost** (~30s): Rotates headline keywords & touches freshness |
+| `./start.sh boost` or `python main.py boost` | Full Profile Booster: Resume sync, headline rotation, notifications, recruiter actions |
 | `./start.sh apply` or `python main.py apply` | Searches target keywords and auto-applies to matching jobs |
-| `./start.sh all` or `python main.py` | Full automation (Boost Profile + Apply) |
+| `./start.sh agent` or `python main.py agent` | **Native Neo Job Agent**: Safe in-browser API automation for Naukri's AI Job Agent |
+| `./start.sh all` or `python main.py` | Full automation (Profile Booster + Native Agent + Search Apply) |
 | `./start.sh tracker` or `python main.py tracker` | Views and syncs the External Priority Jobs checklist |
 | `./start.sh insights` or `python main.py insights` | Builds/refreshes the self-contained `insights.html` dashboard |
 

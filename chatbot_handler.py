@@ -95,24 +95,39 @@ def is_whole_number_required(input_elem=None, question: str = "", drawer=None) -
     """
     Checks if an input element, question, or drawer validation state requires a whole number between 0 and 99.
     Checks input type, attributes, placeholder, aria-label, question text, and on-screen validation errors.
+    Explicitly excludes date of birth, dates, ID cards, names, emails, and locations.
     """
     q_low = (question or "").lower()
+    # Explicit exclusions: Dates, DOB, ID cards, names, emails, locations should NEVER be constrained to 0-99
+    if any(k in q_low for k in [
+        "dob", "date of birth", "birth date", "birthdate", "select your date of birth",
+        "date", "day of birth", "pan", "aadhar", "aadhaar", "passport",
+        "email", "phone", "mobile", "name", "city", "location", "lwd", "last working day"
+    ]):
+        return False
+
     if any(k in q_low for k in ["whole number", "between 0 and 99", "0-99", "0 to 99", "0 and 99"]):
         return True
 
     if input_elem:
         try:
             inp_type = (input_elem.get_attribute("type") or "").lower()
+            if inp_type in ["date", "datetime", "datetime-local"]:
+                return False
+            ph = (input_elem.get_attribute("placeholder") or "").lower()
+            aria = (input_elem.get_attribute("aria-label") or "").lower()
+            name = (input_elem.get_attribute("name") or "").lower()
+            cls = (input_elem.get_attribute("class") or "").lower()
+            combined_attr = f"{ph} {aria} {name} {cls}"
+            if any(k in combined_attr for k in ["date", "dob", "birth", "dd/mm", "dd-mm", "yyyy", "day", "month"]):
+                return False
+
             if inp_type in ["number", "tel"]:
                 return True
             inp_step = input_elem.get_attribute("step")
             if inp_step == "1":
                 return True
-            ph = (input_elem.get_attribute("placeholder") or "").lower()
-            aria = (input_elem.get_attribute("aria-label") or "").lower()
-            name = (input_elem.get_attribute("name") or "").lower()
-            combined_attr = f"{ph} {aria} {name}"
-            if any(k in combined_attr for k in ["whole number", "0-99", "between 0 and 99", "years", "days", "months", "ctc", "exp"]):
+            if any(k in combined_attr for k in ["whole number", "0-99", "between 0 and 99", "years", "months", "ctc", "total experience"]):
                 return True
         except Exception:
             pass
@@ -367,13 +382,18 @@ def get_valid_chips(drawer) -> list:
                     pass
 
                 txt = (c.text or c.get_attribute("innerText") or "").strip()
+                # Exclude composite blocks where multiple options are grouped with newlines (e.g. "Currently serving\nPreviously served\nNever served")
+                if "\n" in txt:
+                    continue
+
                 # Real chips and radio options (allowing up to 200 chars for descriptive options)
                 if txt and len(txt) <= 200:
                     lower = txt.lower()
                     skip_phrases = [
                         "thank you", "kindly answer", "recruiter's question",
                         "showing interest", "upload resume", "do it later",
-                        "skip this question", "skip question", "skip for now"
+                        "skip this question", "skip question", "skip for now",
+                        "try again"
                     ]
                     if not any(phrase in lower for phrase in skip_phrases) and lower != "skip":
                         valid_chips.append(c)
@@ -390,7 +410,7 @@ def get_visible_inputs(drawer) -> list:
         inputs = drawer.find_elements(
             By.XPATH,
             ".//div[@contenteditable='true'] | "
-            ".//input[(@type='text' or @type='number' or not(@type)) and not(@type='hidden') and not(@type='radio') and not(@type='checkbox')] | "
+            ".//input[(@type='text' or @type='number' or not(@type)) and not(@type='hidden') and not(@type='radio') and not(@type='checkbox') and not(contains(@class, 'dob__input')) and not(@name='day') and not(@name='month') and not(@name='year')] | "
             ".//textarea"
         )
         return [i for i in inputs if i.is_displayed()]
@@ -434,6 +454,107 @@ def find_drawer_button(drawer, keywords: list):
     return None
 
 
+def get_candidate_worked_companies(personals: dict) -> list:
+    """Returns the list of companies the candidate has actually worked with."""
+    if not isinstance(personals, dict):
+        personals = {}
+    companies = []
+    for key in ["worked_companies", "past_companies", "previous_companies"]:
+        val = personals.get(key)
+        if isinstance(val, list):
+            for c in val:
+                c_str = str(c).strip()
+                if c_str and c_str not in companies:
+                    companies.append(c_str)
+    current = str(personals.get("current_company", "")).strip()
+    if current and current not in companies:
+        companies.append(current)
+    # Default candidate worked companies if not explicitly defined
+    default_companies = ["Lemon Tree Hotels Limited", "Lemon Tree Hotels", "Zalon", "Techtonic", "Tekniko"]
+    for dc in default_companies:
+        if dc not in companies:
+            companies.append(dc)
+    return companies
+
+
+def is_prior_company_question(question: str, skills_exp: dict = None) -> bool:
+    """
+    Detects if the question asks whether the candidate worked for / with / in a specific company,
+    is an ex-employee, prior employee, former employee, applied earlier, cooling off, rehire, etc.
+    Strictly distinguishes employer questions from technical tool/skill questions (e.g. DBT, Python).
+    """
+    q_low = (question or "").lower()
+
+    # 1. Direct explicit employment / affiliation indicators
+    if any(k in q_low for k in [
+        "ex-employee", "ex employee", "ex - employee", "ex-",
+        "former employee", "past employee", "previous employee", "prior employee",
+        "prior employment", "past employment", "cooling off", "cooling-off", "cooling period",
+        "rehire", "worked earlier", "applied earlier", "applied before",
+        "previously applied", "previously employed",
+        "interviewed with us", "interviewed earlier", "attended interview earlier",
+        "worked with us", "worked for us", "worked at us",
+        "emp id", "employee id"
+    ]):
+        return True
+
+    # 2. Check if this is a technical skill question (e.g. "Have you worked with DBT?", "Have you worked in PySpark?")
+    tech_skills = {
+        "dbt", "python", "sql", "aws", "spark", "pyspark", "databricks", "etl", "data pipeline",
+        "data warehouse", "data lake", "airflow", "docker", "postgresql", "mongodb", "redis",
+        "big data", "redshift", "glue", "lambda", "kinesis", "looker", "gcp", "google",
+        "data studio", "power bi", "tableau", "snowflake", "azure", "kafka",
+        "data quality", "streaming", "streams", "j2ee", "pandas", "numpy", "scala",
+        "kubernetes", "ci/cd", "rest api", "vertex ai", "pubsub", "hadoop", "hive",
+        "oracle", "mysql", "git", "linux", "cloud composer", "teradata", "synapse"
+    }
+    if isinstance(skills_exp, dict):
+        tech_skills.update(k.lower() for k in skills_exp.keys())
+
+    is_about_tech = any(re.search(r'\b' + re.escape(tech) + r'\b', q_low) for tech in tech_skills)
+    if is_about_tech and not any(k in q_low for k in ["earlier", "before", "previously", "past company", "ex-", "former"]):
+        return False
+
+    # 3. Work for/at/in/by company:
+    if re.search(r'\b(worked\s+(for|at)|employed\s+(with|at|in|by))\b', q_low):
+        return True
+
+    # 4. "worked with <company> before/earlier/previously"
+    if re.search(r'\bworked\s+with\b', q_low) and any(t in q_low for t in ["before", "earlier", "previously", "past", "prior"]):
+        if not is_about_tech:
+            return True
+
+    # 5. "worked in / applied to"
+    if "worked in / applied to" in q_low or "worked in/applied to" in q_low or "worked or applied" in q_low:
+        return True
+
+    # 6. Specific companies
+    known_companies = ["cognizant", "wipro", "infosys", "tcs", "deloitte", "accenture", "capgemini", "hcl", "happiest minds", "lemon tree", "zalon", "techtonic", "tekniko"]
+    if any(co in q_low for co in known_companies) and any(w in q_low for w in ["worked", "employed", "applied", "interviewed", "ex"]):
+        return True
+
+    return False
+
+
+def is_candidate_worked_company_mentioned(question: str, worked_companies: list) -> bool:
+    """
+    Checks if any company the candidate has worked with is explicitly named in the question.
+    """
+    q_low = (question or "").lower()
+    for company in worked_companies:
+        comp_clean = company.lower().strip()
+        if not comp_clean:
+            continue
+        variants = [comp_clean]
+        for suffix in [" limited", " pvt ltd", " private limited", " technologies", " innovations", " global", " hotels"]:
+            if comp_clean.endswith(suffix):
+                variants.append(comp_clean[:-len(suffix)].strip())
+        for v in variants:
+            if len(v) >= 3 and v in q_low:
+                return True
+    return False
+
+
 def resolve_chip_choice(question: str, chips: list, personals: dict):
     """
     Picks the best chip/button element based on question context and candidate profile.
@@ -461,10 +582,19 @@ def resolve_chip_choice(question: str, chips: list, personals: dict):
 
     q = (question or "").lower()
 
+    # 0. Interview Mode preference: Virtual vs On-site / F2F
+    if any(k in q for k in ["mode of interview", "interview mode", "virtual or", "on-site or", "onsite or", "f2f or", "face to face or"]):
+        for text, elem in chip_map.items():
+            if any(pos in text for pos in ["virtual", "online", "remote"]):
+                return elem
+        for text, elem in chip_map.items():
+            if any(pos in text for pos in ["on-site", "onsite", "f2f", "face to face"]):
+                return elem
+
     # 1. Interview Attendance / Virtual Interview / Drive / Session / Date availability
     # e.g. "Surely will u attend virtual interview on 24th March (Tuesday)"
     # Chips: ["No - Not sure", "Yes will attend the virtual interview on 24th March (Tuesday)"]
-    if any(k in q for k in ["interview", "attend", "virtual", "drive", "walkin", "walk-in", "f2f", "face to face", "saturday", "sunday", "march", "slot"]):
+    if any(k in q for k in ["interview", "attend", "virtual", "drive", "walkin", "walk-in", "f2f", "face to face", "onsite", "on-site", "saturday", "sunday", "march", "slot"]):
         # Prioritize explicit affirmative options that do not contain negation
         for text, elem in chip_map.items():
             if any(pos in text for pos in ["yes", "will attend", "available", "agree", "confirm", "accept", "sure"]) and not any(neg in text for neg in ["no", "not sure", "cannot", "unable", "decline"]):
@@ -549,24 +679,45 @@ def resolve_chip_choice(question: str, chips: list, personals: dict):
                 return elem
         return valid_chips[0]
 
-    # 7. Ex-employee / previous company / cooling off questions
-    if any(k in q for k in [
-        "ex-", "ex ", "previous employee", "former employee", "past employee",
-        "worked with us", "worked for us", "worked in", "worked at", "worked for",
-        "worked earlier", "applied earlier", "worked before", "applied before",
-        "previously worked", "previously applied", "previously employed",
-        "rehire", "cooling off", "cooling-off", "deloitte", "ex-employee"
-    ]):
+    # 6.5 CTC / Salary range chips
+    if any(k in q for k in ["ctc", "salary", "compensation", "package", "drawn", "annual"]):
+        is_expected = any(k in q for k in ["expected", "ectc", "desired", "expectation"])
+        target_ctc = float(personals.get("expected_ctc_lpa", 24)) if is_expected else float(personals.get("current_ctc_lpa", 20))
         for text, elem in chip_map.items():
-            if text == "no" or text.startswith("no") or "not" in text:
+            m_range = re.search(r'(\d+(?:\.\d+)?)\s*(?:-|to)\s*(\d+(?:\.\d+)?)\s*(?:lpa|lakhs?|lac|lacs?)?', text)
+            if m_range:
+                low, high = float(m_range.group(1)), float(m_range.group(2))
+                if low <= target_ctc <= high:
+                    return elem
+            if str(int(target_ctc)) in text or str(target_ctc) in text:
                 return elem
 
-    # 8. Affirmative over negative preference (for general yes/no choices)
+    # 7. Ex-employee / previous company / cooling off questions
+    if is_prior_company_question(q):
+        worked_cos = get_candidate_worked_companies(personals)
+        if is_candidate_worked_company_mentioned(q, worked_cos):
+            # Candidate DID work with this company -> select "Yes"
+            for text, elem in chip_map.items():
+                if text == "yes" or text.startswith("yes") or "agree" in text or "confirm" in text:
+                    return elem
+        else:
+            # Candidate did NOT work with this company -> select "No"
+            for text, elem in chip_map.items():
+                if text == "no" or text.startswith("no") or "not" in text:
+                    return elem
+
+    # 8. Military / Veteran / Armed Forces status (e.g. "Have you ever served in the military?")
+    if any(k in q for k in ["military", "veteran", "armed forces", "served in the"]):
+        for text, elem in chip_map.items():
+            if any(neg in text for neg in ["never served", "no", "not served", "none"]):
+                return elem
+
+    # 9. Affirmative over negative preference (for general yes/no choices)
     for text, elem in chip_map.items():
         if (text == "yes" or text.startswith("yes") or "agree" in text or "confirm" in text or "available" in text) and not any(neg in text for neg in ["no", "not sure", "not available", "cannot"]):
             return elem
 
-    # 9. Match primary skills in chips if candidate has them
+    # 10. Match primary skills in chips if candidate has them
     for text, elem in chip_map.items():
         if any(tech in text for tech in ["python", "sql", "snowflake", "aws", "pyspark", "spark", "databricks", "dbt", "etl", "azure", "gcp"]):
             return elem
@@ -661,10 +812,36 @@ def resolve_text_question(question: str, personals: dict, skills_exp: dict, whol
     ):
         return str(personals.get("preferred_interview_time", "1:30 PM"))
 
-    # 8. Interview Attendance / Availability / Drive / Session
+    # 7.1 Interview Mode Preference (Virtual / Flexible)
+    if any(k in q for k in ["mode of interview", "interview mode", "interview type", "preferred interview mode", "preferred mode of interview"]):
+        return "Virtual"
+
+    # 8. Interview Attendance / Availability / Drive / Session / Mode
     # e.g. "Are you available upcoming Saturday for first round", "Surely will u attend virtual interview", "Will you attend"
-    if any(k in q for k in ["attend", "virtual interview", "f2f", "face to face", "drive", "walkin", "walk-in", "available upcoming", "available on", "will you attend", "ready to attend"]):
+    if any(k in q for k in [
+        "attend", "virtual interview", "f2f", "face to face", "drive", "walkin", "walk-in",
+        "onsite", "on-site", "in-person", "in person", "available upcoming", "available on",
+        "will you attend", "ready to attend", "willing to attend", "come for interview",
+        "come to office for", "come for face to face", "appear for interview", "available for interview"
+    ]):
         return "Yes"
+
+    # 8.1 Active Offers in Hand / Holding Offers (must evaluate before general CTC)
+    if any(k in q for k in ["holding any offer", "holding offer", "any offer", "active offer", "other offer", "offered ctc", "counter offer"]):
+        has_offer = personals.get("holding_offer", False)
+        if not has_offer:
+            return "0" if is_wn else "No"
+        offered_ctc = personals.get("offered_ctc_lpa", personals.get("expected_ctc_lpa", 24))
+        return sanitize_whole_number(offered_ctc, 0, 99) if is_wn else str(offered_ctc)
+
+    # 8.9 Both Current & Expected CTC composite question
+    # e.g. "What is your current and expected CTC?", "Please mention your Current CTC & Expected CTC."
+    if any(k in q for k in ["current and expected", "current ctc & expected", "current ctc and expected", "cctc and ectc", "cctc & ectc", "current & expected", "current ctc/expected ctc"]):
+        c_ctc = personals.get("current_ctc_lpa", 20)
+        e_ctc = personals.get("expected_ctc_lpa", 24)
+        if is_wn:
+            return sanitize_whole_number(c_ctc, 0, 99)
+        return f"{c_ctc} LPA / {e_ctc} LPA"
 
     # 9. Current CTC / Fixed Annual / Last Drawn
     # e.g. "Current/Last Drawn Fixed (Annual)...", "Current Fixed", "Current CTC"
@@ -674,17 +851,17 @@ def resolve_text_question(question: str, personals: dict, skills_exp: dict, whol
         "current fixed", "annual fixed", "fixed component", "fixed (annual)", "fixed gross",
         "base salary", "basic salary"
     ]):
-        c_ctc = personals.get("current_ctc_lpa", 13)
+        c_ctc = personals.get("current_ctc_lpa", 20)
         return sanitize_whole_number(c_ctc, 0, 99) if is_wn else str(c_ctc)
 
     # 10. Expected CTC
     if any(k in q for k in ["expected ctc", "ectc", "desired salary", "expected salary", "salary expectation", "minimum ctc"]):
-        e_ctc = personals.get("expected_ctc_lpa", 18)
+        e_ctc = personals.get("expected_ctc_lpa", 24)
         return sanitize_whole_number(e_ctc, 0, 99) if is_wn else str(e_ctc)
 
     # 11. General CTC / Salary
     if "ctc" in q or "salary" in q or "compensation" in q:
-        g_ctc = personals.get("expected_ctc_lpa", 18)
+        g_ctc = personals.get("expected_ctc_lpa", 24)
         return sanitize_whole_number(g_ctc, 0, 99) if is_wn else str(g_ctc)
 
     # 12. Notice Period & Last Working Day
@@ -700,10 +877,25 @@ def resolve_text_question(question: str, personals: dict, skills_exp: dict, whol
     # 13. Education - Marks / Percentage & Career Gaps
     if any(k in q for k in ["gap", "gaps", "career break", "break in education", "education gap"]):
         return "No"
+
+    # 13.1 Education - Composite (Year of Passing, Percentage/CGPA)
+    # e.g. "10th - SSLC (Year of Passing, Percentage/CGPA)", "Graduation (Year of Passing, Percentage/CGPA)"
+    if any(k in q for k in ["year of passing", "year completed", "passing year", "batch", "year of"]) and any(k in q for k in ["percentage", "percent", "%", "marks", "cgpa"]):
+        if any(k in q for k in ["10th", "10 th", "class 10", "class 10th", "matric", "ssc"]):
+            return "75" if is_wn else f"{personals.get('class_10_year', '2016')}, 75%"
+        if any(k in q for k in ["12th", "12 th", "class 12", "class 12th", "intermediate", "hsc", "10+2"]):
+            return "75" if is_wn else f"{personals.get('class_12_year', '2018')}, 75%"
+        if any(k in q for k in ["graduation", "bachelor", "ug", "b.tech", "btech", "highest education", "highest educational"]):
+            return "75" if is_wn else f"{personals.get('graduation_year', '2023')}, 75%"
+
     if any(k in q for k in ["percentage", "percent", "%", "marks", "cgpa", "above 50", "above 60", "above 65", "above 70"]):
         if any(w in q for w in ["whether", "is above", "is greater", "more than", "are you having"]):
             return "Yes"
         return "75%" if not is_wn else "75"
+
+    # 13.3 Applied through vendors / direct agency
+    if any(k in q for k in ["applied jobs direct", "other vendors", "applied through vendor", "applied through any vendor", "applied via vendor"]):
+        return "No"
 
     # 14. Education - Class 10th / Matriculation
     if any(k in q for k in ["10th", "10 th", "class 10", "class 10th", "class-10", "matric", "matriculation", "secondary school", "ssc"]):
@@ -725,29 +917,21 @@ def resolve_text_question(question: str, personals: dict, skills_exp: dict, whol
     if any(k in q for k in ["qualification", "degree", "education", "highest education"]):
         return "B.Tech"
 
+    # 16.9 Current Payroll Organization / Employer / Payroll Company
+    # (Must be checked BEFORE is_prior_company_question so 'Which is your Payroll Company?' returns candidate's employer)
+    if any(k in q for k in ["payroll company", "payroll organization", "current payroll", "current employer", "current organization", "present company", "present employer", "current organization"]):
+        return str(personals.get("current_company", "Lemon Tree Hotels Limited"))
+
     # 17. Ex-employee / previous affiliation / prior application / cooling off questions
-    # e.g. "Have you worked in / applied to Deloitte earlier?", "Have you worked for Deloitte before?", "Are you an ex-employee of TCS?"
-    is_prior_affiliation = any(k in q for k in [
-        "worked in / applied to", "worked in/applied to", "worked or applied",
-        "applied earlier", "worked earlier", "applied before", "worked before",
-        "previously worked", "previously applied", "previously employed",
-        "prior employment", "past employment", "former employee", "previous employee", "past employee",
-        "ex-employee", "ex employee", "ex - employee", "rehire", "cooling off", "cooling-off",
-        "interviewed with us", "interviewed earlier", "interviewed in last", "attended interview earlier",
-        "worked with us", "worked for us", "worked with deloitte", "worked in deloitte", "applied to deloitte",
-        "worked for deloitte", "worked with infosys", "worked in infosys", "applied to infosys",
-        "worked with tcs", "worked in tcs", "applied to tcs",
-        "worked with accenture", "worked in accenture", "applied to accenture",
-        "worked with wipro", "worked in wipro", "applied to wipro",
-        "worked with cognizant", "worked in cognizant", "applied to cognizant",
-        "worked with capgemini", "worked in capgemini", "applied to capgemini",
-        "worked with hcl", "worked in hcl", "applied to hcl"
-    ]) or (
-        any(w in q for w in ["worked in", "worked at", "worked for", "employed with", "employed at", "applied to"]) and
-        any(t in q for t in ["earlier", "before", "previously", "past", "prior", "last 6 months", "last 3 months", "last 1 year", "cooling"])
-    )
-    if is_prior_affiliation:
-        return str(personals.get("is_ex_employee", "No"))
+    # e.g. "Have you worked in / applied to Deloitte earlier?", "Have you worked with cognizant before?", "Are you an ex-employee of TCS?"
+    if is_prior_company_question(q, skills_exp=skills_exp):
+        worked_cos = get_candidate_worked_companies(personals)
+        if is_candidate_worked_company_mentioned(q, worked_cos):
+            return "Yes"
+        else:
+            if any(k in q for k in ["mention na", "type na", "enter na", "write na", "if no: na", "if no: mention na"]):
+                return "NA"
+            return str(personals.get("is_ex_employee", "No"))
 
     # 18. Registration IDs / Employee IDs
     if any(k in q for k in ["tcs registration", "ep no", "ep number", "registration-ep"]):
@@ -781,6 +965,12 @@ def resolve_text_question(question: str, personals: dict, skills_exp: dict, whol
     if "email" in q:
         return str(personals.get("email", "ankit.k.j1999@gmail.com"))
 
+    # 23.1 Profile and Portfolio Links
+    if any(k in q for k in ["linkedin", "linked in", "linkedin profile", "linkedin url"]):
+        return str(personals.get("linkedin_url", "https://www.linkedin.com/in/ankitkj1999"))
+    if any(k in q for k in ["website", "portfolio", "github", "git hub", "blog", "personal website", "personal url"]):
+        return str(personals.get("portfolio_url", "https://ankitkj1999.github.io"))
+
     # 24. Reason for job change
     if any(k in q for k in ["reason for change", "reason for job change", "why are you looking"]):
         return "Career growth and technical opportunities"
@@ -792,7 +982,7 @@ def resolve_text_question(question: str, personals: dict, skills_exp: dict, whol
             "ex-", "former employee", "past employee", "criminal", "convicted", "fired", "terminated",
             "worked in / applied", "worked earlier", "applied earlier", "worked before", "applied before",
             "previously worked", "previously applied", "previously employed", "cooling off", "cooling-off",
-            "deloitte", "worked with us", "worked for us"
+            "worked with us", "worked for us", "military", "veteran", "armed forces"
         ]):
             return "No"
         return "Yes"
@@ -816,8 +1006,12 @@ def check_apply_success(driver: WebDriver, apply_btn=None) -> bool:
     Handles instant 1-Click applies, myapply redirects, banners, and questionnaire completion.
     """
     try:
-        # 0. Check if current URL was redirected to Naukri's application confirmation page
         curr_url = (driver.current_url or "").lower()
+        # On Neo agent page, global page source checks are unsafe because of chat logs and feed cards
+        if "job-apply-agent" in curr_url:
+            return False
+
+        # 0. Check if current URL was redirected to Naukri's application confirmation page
         if any(u in curr_url for u in ["myapply/saveapply", "myapply", "saveapply"]):
             return True
 
@@ -886,7 +1080,7 @@ def check_apply_success(driver: WebDriver, apply_btn=None) -> bool:
         except Exception:
             pass
 
-        # 5. Check full page source for confirmation phrases
+        # 5. Check full page source for confirmation phrases (unambiguous phrases only)
         page_text = driver.page_source.lower()
         success_phrases = [
             "successfully applied",
@@ -895,16 +1089,58 @@ def check_apply_success(driver: WebDriver, apply_btn=None) -> bool:
             "you have applied to this job",
             "thank you for your responses",
             "thank you for your response",
-            "applied on",
-            "application sent",
-            "already applied",
             "multiapplyresp",
-            "applied to \"",
-            "applied to '",
         ]
         return any(p in page_text for p in success_phrases)
     except Exception:
         return False
+
+
+def check_drawer_completed(drawer) -> bool:
+    """
+    Checks strictly INSIDE the drawer WebElement if the questionnaire has finished.
+    Does not inspect global page_source or background chat history.
+    """
+    if not drawer:
+        return False
+    try:
+        # 1. Check messages strictly inside drawer
+        bot_msgs = drawer.find_elements(
+            By.XPATH,
+            ".//div[contains(@class, 'botMsg')] | .//div[contains(@class, 'bot-msg')] | "
+            ".//li[contains(@class, 'botItem')] | .//div[contains(@class, 'msg-text')] | "
+            ".//p[contains(@class, 'botMsg')]"
+        )
+        for bm in reversed(bot_msgs):
+            bt = (bm.text or "").strip().lower()
+            if "kindly answer" in bt or "showing interest" in bt or "missing details" in bt:
+                continue
+            if any(p in bt for p in [
+                "thank you for your responses",
+                "thank you for your response",
+                "responses have been recorded",
+                "responses recorded",
+                "successfully applied",
+                "application submitted",
+                "applied successfully",
+                "your response has been",
+                "responses are submitted",
+            ]):
+                return True
+
+        # 2. Check for explicit success container inside drawer
+        success_nodes = drawer.find_elements(
+            By.XPATH,
+            ".//*[contains(@class, 'success') or contains(@class, 'applied-message') or contains(@class, 'confirm')]//span | "
+            ".//*[contains(@class, 'success') or contains(@class, 'applied-message') or contains(@class, 'confirm')]//p"
+        )
+        for sn in success_nodes:
+            st = (sn.text or "").strip().lower()
+            if any(p in st for p in ["thank you", "application submitted", "successfully applied", "recorded"]):
+                return True
+    except Exception:
+        pass
+    return False
 
 
 
@@ -948,6 +1184,8 @@ def check_apply_error(driver: WebDriver) -> tuple[bool, str]:
         page_src = (driver.page_source or "").lower()
         if "error while processing your request" in page_src:
             return True, "There was an error while processing your request, please try again later"
+        if "something went wrong" in page_src and "try again" in page_src:
+            return True, "Something went wrong. Please Try again later"
         if "daily application limit" in page_src or "reached your daily" in page_src:
             return True, "Daily application limit reached on Naukri"
         if "limit exceeded" in page_src or "maximum applications reached" in page_src:
@@ -1037,13 +1275,9 @@ def handle_drawer_checkboxes(driver: WebDriver, drawer, question: str, personals
         ]
 
         # Check if question is asking about prior employment / application / ex-employee
-        is_prior_employment = any(k in q_low for k in [
-            "worked in / applied to", "worked in/applied to", "worked or applied",
-            "worked earlier", "applied earlier", "worked before", "applied before",
-            "previously worked", "previously applied", "previously employed",
-            "ex-", "former employee", "past employee", "previous employee", "rehire",
-            "cooling off", "cooling-off", "deloitte", "worked with us", "worked for us"
-        ])
+        is_prior_employment = is_prior_company_question(q_low)
+        worked_cos = get_candidate_worked_companies(personals)
+        is_my_company = is_candidate_worked_company_mentioned(q_low, worked_cos)
 
         # 1. Native checkbox inputs
         checkboxes = drawer.find_elements(By.XPATH, ".//input[@type='checkbox']")
@@ -1079,9 +1313,14 @@ def handle_drawer_checkboxes(driver: WebDriver, drawer, question: str, personals
                 if has_yes and has_no:
                     # Yes/No Question:
                     if is_prior_employment:
-                        # Prior employment -> Select "No" only
-                        if lbl_low == "no" or lbl_low.startswith("no"):
-                            should_check = True
+                        if is_my_company:
+                            # Prior employment with company candidate actually worked for -> Select "Yes" only
+                            if lbl_low == "yes" or lbl_low.startswith("yes"):
+                                should_check = True
+                        else:
+                            # Prior employment with other company -> Select "No" only
+                            if lbl_low == "no" or lbl_low.startswith("no"):
+                                should_check = True
                     else:
                         # Skills (like DBT, Python, SQL), tools, certifications, relocation -> Select "Yes" only
                         if lbl_low == "yes" or lbl_low.startswith("yes"):
@@ -1159,8 +1398,12 @@ def handle_drawer_checkboxes(driver: WebDriver, drawer, question: str, personals
                     should_click = False
                     if has_yes and has_no:
                         if is_prior_employment:
-                            if t_low == "no" or t_low.startswith("no"):
-                                should_click = True
+                            if is_my_company:
+                                if t_low == "yes" or t_low.startswith("yes"):
+                                    should_click = True
+                            else:
+                                if t_low == "no" or t_low.startswith("no"):
+                                    should_click = True
                         else:
                             if t_low == "yes" or t_low.startswith("yes"):
                                 should_click = True
@@ -1229,6 +1472,193 @@ def handle_drawer_checkboxes(driver: WebDriver, drawer, question: str, personals
 
     except Exception as e:
         logger.debug(f"Error handling drawer checkboxes: {e}")
+
+    return False
+
+
+def parse_dob_string(dob_str: str = "15/08/1999") -> dict:
+    """Parses date of birth into day (DD), month (MM), year (YYYY) components."""
+    dob_str = str(dob_str or "15/08/1999").strip()
+    parts = re.split(r'[-/.\s]+', dob_str)
+    day, month, year = "15", "08", "1999"
+    if len(parts) >= 3:
+        if len(parts[0]) == 4:  # YYYY-MM-DD
+            year, month, day = parts[0], parts[1], parts[2]
+        else:  # DD-MM-YYYY (or MM-DD-YYYY)
+            day, month, year = parts[0], parts[1], parts[2]
+
+    try:
+        d_val = f"{int(day):02d}"
+    except Exception:
+        d_val = "15"
+    try:
+        m_val = f"{int(month):02d}"
+    except Exception:
+        m_val = "08"
+    try:
+        y_val = f"{int(year)}"
+    except Exception:
+        y_val = "1999"
+
+    return {
+        "day": d_val,
+        "month": m_val,
+        "year": y_val,
+        "slash": f"{d_val}/{m_val}/{y_val}",
+        "dash": f"{d_val}-{m_val}-{y_val}",
+        "iso": f"{y_val}-{m_val}-{d_val}",
+    }
+
+
+def handle_drawer_dob_picker(driver: WebDriver, drawer, personals: dict, current_question: str = "", job_title: str = "", company: str = "") -> bool:
+    """
+    Detects and handles date of birth / date picker components in the application drawer.
+    Supports Naukri's exact 3-field date of birth widget (day, month, year) as well as
+    HTML5 date inputs and custom datepicker fields.
+    """
+    try:
+        q_low = (current_question or "").lower()
+        is_dob_context = any(k in q_low for k in [
+            "dob", "date of birth", "birth date", "birthdate",
+            "select your date of birth", "enter your date of birth"
+        ])
+
+        # 1. Check for Naukri's specific 3-part DOB container / inputs
+        day_inps = drawer.find_elements(By.XPATH, ".//input[@name='day' or (contains(@class, 'dob__input') and contains(@class, 'day')) or contains(@id, 'DobInputDay')]")
+        month_inps = drawer.find_elements(By.XPATH, ".//input[@name='month' or (contains(@class, 'dob__input') and contains(@class, 'month')) or contains(@id, 'DobInputMonth')]")
+        year_inps = drawer.find_elements(By.XPATH, ".//input[@name='year' or (contains(@class, 'dob__input') and contains(@class, 'year')) or contains(@id, 'DobInputYear')]")
+
+        has_triplet = bool(day_inps and month_inps and year_inps)
+        triplet_visible = has_triplet and any(i.is_displayed() for i in (day_inps + month_inps + year_inps))
+
+        if triplet_visible or (is_dob_context and has_triplet):
+            dob_info = parse_dob_string(personals.get("dob", "15/08/1999"))
+            d_val = dob_info["day"]
+            m_val = dob_info["month"]
+            y_val = dob_info["year"]
+            formatted_dob = dob_info["slash"]
+
+            logger.info(f"  -> Detected Naukri Date of Birth picker. Filling Day='{d_val}', Month='{m_val}', Year='{y_val}'...")
+
+            d_elem = day_inps[0]
+            m_elem = month_inps[0]
+            y_elem = year_inps[0]
+
+            try:
+                driver.execute_script("arguments[0].scrollIntoView({block: 'center'});", d_elem)
+                time.sleep(0.3)
+            except Exception:
+                pass
+
+            # Fill via JavaScript with real value setter and dispatching input/change/blur
+            driver.execute_script("""
+                function setAndDispatch(input, val) {
+                    if (!input) return;
+                    input.focus();
+                    var setter = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'value');
+                    if (setter && setter.set) {
+                        setter.set.call(input, val);
+                    } else {
+                        input.value = val;
+                    }
+                    input.dispatchEvent(new Event('input', { bubbles: true }));
+                    input.dispatchEvent(new Event('change', { bubbles: true }));
+                    input.dispatchEvent(new Event('blur', { bubbles: true }));
+                }
+                setAndDispatch(arguments[0], arguments[3]);
+                setAndDispatch(arguments[1], arguments[4]);
+                setAndDispatch(arguments[2], arguments[5]);
+            """, d_elem, m_elem, y_elem, d_val, m_val, y_val)
+            time.sleep(0.4)
+
+            # Unblock disabled state on send button container if present
+            driver.execute_script("""
+                var sendDiv = document.querySelector('.send') || arguments[0].querySelector('.send');
+                if (sendDiv) { sendDiv.classList.remove('disabled'); }
+            """, drawer)
+            time.sleep(0.2)
+
+            # Trigger Enter on the year input (Naukri's handleEnter submits when 4 digits are present)
+            try:
+                y_elem.send_keys(Keys.ENTER)
+                time.sleep(1.5)
+            except Exception:
+                pass
+
+            # Also click Save / Send button if still displayed and ready
+            send_btn = find_drawer_button(drawer, ["save", "send", "submit", "next", "continue", "done"])
+            if send_btn and send_btn.is_displayed():
+                btn_label = (send_btn.text or "Save").strip()
+                logger.info(f"  -> Clicking '{btn_label}' button for Date of Birth...")
+                try:
+                    send_btn.click()
+                except Exception:
+                    driver.execute_script("arguments[0].click();", send_btn)
+                time.sleep(2)
+
+            record_screening_question(
+                job_title=job_title,
+                company=company,
+                question=current_question or "Date of Birth",
+                field_type="dob_picker",
+                answer=formatted_dob,
+                options=[],
+                status="answered"
+            )
+            return True
+
+        # 2. Check for HTML5 date input or custom datepicker field
+        date_inputs = drawer.find_elements(
+            By.XPATH,
+            ".//input[@type='date'] | "
+            ".//input[contains(@class, 'datepicker') or contains(@class, 'date-picker') or contains(@class, 'hasDatepicker') or contains(@placeholder, 'DD/MM/YYYY') or contains(@placeholder, 'DD-MM-YYYY')]"
+        )
+        visible_date_inputs = [di for di in date_inputs if di.is_displayed()]
+        if visible_date_inputs and (is_dob_context or "date" in q_low):
+            target_di = visible_date_inputs[0]
+            dob_info = parse_dob_string(personals.get("dob", "15/08/1999"))
+            inp_type = (target_di.get_attribute("type") or "").lower()
+            val_to_fill = dob_info["iso"] if inp_type == "date" else dob_info["slash"]
+
+            logger.info(f"  -> Detected date input field (type={inp_type}). Setting date '{val_to_fill}'...")
+            driver.execute_script("""
+                arguments[0].focus();
+                arguments[0].removeAttribute('readonly');
+                var setter = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'value');
+                if (setter && setter.set) {
+                    setter.set.call(arguments[0], arguments[1]);
+                } else {
+                    arguments[0].value = arguments[1];
+                }
+                arguments[0].dispatchEvent(new Event('input', { bubbles: true }));
+                arguments[0].dispatchEvent(new Event('change', { bubbles: true }));
+                arguments[0].dispatchEvent(new Event('blur', { bubbles: true }));
+            """, target_di, val_to_fill)
+            time.sleep(0.5)
+
+            send_btn = find_drawer_button(drawer, ["save", "send", "submit", "next", "continue", "done"])
+            if send_btn and send_btn.is_displayed():
+                btn_label = (send_btn.text or "Save").strip()
+                logger.info(f"  -> Clicking '{btn_label}' button...")
+                try:
+                    send_btn.click()
+                except Exception:
+                    driver.execute_script("arguments[0].click();", send_btn)
+                time.sleep(2)
+
+            record_screening_question(
+                job_title=job_title,
+                company=company,
+                question=current_question or "Date of Birth",
+                field_type="date_input",
+                answer=val_to_fill,
+                options=[],
+                status="answered"
+            )
+            return True
+
+    except Exception as e:
+        logger.debug(f"Error handling drawer DOB picker: {e}")
 
     return False
 
@@ -1414,10 +1844,13 @@ def handle_form_questionnaire(driver: WebDriver, drawer, personals: dict, skills
     Handles a full static or multi-field form questionnaire inside the drawer.
     Finds all inputs, selects, and radio groups, fills them, and clicks Submit.
     """
+    # 0. Handle DOB picker if present in form
+    handle_drawer_dob_picker(driver, drawer, personals, current_question="", job_title=job_title, company=company)
+
     # 1. Fill all text/number inputs, contenteditable divs, and textareas
     inputs = drawer.find_elements(
         By.XPATH,
-        ".//div[@contenteditable='true'] | .//input[(@type='text' or @type='number' or not(@type)) and not(@type='hidden') and not(@type='radio') and not(@type='checkbox')] | .//textarea"
+        ".//div[@contenteditable='true'] | .//input[(@type='text' or @type='number' or not(@type)) and not(@type='hidden') and not(@type='radio') and not(@type='checkbox') and not(contains(@class, 'dob__input')) and not(@name='day') and not(@name='month') and not(@name='year')] | .//textarea"
     )
     for inp in inputs:
         try:
@@ -1542,9 +1975,10 @@ def handle_naukri_chatbot_drawer(driver: WebDriver, config: dict, max_steps: int
     3. If a conversational chatbot is open, answers questions step-by-step.
     Returns True if successfully submitted, False otherwise.
     """
-    time.sleep(1.5)
+    time.sleep(1.0)
     personals = config.get("personals", {})
     skills_exp = config.get("skills_experience", {})
+    is_neo_page = "job-apply-agent" in (driver.current_url or "").lower()
 
     if not job_title:
         try:
@@ -1561,15 +1995,10 @@ def handle_naukri_chatbot_drawer(driver: WebDriver, config: dict, max_steps: int
         except Exception:
             pass
 
-    # 1. First check: Did 1-click apply already succeed directly?
-    if check_apply_success(driver):
-        logger.info("  ✓ Instant 1-Click apply succeeded directly (no side panel questions).")
-        return True
-
-    # 2. Locate the questionnaire drawer / modal
+    # 1. Locate the questionnaire drawer / modal first
     drawer = find_drawer(driver)
 
-    # 3. If not found in main document, check if an iframe holds the questionnaire
+    # 2. If not found in main document, check if an iframe holds the questionnaire
     if not drawer:
         iframes = driver.find_elements(By.TAG_NAME, "iframe")
         for frame in iframes:
@@ -1585,18 +2014,19 @@ def handle_naukri_chatbot_drawer(driver: WebDriver, config: dict, max_steps: int
             except Exception:
                 driver.switch_to.default_content()
 
-    # 4. If still no drawer, check success once more
+    # 3. If no drawer is detected: Check if 1-click apply succeeded directly (standard job listings only)
     if not drawer:
-        time.sleep(1.5)
-        if check_apply_success(driver):
-            logger.info("  ✓ Instant 1-Click apply succeeded directly (no side panel questions).")
-            return True
+        if not is_neo_page:
+            time.sleep(1.5)
+            if check_apply_success(driver):
+                logger.info("  ✓ Instant 1-Click apply succeeded directly (no side panel questions).")
+                return True
         logger.info("  [Info] No questionnaire drawer detected and apply not confirmed.")
         return False
 
     logger.info("  -> Side panel questionnaire drawer opened. Answering screening questions...")
 
-    # 5. Check if this is a static multi-field form (multiple inputs / selects / radios without chatbot structure)
+    # 4. Check if this is a static multi-field form (multiple inputs / selects / radios without chatbot structure)
     visible_inputs = get_visible_inputs(drawer)
     has_radios = bool(drawer.find_elements(By.XPATH, ".//input[@type='radio']"))
     has_selects = bool(drawer.find_elements(By.XPATH, ".//select"))
@@ -1610,7 +2040,7 @@ def handle_naukri_chatbot_drawer(driver: WebDriver, config: dict, max_steps: int
     if not is_chat and (len(visible_inputs) > 1 or has_radios or has_selects):
         logger.info(f"  -> Detected static multi-field questionnaire form. Filling all fields...")
         form_success = handle_form_questionnaire(driver, drawer, personals, skills_exp, job_title=job_title, company=company)
-        if form_success or check_apply_success(driver):
+        if form_success or check_drawer_completed(drawer) or (not is_neo_page and check_apply_success(driver)):
             logger.info("  ✓ Multi-field questionnaire submitted successfully!")
             close_drawer(driver)
             try:
@@ -1619,10 +2049,11 @@ def handle_naukri_chatbot_drawer(driver: WebDriver, config: dict, max_steps: int
                 pass
             return True
 
-    # 6. Conversational Chatbot loop (step-by-step RIA chat)
+    # 5. Conversational Chatbot loop (step-by-step RIA chat)
     step = 0
     last_action = ""
     repeat_count = 0
+    questions_answered_count = 0
 
     while step < max_steps:
         step += 1
@@ -1634,7 +2065,7 @@ def handle_naukri_chatbot_drawer(driver: WebDriver, config: dict, max_steps: int
             logger.warning(f"  ⚠️ Error/Limit banner detected in drawer: \"{err_msg}\"")
             return False
 
-        if check_apply_success(driver):
+        if check_drawer_completed(drawer) or (not is_neo_page and check_apply_success(driver)):
             logger.info("  ✓ Application submitted successfully through side panel!")
             close_drawer(driver)
             try:
@@ -1646,6 +2077,16 @@ def handle_naukri_chatbot_drawer(driver: WebDriver, config: dict, max_steps: int
         # Refresh drawer
         drawer = find_drawer(driver) or drawer
 
+        # If drawer is no longer displayed/present and we answered at least 1 question, submit succeeded!
+        try:
+            if not drawer.is_displayed() and questions_answered_count > 0:
+                logger.info("  ✓ Questionnaire drawer closed after answering questions. Application complete!")
+                return True
+        except Exception:
+            if questions_answered_count > 0:
+                logger.info("  ✓ Questionnaire drawer detached after answering questions. Application complete!")
+                return True
+
         # Check for Final Submit / Apply button first if available and ready
         submit_btn = find_drawer_button(drawer, ["submit application", "apply now", "confirm apply", "done", "save and apply"])
         if submit_btn and submit_btn.is_displayed():
@@ -1656,7 +2097,7 @@ def handle_naukri_chatbot_drawer(driver: WebDriver, config: dict, max_steps: int
                 logger.info(f"  -> Clicking '{btn_txt}' in questionnaire drawer.")
                 driver.execute_script("arguments[0].click();", submit_btn)
                 time.sleep(2)
-                if check_apply_success(driver):
+                if check_drawer_completed(drawer) or (not is_neo_page and check_apply_success(driver)):
                     logger.info("  ✓ Application submitted successfully!")
                     close_drawer(driver)
                     try:
@@ -1664,8 +2105,12 @@ def handle_naukri_chatbot_drawer(driver: WebDriver, config: dict, max_steps: int
                     except Exception:
                         pass
                     return True
+                questions_answered_count += 1
 
         current_question = get_latest_bot_question(drawer)
+        if any(k in current_question.lower() for k in ["something went wrong", "try again later", "error while processing"]):
+            logger.warning(f"  ⚠️ Application error message detected inside drawer: \"{current_question}\"")
+            return False
         visible_inputs = get_visible_inputs(drawer)
         visible_chips = get_valid_chips(drawer)
         visible_selects = get_visible_selects(drawer)
@@ -1675,6 +2120,11 @@ def handle_naukri_chatbot_drawer(driver: WebDriver, config: dict, max_steps: int
         # Handle resume upload prompt ("Upload Resume / I'll do it later")
         if handle_drawer_resume_prompt(driver, drawer, config):
             time.sleep(1.5)
+            continue
+
+        # Handle Date of Birth / Date picker prompt
+        if handle_drawer_dob_picker(driver, drawer, personals, current_question=current_question, job_title=job_title, company=company):
+            time.sleep(2)
             continue
 
         # Handle Checkboxes / Multi-select options (e.g. "Pick available location", multiple cities, terms)
@@ -1720,10 +2170,20 @@ def handle_naukri_chatbot_drawer(driver: WebDriver, config: dict, max_steps: int
 
                         # Also ensure radio input itself is checked if present
                         try:
-                            radios = target_chip.find_elements(By.XPATH, ".//input[@type='radio'] | ./preceding-sibling::input[@type='radio'] | ./ancestor::div[contains(@class, 'radio-btn')]//input[@type='radio']")
+                            radios = target_chip.find_elements(
+                                By.XPATH,
+                                ".//input[@type='radio'] | "
+                                "./preceding-sibling::input[@type='radio'] | "
+                                "./ancestor::div[contains(@class, 'ssrc__radio-btn-container') or contains(@class, 'radio-btn') or contains(@class, 'radio')]//input[@type='radio']"
+                            )
                             for r in radios:
-                                if not r.is_selected():
-                                    driver.execute_script("arguments[0].checked = true; arguments[0].dispatchEvent(new Event('change', { bubbles: true }));", r)
+                                driver.execute_script("""
+                                    const r = arguments[0];
+                                    try { r.click(); } catch(e){}
+                                    r.checked = true;
+                                    r.dispatchEvent(new Event('change', { bubbles: true }));
+                                    r.dispatchEvent(new Event('input', { bubbles: true }));
+                                """, r)
                         except Exception:
                             pass
 
@@ -1740,11 +2200,18 @@ def handle_naukri_chatbot_drawer(driver: WebDriver, config: dict, max_steps: int
                             btn_label = (send_btn.text or "Save").strip()
                             logger.info(f"  -> Clicking '{btn_label}' button...")
                             try:
-                                send_btn.click()
+                                driver.execute_script("""
+                                    const d = arguments[0];
+                                    const btn = arguments[1];
+                                    const sendDiv = d.querySelector('.send');
+                                    if (sendDiv) { sendDiv.classList.remove('disabled'); }
+                                    btn.click();
+                                """, drawer, send_btn)
                             except Exception:
                                 driver.execute_script("arguments[0].click();", send_btn)
 
                         answered = True
+                        questions_answered_count += 1
                         time.sleep(2)
                         continue
                     except Exception as e:
@@ -1777,6 +2244,7 @@ def handle_naukri_chatbot_drawer(driver: WebDriver, config: dict, max_steps: int
                         status="answered"
                     )
                     answered = True
+                    questions_answered_count += 1
                     time.sleep(2)
                     continue
 
@@ -1803,6 +2271,7 @@ def handle_naukri_chatbot_drawer(driver: WebDriver, config: dict, max_steps: int
                         status="answered"
                     )
                     answered = True
+                    questions_answered_count += 1
                     send_btn = find_drawer_button(drawer, ["save", "send", "submit", "next"])
                     if send_btn and send_btn.is_displayed():
                         driver.execute_script("arguments[0].click();", send_btn)
@@ -1836,7 +2305,7 @@ def handle_naukri_chatbot_drawer(driver: WebDriver, config: dict, max_steps: int
             if gen_submit and gen_submit.is_displayed():
                 driver.execute_script("arguments[0].click();", gen_submit)
                 time.sleep(2)
-                if check_apply_success(driver):
+                if check_drawer_completed(drawer) or (not is_neo_page and check_apply_success(driver)):
                     logger.info("  ✓ Application submitted successfully!")
                     close_drawer(driver)
                     try:
@@ -1854,4 +2323,6 @@ def handle_naukri_chatbot_drawer(driver: WebDriver, config: dict, max_steps: int
         driver.switch_to.default_content()
     except Exception:
         pass
+    if is_neo_page:
+        return questions_answered_count > 0 or check_drawer_completed(drawer)
     return check_apply_success(driver)

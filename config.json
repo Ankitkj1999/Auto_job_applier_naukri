@@ -11,18 +11,38 @@
     ],
     "notice_period_days": 30,
     "notice_period_months": "1 Month",
-    "current_ctc_lpa": 13,
-    "expected_ctc_lpa": 18,
+    "current_ctc_lpa": 20,
+    "expected_ctc_lpa": 24,
     "total_experience_years": 3.5,
     "current_company": "Lemon Tree Hotels Limited",
+    "worked_companies": [
+      "Lemon Tree Hotels",
+      "Lemon Tree Hotels Limited",
+      "Zalon",
+      "Techtonic",
+      "Tekniko"
+    ],
     "class_10_year": "2016",
     "class_12_year": "2018",
     "graduation_year": "2023",
     "graduation_years": "2019 - 2023",
     "preferred_interview_time": "1:30 PM",
+    "linkedin_url": "https://www.linkedin.com/in/ankitkj1999",
+    "github_url": "https://github.com/ankitkj1999",
+    "portfolio_url": "https://ankitkj1999.github.io",
+    "holding_offer": false,
+    "offered_ctc_lpa": 0,
     "pan_card_number": "HMDPK5264C",
     "dob": "15/08/1999",
-    "resume_headline": "Data Engineer with 3+ years of expertise in designing scalable data pipelines and ETL processes using Python, SQL, Spark, and AWS, specializing in data warehousing and high-quality data solutions.",
+    "resume_headline": "Data Engineer (3.5 YOE) | PySpark, Databricks, AWS, SQL | Scalable ETL/ELT & Lakehouse Pipelines | 30 Days Notice",
+    "resume_headlines": [
+      "Data Engineer (3.5 YOE) | PySpark, Databricks, AWS, SQL | Scalable ETL/ELT & Lakehouse Pipelines | 30 Days Notice",
+      "AWS Data Engineer | 3.5 YOE | AWS (Glue, EMR, Redshift, S3), PySpark, Python, SQL, Airflow | Big Data Pipelines | 30 Days Notice",
+      "Data Platform Engineer | 3.5 YOE | Snowflake, Redshift, AWS, PySpark, SQL, Airflow | Cloud Data Warehouse & ETL | 30 Days Notice",
+      "Senior Data Engineer | 3.5 YOE | PySpark, Kafka, AWS, Python, SQL | Distributed Big Data & Streaming Pipelines | 30 Days Notice",
+      "Data Engineer | 3.5 YOE | Python, PySpark, SQL, AWS, Airflow | Scalable ETL/ELT Architecture & Data Lakehouse | 30 Days Notice"
+    ],
+    "profile_summary": "Results-driven Data Engineer with 3.5+ years of experience designing, building, and optimizing scalable batch and real-time ETL/ELT pipelines, distributed data processing systems, and cloud data warehouses.\n\nCore Technical Competencies:\n• Big Data & Compute: PySpark, Apache Spark, Databricks, Delta Lake, Hadoop, Distributed Processing\n• Cloud Infrastructure (AWS): AWS Glue, EMR, Redshift, S3, Athena, Lambda, Kinesis, IAM, CloudWatch\n• Data Warehousing & Databases: Snowflake, Amazon Redshift, PostgreSQL, MongoDB, Redis, Star/Snowflake Schemas\n• Programming & Scripting: Python (Pandas, PySpark, Boto3), Advanced SQL, Shell scripting\n• Orchestration & Tools: Apache Airflow, CI/CD, Docker, Data Quality Monitoring, Performance Tuning\n\nServing 30 Days Notice Period. Actively seeking challenging Data Engineer / Cloud Data Platform opportunities.",
     "default_resume_path": "/home/ankit/Documents/Code/ankitkj1999.github.io/Ankit_Kumar_Resume.pdf"
   },
   "search": {
@@ -85,7 +105,23 @@
       "dwh",
       "bigquery",
       "data consultant",
-      "consultant data"
+      "consultant data",
+      "analytics engineer",
+      "analytics engineering",
+      "data platform engineer",
+      "data solution engineer",
+      "data solutions engineer",
+      "data migration",
+      "data migration engineer",
+      "data integration",
+      "data integration engineer",
+      "azure fabric",
+      "fabric data",
+      "data factory",
+      "azure data factory",
+      "adf developer",
+      "informatica",
+      "informatica developer"
     ],
     "title_bad_words": [
       "Full Stack",
@@ -152,7 +188,15 @@
       "Product Engineer",
       "Walk-in",
       "Walkin",
-      "Walk in"
+      "Walk in",
+      "Walk-in Drive",
+      "Walk In Drive",
+      "Walkin Drive",
+      "F2F Drive",
+      "Walk-in Interview",
+      "Walkin Interview",
+      "Data Science Engineer",
+      "Control-M"
     ]
   },
   "skills_experience": {
@@ -194,8 +238,12 @@
   "settings": {
     "chrome_profile_dir": "~/.naukri-bot-profile",
     "headless": false,
-    "pause_between_applications_sec": 8,
-    "skip_external_company_sites": true
+    "pause_between_applications_sec": 18,
+    "skip_external_company_sites": true,
+    "max_recommended_cards_per_tab": null,
+    "daily_application_ceiling": 45,
+    "max_hides_per_session": 3,
+    "force_resume_upload": false
   },
   "company_priority": {
     "tier_1_companies": [
